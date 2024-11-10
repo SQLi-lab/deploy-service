@@ -23,11 +23,12 @@ def init_logger() -> logging.Logger:
 
     return logger
 
+
 logger = init_logger()
 PORT = int(os.getenv('PORT', 8001))
+BACKEND_URL = os.getenv('BACKEND_URL', 'http://sqli_lab:8000')
+TIMEOUT = int(os.getenv('TIMEOUT', 60))
+DEPLOY_SECRET = '7a7caad9b1951db075d508610ae97d87a33e9a33537d9d9604fc035acc084a7d'
 
-CELERY_BROKER_URL = os.getenv("CELERY_BROKER_URL", "redis://127.0.0.1:6379/0")
-if CELERY_BROKER_URL is None:
-    error = "Переменная окружения CELERY_BROKER_URL не установлена"
-    logger.error(error)
-    raise ValueError(error)
+REDIS_HOST = os.getenv("REDIS_HOST", "redis")
+REDIS_PORT = int(os.getenv("REDIS_PORT", 6379))

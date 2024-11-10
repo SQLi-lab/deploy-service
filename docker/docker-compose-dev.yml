@@ -14,16 +14,16 @@ services:
       start_period: 5s
       timeout: 5s
 
-  celery:
+  dramatiq:
     build:
       context: ..
       dockerfile: docker/Dockerfile
-    container_name: celery
+    container_name: dramatiq
     restart: always
-    command: celery -A api.celery_app worker --loglevel=info  --concurrency=4
+    command: dramatiq api.tasks --processes 4 --skip-logging
     depends_on:
       - redis
-    environment:
-      - CELERY_BROKER_URL=redis://redis:6379/0
+    env_file:
+      - ../.env.example
 
 

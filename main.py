@@ -1,16 +1,15 @@
-import uuid
 from fastapi import FastAPI
 from pydantic import BaseModel
-
-from api.deploy.deploy import delete_lab_task, create_lab_task
-from config.config import PORT, logger
+from api.tasks import create_lab_task, delete_lab_task
+from config.config import PORT, logger, DEPLOY_SECRET
 
 app = FastAPI()
 
 
 class RequestLab(BaseModel):
     name: str
-    uuid: uuid.UUID
+    uuid: str  # TODO: убрать и внизу
+    deploy_secret: str | None = '7a7caad9b1951db075d508610ae97d87a33e9a33537d9d9604fc035acc084a7d'
 
 
 @app.post("/lab/add")
@@ -22,9 +21,14 @@ async def create_lab(data: RequestLab):
     """
     logger.info(f"Запрос на создание: {data.name}")
 
-    create_lab_task.delay(data.name, data.uuid)
+    if data.deploy_secret != DEPLOY_SECRET:
+        return {'success': False,
+                'message': f'Неавторизованный доступ'}
 
-    return {'success': True, 'message': f'Лабораторная {data.name} принята в обработку'}
+    create_lab_task.send(data.name, str(data.uuid))
+
+    return {'success': True,
+            'message': f'Лабораторная {data.name} принята в обработку'}
 
 
 @app.delete("/lab/delete")
@@ -36,7 +40,11 @@ async def delete_lab(data: RequestLab):
     """
     logger.info(f"Запрос на удаление: {data.name}")
 
-    delete_lab_task.delay(data.name, data.uuid)
+    if data.deploy_secret != DEPLOY_SECRET:
+        return {'success': False,
+                'message': f'Неавторизованный доступ'}
+
+    delete_lab_task.send(data.name, str(data.uuid))
 
     return {'success': True, 'message': f'Начато удаление {data.name}'}
 
