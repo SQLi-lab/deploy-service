@@ -1,0 +1,50 @@
+---
+- name: Write the new ec2 instance host key to known hosts
+  connection: local
+  shell: "ssh-keyscan -H {{ ansible_host }} >> ~/.ssh/known_hosts"
+
+- name: Create folder {{ servers_remote_folder }}/{{ UUID }}
+  file:
+    path: "{{ servers_remote_folder }}/{{ UUID }}"
+    state: directory
+    group: "{{ ansible_user }}"
+    owner: "{{ ansible_user }}"
+    recurse: yes
+  become: true
+
+- name: Generate docker-compose file from template
+  template:
+    src: docker-compose.yml.j2
+    dest: "{{ servers_remote_folder }}/{{ UUID }}/docker-compose.yml"
+
+- name: Start docker-compose
+  shell:
+    cmd: docker compose -f {{ servers_remote_folder }}/{{ UUID }}/docker-compose.yml up --build -d
+  become: true
+
+#- name: Add upstream and location for pdf-server in nginx.conf
+#  blockinfile:
+#    path: "{{ servers_remote_folder }}/nginx/nginx.conf"
+#    marker: "# {mark} ANSIBLE MANAGED BLOCK pdf-server"
+#    block: |
+#      upstream pdf-server {
+#          server pdf-server:{{ PORT }};
+#      }
+#
+#      server {
+#          listen 80;
+#          location /pdf-server {
+#              proxy_pass http://pdf-server;
+#              proxy_set_header Host $host;
+#              proxy_set_header X-Real-IP $remote_addr;
+#              proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+#              proxy_set_header X-Forwarded-Proto $scheme;
+#          }
+#      }
+#    insertafter: "^http {"
+#  become: true
+#
+#- name: Restart nginx
+#  shell:
+#    cmd: docker restart nginx
+#  become: true
