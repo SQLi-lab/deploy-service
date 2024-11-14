@@ -1,0 +1,28 @@
+---
+- name: Stop and remove lab
+  docker_container:
+    name:  "{{ UUID }}"
+    state: absent
+  register: container_removal
+
+- name: Display removal status
+  debug:
+    var: container_removal
+
+#- name: Remove upstream and location for pdf-server from nginx.conf
+#  blockinfile:
+#    path: "{{ servers_remote_folder }}/nginx/nginx.conf"
+#    marker: "# {mark} ANSIBLE MANAGED BLOCK pdf-server"
+#    state: absent
+#  become: true
+#
+#- name: Restart nginx
+#  shell:
+#    cmd: docker restart nginx
+#  become: true
+
+- name: Remove lab folder
+  file:
+    path: "{{ servers_remote_folder }}/{{ UUID }}"
+    state: absent
+  become: true

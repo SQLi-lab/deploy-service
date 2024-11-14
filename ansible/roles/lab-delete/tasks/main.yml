@@ -1,0 +1,4 @@
+---
+
+- name: Delete Lab
+  import_tasks: lab-delete.yml

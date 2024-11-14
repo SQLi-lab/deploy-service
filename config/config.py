@@ -32,3 +32,10 @@ DEPLOY_SECRET = '7a7caad9b1951db075d508610ae97d87a33e9a33537d9d9604fc035acc084a7
 
 REDIS_HOST = os.getenv("REDIS_HOST", "redis")
 REDIS_PORT = int(os.getenv("REDIS_PORT", 6379))
+
+
+ANSIBLE_TIMEOUT = int(os.getenv('ANSIBLE_TIMEOUT', 600))
+ANSIBLE_PLAYBOOKS_DIR = os.getenv('ANSIBLE_PLAYBOOKS_DIR')
+if not ANSIBLE_PLAYBOOKS_DIR:
+    logger.error('Проверьте наличие и правильность переменной окружения ANSIBLE_PLAYBOOKS_DIR')
+    exit(1)

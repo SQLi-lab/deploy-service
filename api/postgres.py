@@ -98,7 +98,7 @@ class DBConnector:
             self.commit()
         except Exception as e:
             logger.error(
-                f"[ {name} ]: Ошибка при изменении статуса")
+                f"[ {name} ]: Ошибка при изменении статуса. Проверьте правильность uuid.")
             return False
 
         cursor.close()

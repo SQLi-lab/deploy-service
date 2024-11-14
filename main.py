@@ -1,18 +1,20 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, APIRouter
 from pydantic import BaseModel
 from api.tasks import create_lab_task, delete_lab_task
 from config.config import PORT, logger, DEPLOY_SECRET
 
 app = FastAPI()
 
+api_v1 = APIRouter(prefix="/api/v1", tags=["v1"])
+
 
 class RequestLab(BaseModel):
-    name: str
-    uuid: str  # TODO: убрать и внизу
+    name: str | None = 'Courageous-Wind'
+    uuid: str  | None = 'c4ca6257-e576-464b-8697-d7d244ef10e4' # TODO: убрать и внизу
     deploy_secret: str | None = '7a7caad9b1951db075d508610ae97d87a33e9a33537d9d9604fc035acc084a7d'
 
 
-@app.post("/lab/add")
+@api_v1.post("/lab/add")
 async def create_lab(data: RequestLab):
     """
     Ручка для запроса развертывнаия лабораторной
@@ -25,13 +27,16 @@ async def create_lab(data: RequestLab):
         return {'success': False,
                 'message': f'Неавторизованный доступ'}
 
-    create_lab_task.send(data.name, str(data.uuid))
+    try:
+        create_lab_task.send(data.name, str(data.uuid))
+    except Exception as e:
+        return {'success': False, 'message': str(e)}
 
     return {'success': True,
             'message': f'Лабораторная {data.name} принята в обработку'}
 
 
-@app.delete("/lab/delete")
+@api_v1.delete("/lab/delete")
 async def delete_lab(data: RequestLab):
     """
     Ручка для запроса удаления лабораторной
@@ -44,10 +49,15 @@ async def delete_lab(data: RequestLab):
         return {'success': False,
                 'message': f'Неавторизованный доступ'}
 
-    delete_lab_task.send(data.name, str(data.uuid))
+    try:
+        delete_lab_task.send(data.name, str(data.uuid))
+    except Exception as e:
+        return {'success': False, 'message': str(e)}
 
     return {'success': True, 'message': f'Начато удаление {data.name}'}
 
+
+app.include_router(api_v1)
 
 if __name__ == "__main__":
     import uvicorn

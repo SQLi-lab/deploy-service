@@ -2,13 +2,15 @@ import time
 import dramatiq
 from dramatiq.brokers.redis import RedisBroker
 
-from api.postgres.postgres import DBConnector
+from api.ansible import AnsibleApi
+from api.postgres import DBConnector
 from config.config import REDIS_HOST, REDIS_PORT, logger
 
 redis_broker = RedisBroker(host=REDIS_HOST, port=REDIS_PORT, db=0)
 dramatiq.set_broker(redis_broker)
 
 db = DBConnector()
+ansible = AnsibleApi()
 
 
 @dramatiq.actor
@@ -23,7 +25,11 @@ def create_lab_task(name: str, uuid: str):
     if not secret_hash:
         return
 
-    # TODO: ansible deploy
+    try:
+        ansible.start_playbook('lab', uuid)
+    except Exception as e:
+        raise Exception(e)
+
     # TODO: url
 
     time.sleep(5)
@@ -43,9 +49,9 @@ def create_lab_task(name: str, uuid: str):
 def delete_lab_task(name: str, uuid: str):
     logger.info(f"[ {name} ]: начало удаления лабораторной...")
 
-    # TODO: ansible delete
-
-    time.sleep(5)
+    ok = ansible.start_playbook('lab-delete', uuid)
+    if not ok:
+        return
 
     ok = db.change_status(name, uuid, 'Остановлена')
     if not ok:
