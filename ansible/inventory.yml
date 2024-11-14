@@ -1,12 +1,11 @@
 staging:
   hosts:
     stage_host1:
-      ansible_user: nikita
-      ansible_host: 172.27.130.22
-      ansible_ssh_user: nikita
-      ansible_ssh_pass: 347npsa347
-      ansible_become_pass: 347npsa347
+      ansible_user: user
+      ansible_host: 10.5.6.29 # заменить на свой ip
+      ansible_ssh_user: user
+      ansible_ssh_pass: password
+      ansible_become_pass: password
       ansible_port: 22
-      servers_remote_folder: /tmp/ansible
-      UUID: "c4ca6257-e576-464b-8697-d7d244ef10e4"
+      servers_remote_folder: /home/user/sqli_labs # заменить имя пользователя
 

@@ -1,4 +1,5 @@
 import os
+import re
 import sys
 
 import ansible_runner
@@ -20,9 +21,10 @@ class AnsibleApi:
         os.chdir(self.playbooks_dir)
 
         try:
-            out, err, _ = ansible_runner.run_command(
+            out, _, _ = ansible_runner.run_command(
                 executable_cmd='ansible-playbook',
-                cmdline_args=[f'{playbook_name}.yml', '-i', 'inventory.yml', '-e', f'UUID={uuid}'],
+                cmdline_args=[f'{playbook_name}.yml', '-i', 'inventory.yml',
+                                                      '-e', f'UUID={uuid}'],
                 input_fd=sys.stdin.fileno(),
                 timeout=self.timeout
             )
@@ -31,14 +33,18 @@ class AnsibleApi:
             logger.error(err)
             raise Exception(err)
 
-        ok = self.parse_out(out)
-        if not ok or err is not None:
-            err = f'Ошибка выполнения плейбука: {err}'
+        ok = self._parse_out(out)
+        if not ok:
+            err = f'Ошибка выполнения плейбука'
             logger.error(err)
             raise Exception(err)
 
-    def parse_out(self, output) -> bool:
-        # TODO: реализовать проверку out
-        logger.warn(output)
+    def _parse_out(self, output) -> bool:
+        match = re.search(r'failed=(\d+)', output)
 
-        return True
+        if match:
+            failed_count = int(match.group(1))
+            return failed_count == 0
+
+        logger.error("Could not parse output from Ansible")
+        return False

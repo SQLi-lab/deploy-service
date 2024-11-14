@@ -13,10 +13,6 @@ def init_logger() -> logging.Logger:
     logger = logging.getLogger()
     logger.setLevel(LOG_LEVEL)
 
-    file_handler = logging.FileHandler("log/deploy-service.log")
-    file_handler.setFormatter(log_format)
-    logger.addHandler(file_handler)
-
     console_handler = logging.StreamHandler()
     console_handler.setFormatter(log_format)
     logger.addHandler(console_handler)

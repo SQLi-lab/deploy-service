@@ -1,4 +1,8 @@
 ---
+- name: Write the new ec2 instance host key to known hosts
+  connection: local
+  shell: "ssh-keyscan -H {{ ansible_host }} >> ~/.ssh/known_hosts"
+
 - name: Create folder {{ servers_remote_folder }}/{{ UUID }}
   file:
     path: "{{ servers_remote_folder }}/{{ UUID }}"

@@ -1,3 +1,4 @@
+import redis.exceptions
 from fastapi import FastAPI, APIRouter
 from pydantic import BaseModel
 from api.tasks import create_lab_task, delete_lab_task
@@ -9,9 +10,9 @@ api_v1 = APIRouter(prefix="/api/v1", tags=["v1"])
 
 
 class RequestLab(BaseModel):
-    name: str | None = 'Courageous-Wind'
-    uuid: str  | None = 'c4ca6257-e576-464b-8697-d7d244ef10e4' # TODO: убрать и внизу
-    deploy_secret: str | None = '7a7caad9b1951db075d508610ae97d87a33e9a33537d9d9604fc035acc084a7d'
+    name: str
+    uuid: str
+    deploy_secret: str | None = '7a7caad9b1951db075d508610ae97d87a33e9a33537d9d9604fc035acc084a7d' # TODO: убрать
 
 
 @api_v1.post("/lab/add")
@@ -29,6 +30,9 @@ async def create_lab(data: RequestLab):
 
     try:
         create_lab_task.send(data.name, str(data.uuid))
+    except redis.exceptions.ConnectionError:
+        return {'success': False,
+                'message': 'Ошибка передачи лабораторной на запуск'}
     except Exception as e:
         return {'success': False, 'message': str(e)}
 
@@ -51,6 +55,9 @@ async def delete_lab(data: RequestLab):
 
     try:
         delete_lab_task.send(data.name, str(data.uuid))
+    except redis.exceptions.ConnectionError:
+        return {'success': False,
+                'message': 'Ошибка передачи лабораторной на запуск'}
     except Exception as e:
         return {'success': False, 'message': str(e)}
 

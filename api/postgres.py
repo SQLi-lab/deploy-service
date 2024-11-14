@@ -96,7 +96,7 @@ class DBConnector:
         try:
             cursor.execute(update_query, (status, uuid))
             self.commit()
-        except Exception as e:
+        except Exception:
             logger.error(
                 f"[ {name} ]: Ошибка при изменении статуса. Проверьте правильность uuid.")
             return False
@@ -104,6 +104,32 @@ class DBConnector:
         cursor.close()
         logger.info(f"[ {name} ]: Статус изменен на '{status}'")
         return True
+
+    def set_url(self, name: str, uuid: str) -> bool:
+        """
+        Метод устанавливает ссылку на выполнение лабораторной работы
+        """
+        conn = self.get_conn()
+        cursor = conn.cursor()
+
+        update_query = f"""
+                        UPDATE sqli_api_lab
+                        SET url = %s
+                        WHERE uuid = %s;
+                        """
+
+        try:
+            cursor.execute(update_query, (f'/away/{uuid}', uuid))
+            self.commit()
+        except Exception:
+            logger.error(
+                f"[ {name} ]: Ошибка при установлении URL")
+            return False
+
+        cursor.close()
+        logger.info(f"[ {name} ]: URL установлен")
+        return True
+
 
     def set_date(self, name: str, uuid: str, date_type: str) -> bool:
         """

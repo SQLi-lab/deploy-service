@@ -13,7 +13,7 @@ db = DBConnector()
 ansible = AnsibleApi()
 
 
-@dramatiq.actor
+@dramatiq.actor(max_retries=0)
 def create_lab_task(name: str, uuid: str):
     logger.info(f"[ {name} ]: начало запуска лабораторной...")
 
@@ -30,7 +30,9 @@ def create_lab_task(name: str, uuid: str):
     except Exception as e:
         raise Exception(e)
 
-    # TODO: url
+    ok = db.set_url(name, uuid)
+    if not ok:
+        return
 
     time.sleep(5)
 
@@ -45,13 +47,14 @@ def create_lab_task(name: str, uuid: str):
     logger.info(f"[ {name} ]: лабораторная успешно запущена!")
 
 
-@dramatiq.actor
+@dramatiq.actor(max_retries=0)
 def delete_lab_task(name: str, uuid: str):
     logger.info(f"[ {name} ]: начало удаления лабораторной...")
 
-    ok = ansible.start_playbook('lab-delete', uuid)
-    if not ok:
-        return
+    try:
+        ansible.start_playbook('lab-delete', uuid)
+    except Exception as e:
+        raise Exception(e)
 
     ok = db.change_status(name, uuid, 'Остановлена')
     if not ok:
