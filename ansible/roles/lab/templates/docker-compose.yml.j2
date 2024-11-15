@@ -5,4 +5,10 @@ services:
     image: nginx:latest
     container_name: {{ UUID }}
     restart: always
+    networks:
+      - docker_default
+
+networks:
+  docker_default:
+    external: true
 

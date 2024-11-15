@@ -13,3 +13,5 @@
     PubkeyAuthentication no
     PasswordAuthentication yes
     ChallengeResponseAuthentication yes
+
+3. В файле ansible/lab/templates/docker-compose настроить default сеть dokcer

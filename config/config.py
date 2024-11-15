@@ -23,6 +23,7 @@ def init_logger() -> logging.Logger:
 logger = init_logger()
 PORT = int(os.getenv('PORT', 8001))
 BACKEND_URL = os.getenv('BACKEND_URL', 'http://sqli_lab:8000')
+WATCHER_URL = os.getenv('WATCHER_URL', 'http://watcher:8002')
 TIMEOUT = int(os.getenv('TIMEOUT', 60))
 DEPLOY_SECRET = '7a7caad9b1951db075d508610ae97d87a33e9a33537d9d9604fc035acc084a7d'
 

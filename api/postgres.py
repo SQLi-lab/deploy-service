@@ -131,7 +131,7 @@ class DBConnector:
         return True
 
 
-    def set_date(self, name: str, uuid: str, date_type: str) -> bool:
+    def set_date(self, name: str, uuid: str, date_type: str) -> (str, bool):
         """
         Метод зменяет выбранное поле даты, ставит текущую дату
         """
@@ -156,11 +156,11 @@ class DBConnector:
         except Exception:
             logger.error(
                 f"[ {name} ]: Ошибка при изменении даты {date_type}")
-            return False
+            return formatted_date, False
 
         cursor.close()
         logger.info(f"[ {name} ]: Дата {date_type} изменена")
-        return True
+        return formatted_date, True
 
     def set_secret_hash(self, name: str, uuid: str) -> bool or str:
         """
