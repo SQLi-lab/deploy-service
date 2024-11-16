@@ -13,7 +13,7 @@ class RequestLab(BaseModel):
     name: str
     uuid: str
     expired_seconds: str
-    deploy_secret: str | None = '7a7caad9b1951db075d508610ae97d87a33e9a33537d9d9604fc035acc084a7d'  # TODO: убрать
+    deploy_secret: str
 
 
 @api_v1.post("/lab/add")

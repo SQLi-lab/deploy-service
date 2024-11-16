@@ -1,9 +1,7 @@
 import os
 import re
 import sys
-
 import ansible_runner
-
 from config.config import logger, ANSIBLE_TIMEOUT, ANSIBLE_PLAYBOOKS_DIR
 
 
@@ -13,6 +11,11 @@ class AnsibleApi:
         self.playbooks_dir = ANSIBLE_PLAYBOOKS_DIR
 
     def start_playbook(self, playbook_name: str = None, uuid: str = None):
+        """
+        Метод запускает работу плэйбука ansible
+        :param playbook_name: имя плэйбука
+        :param uuid: uuid лабораторной
+        """
         if playbook_name is None or uuid is None:
             err = "Пустые uuid или имя плэйбука"
             logger.error(err)
@@ -40,6 +43,11 @@ class AnsibleApi:
             raise Exception(err)
 
     def _parse_out(self, output) -> bool:
+        """
+        Метод проверяет результат работы плэйбука на ошибки
+        :param output: вывод плэйбука в stdout
+        :return: True/False есть или нет ошибки
+        """
         match = re.search(r'failed=(\d+)', output)
 
         if match:

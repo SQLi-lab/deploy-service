@@ -1,12 +1,9 @@
 import hashlib
 import os
 import random
-
+import psycopg2
 import pytz
 from datetime import datetime
-
-import psycopg2
-
 from config.config import logger
 
 

@@ -24,15 +24,14 @@ logger = init_logger()
 PORT = int(os.getenv('PORT', 8001))
 BACKEND_URL = os.getenv('BACKEND_URL', 'http://sqli_lab:8000')
 WATCHER_URL = os.getenv('WATCHER_URL', 'http://watcher:8002')
-TIMEOUT = int(os.getenv('TIMEOUT', 60))
-DEPLOY_SECRET = '7a7caad9b1951db075d508610ae97d87a33e9a33537d9d9604fc035acc084a7d'
+DEPLOY_SECRET = os.getenv("DEPLOY_SECRET")
 
 REDIS_HOST = os.getenv("REDIS_HOST", "redis")
 REDIS_PORT = int(os.getenv("REDIS_PORT", 6379))
 
 
 ANSIBLE_TIMEOUT = int(os.getenv('ANSIBLE_TIMEOUT', 600))
-ANSIBLE_PLAYBOOKS_DIR = os.getenv('ANSIBLE_PLAYBOOKS_DIR')
+ANSIBLE_PLAYBOOKS_DIR = os.getenv('ANSIBLE_PLAYBOOKS_DIR', "/app/ansible")
 if not ANSIBLE_PLAYBOOKS_DIR:
     logger.error('Проверьте наличие и правильность переменной окружения ANSIBLE_PLAYBOOKS_DIR')
     exit(1)

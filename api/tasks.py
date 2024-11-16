@@ -1,10 +1,7 @@
-import time
-from datetime import datetime, timedelta
-
 import dramatiq
 import requests
 from dramatiq.brokers.redis import RedisBroker
-
+from datetime import datetime, timedelta
 from api.ansible import AnsibleApi
 from api.postgres import DBConnector
 from config.config import REDIS_HOST, REDIS_PORT, logger, WATCHER_URL
@@ -18,6 +15,11 @@ ansible = AnsibleApi()
 
 @dramatiq.actor(max_retries=0)
 def create_lab_task(uuid: str, expired_seconds: str):
+    """
+    Отложенная задача запуска лабораторной
+    :param uuid: uuid лабораторной
+    :param expired_seconds: время на выполнение в секундах
+    """
     logger.info(f"[ {uuid} ]: начало запуска лабораторной...")
 
     ok = db.change_status(uuid, 'Создается')
@@ -79,6 +81,10 @@ def create_lab_task(uuid: str, expired_seconds: str):
 
 @dramatiq.actor(max_retries=0)
 def delete_lab_task(uuid: str):
+    """
+    Отложенная задача на удаление лабораторной
+    :param uuid: uuid лабораторной
+    """
     logger.info(f"[ {uuid} ]: начало удаления лабораторной...")
 
     try:

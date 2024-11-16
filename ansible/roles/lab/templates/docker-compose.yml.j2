@@ -6,9 +6,10 @@ services:
     container_name: {{ UUID }}
     restart: always
     networks:
-      - docker_default # TODO поменять на дефолтную
+      - default
 
 networks:
-  docker_default:
+  default:
     external: true
+    name: bridge
 
