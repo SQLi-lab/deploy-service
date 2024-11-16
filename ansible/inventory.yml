@@ -2,10 +2,15 @@ staging:
   hosts:
     stage_host1:
       ansible_user: user
-      ansible_host: 10.5.6.29 # заменить на свой ip
+      ansible_host: 192.168.0.11
       ansible_ssh_user: user
       ansible_ssh_pass: password
       ansible_become_pass: password
       ansible_port: 22
-      servers_remote_folder: /home/user/sqli_labs # заменить имя пользователя
+      servers_remote_folder: /home/user/sqli_labs
+
+##################################################
+# Заменить имя пользователя, пароль, ip и папку, #
+# куда будут кидаться docker-files лаб           #
+##################################################
 

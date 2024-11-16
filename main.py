@@ -12,7 +12,8 @@ api_v1 = APIRouter(prefix="/api/v1", tags=["v1"])
 class RequestLab(BaseModel):
     name: str
     uuid: str
-    deploy_secret: str | None = '7a7caad9b1951db075d508610ae97d87a33e9a33537d9d9604fc035acc084a7d' # TODO: убрать
+    expired_seconds: str
+    deploy_secret: str
 
 
 @api_v1.post("/lab/add")
@@ -29,7 +30,7 @@ async def create_lab(data: RequestLab):
                 'message': f'Неавторизованный доступ'}
 
     try:
-        create_lab_task.send(data.name, str(data.uuid))
+        create_lab_task.send(str(data.uuid), str(data.expired_seconds))
     except redis.exceptions.ConnectionError:
         return {'success': False,
                 'message': 'Ошибка передачи лабораторной на запуск'}
@@ -54,7 +55,7 @@ async def delete_lab(data: RequestLab):
                 'message': f'Неавторизованный доступ'}
 
     try:
-        delete_lab_task.send(data.name, str(data.uuid))
+        delete_lab_task.send(str(data.uuid))
     except redis.exceptions.ConnectionError:
         return {'success': False,
                 'message': 'Ошибка передачи лабораторной на запуск'}
