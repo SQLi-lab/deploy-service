@@ -16,7 +16,7 @@ DELETE /api/v1/lab/delete
 
 ## Переменные окружения
 - `LOG_LEVEL`:  уровень логирования; default `INFO`
-- `PORT`: порт API-сервера; default `8001`
+- `DEPLOY_PORT`: порт API-сервера; default `8001`
 - `BACKEND_URL`: URL бэкенда: default `http://sqli-lab:8000`
 - `WATCHER_URL`: URL сервиса watcher; default `http://watcher:8002`
 - `DEPLOY_SECRET`: секрет для общения с deploy-service
