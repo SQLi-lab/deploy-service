@@ -1,12 +1,9 @@
 import hashlib
 import os
 import random
-
+import psycopg2
 import pytz
 from datetime import datetime
-
-import psycopg2
-
 from config.config import logger
 
 
@@ -80,7 +77,7 @@ class DBConnector:
         if self._conn:
             self._conn.close()
 
-    def change_status(self, name: str, uuid: str, status: str) -> bool:
+    def change_status(self, uuid: str, status: str) -> bool:
         """
         Метод изменяет статус лабораторной
         """
@@ -98,14 +95,14 @@ class DBConnector:
             self.commit()
         except Exception:
             logger.error(
-                f"[ {name} ]: Ошибка при изменении статуса. Проверьте правильность uuid.")
+                f"[ {uuid} ]: Ошибка при изменении статуса. Проверьте правильность uuid.")
             return False
 
         cursor.close()
-        logger.info(f"[ {name} ]: Статус изменен на '{status}'")
+        logger.info(f"[ {uuid} ]: Статус изменен на '{status}'")
         return True
 
-    def set_url(self, name: str, uuid: str) -> bool:
+    def set_url(self, uuid: str) -> bool:
         """
         Метод устанавливает ссылку на выполнение лабораторной работы
         """
@@ -123,15 +120,15 @@ class DBConnector:
             self.commit()
         except Exception:
             logger.error(
-                f"[ {name} ]: Ошибка при установлении URL")
+                f"[ {uuid} ]: Ошибка при установлении URL")
             return False
 
         cursor.close()
-        logger.info(f"[ {name} ]: URL установлен")
+        logger.info(f"[ {uuid} ]: URL установлен")
         return True
 
 
-    def set_date(self, name: str, uuid: str, date_type: str) -> bool:
+    def set_date(self, uuid: str, date_type: str) -> (str, bool):
         """
         Метод зменяет выбранное поле даты, ставит текущую дату
         """
@@ -155,14 +152,14 @@ class DBConnector:
             self.commit()
         except Exception:
             logger.error(
-                f"[ {name} ]: Ошибка при изменении даты {date_type}")
-            return False
+                f"[ {uuid} ]: Ошибка при изменении даты {date_type}")
+            return formatted_date, False
 
         cursor.close()
-        logger.info(f"[ {name} ]: Дата {date_type} изменена")
-        return True
+        logger.info(f"[ {uuid} ]: Дата {date_type} изменена")
+        return formatted_date, True
 
-    def set_secret_hash(self, name: str, uuid: str) -> bool or str:
+    def set_secret_hash(self, uuid: str) -> bool or str:
         """
         Метод устанавливает хэш секретного пароля
         """
@@ -184,9 +181,9 @@ class DBConnector:
             self.commit()
         except Exception:
             logger.error(
-                f"[ {name} ]: Ошибка при установке секретного хэша")
+                f"[ {uuid} ]: Ошибка при установке секретного хэша")
             return False
 
         cursor.close()
-        logger.info(f"[ {name} ]: Секретный хэш установлен")
+        logger.info(f"[ {uuid} ]: Секретный хэш установлен")
         return secret_hash

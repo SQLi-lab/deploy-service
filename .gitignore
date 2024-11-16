@@ -1,3 +1,5 @@
 .idea
 venv
 log/deploy-service.log
+ansible/inventory.yml
+.gitignore
