@@ -17,48 +17,47 @@ ansible = AnsibleApi()
 
 
 @dramatiq.actor(max_retries=0)
-def create_lab_task(name: str, uuid: str, expired_seconds: str):
-    logger.info(f"[ {name} ]: начало запуска лабораторной...")
+def create_lab_task(uuid: str, expired_seconds: str):
+    logger.info(f"[ {uuid} ]: начало запуска лабораторной...")
 
-    ok = db.change_status(name, uuid, 'Создается')
+    ok = db.change_status(uuid, 'Создается')
     if not ok:
         return
 
-    secret_hash = db.set_secret_hash(name, uuid)
+    secret_hash = db.set_secret_hash(uuid)
     if not secret_hash:
         return
 
     try:
         ansible.start_playbook('lab', uuid)
     except Exception as e:
-        ok = db.change_status(name, uuid, 'Ошибка создания')
+        ok = db.change_status(uuid, 'Ошибка создания')
         if not ok:
             return
         raise Exception(e)
 
-    ok = db.set_url(name, uuid)
+    ok = db.set_url(uuid)
     if not ok:
         return
 
-    time.sleep(5)
-
-    ok = db.change_status(name, uuid, 'Выполняется')
+    ok = db.change_status(uuid, 'Выполняется')
     if not ok:
         return
 
-    date, ok = db.set_date(name, uuid, 'date_started')
+    date, ok = db.set_date(uuid, 'date_started')
     if not ok:
         return
 
+    # вычисление даты удаления
     try:
         expired_seconds_int = int(expired_seconds)
         date_started = datetime.strptime(date, "%Y-%m-%d %H:%M:%S.%f %z")
         date_expired = date_started + timedelta(seconds=expired_seconds_int)
     except Exception as e:
-        logger.error(f"[ {name} ]: ошибка формирования даты удлаения")
+        logger.error(f"[ {uuid} ]: ошибка формирования даты удлаения")
         return
 
-    logger.info(f"[ {name} ]: будет удалена {date_expired}")
+    logger.info(f"[ {uuid} ]: будет удалена {date_expired}")
 
     data = {
         'date': str(date_expired),
@@ -70,28 +69,28 @@ def create_lab_task(name: str, uuid: str, expired_seconds: str):
             f'{WATCHER_URL}/api/v1/add', json=data)
         response.raise_for_status()
     except Exception as e:
-        logger.error(f"[ {name} ] ошибка при передаче задачи watcher сервису")
+        logger.error(f"[ {uuid} ] ошибка при передаче задачи watcher сервису")
         return
 
-    logger.info(f"[ {name} ]: задача передана сервису watcher")
+    logger.info(f"[ {uuid} ]: задача передана сервису watcher")
 
-    logger.info(f"[ {name} ]: лабораторная успешно запущена!")
+    logger.info(f"[ {uuid} ]: лабораторная успешно запущена!")
 
 
 @dramatiq.actor(max_retries=0)
-def delete_lab_task(name: str, uuid: str):
-    logger.info(f"[ {name} ]: начало удаления лабораторной...")
+def delete_lab_task(uuid: str):
+    logger.info(f"[ {uuid} ]: начало удаления лабораторной...")
 
     try:
         ansible.start_playbook('lab-delete', uuid)
     except Exception as e:
-        ok = db.change_status(name, uuid, 'Ошибка удаления')
+        ok = db.change_status(uuid, 'Ошибка удаления')
         if not ok:
             return
         raise Exception(e)
 
-    ok = db.change_status(name, uuid, 'Остановлена')
+    ok = db.change_status(uuid, 'Остановлена')
     if not ok:
         return
 
-    logger.info(f"[ {name} ]: лабораторная успешно удалена!")
+    logger.info(f"[ {uuid} ]: лабораторная успешно удалена!")

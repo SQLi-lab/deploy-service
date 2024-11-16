@@ -6,7 +6,7 @@ services:
     container_name: {{ UUID }}
     restart: always
     networks:
-      - docker_default
+      - docker_default # TODO поменять на дефолтную
 
 networks:
   docker_default:

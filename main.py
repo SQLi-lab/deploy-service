@@ -30,7 +30,7 @@ async def create_lab(data: RequestLab):
                 'message': f'Неавторизованный доступ'}
 
     try:
-        create_lab_task.send(data.name, str(data.uuid), str(data.expired_seconds))
+        create_lab_task.send(str(data.uuid), str(data.expired_seconds))
     except redis.exceptions.ConnectionError:
         return {'success': False,
                 'message': 'Ошибка передачи лабораторной на запуск'}
@@ -55,7 +55,7 @@ async def delete_lab(data: RequestLab):
                 'message': f'Неавторизованный доступ'}
 
     try:
-        delete_lab_task.send(data.name, str(data.uuid))
+        delete_lab_task.send(str(data.uuid))
     except redis.exceptions.ConnectionError:
         return {'success': False,
                 'message': 'Ошибка передачи лабораторной на запуск'}
