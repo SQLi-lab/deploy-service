@@ -31,7 +31,8 @@ def create_lab_task(uuid: str, expired_seconds: str):
         return
 
     try:
-        ansible.start_playbook('lab', uuid)
+        # TODO: update database через сервисы пацанов
+        ansible.start_playbook('lab', uuid) # TODO: добавить запуск фронта и бэка Апишка
     except Exception as e:
         ok = db.change_status(uuid, 'Ошибка создания')
         if not ok:
