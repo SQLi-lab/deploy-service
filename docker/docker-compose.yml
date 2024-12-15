@@ -7,6 +7,8 @@ services:
       dockerfile: docker/Dockerfile
     container_name: deploy-service
     restart: always
+    networks:
+      - sqli_lab
     ports:
       - "8001:8001"
     command: python3 main.py
@@ -19,6 +21,8 @@ services:
     image: redis:alpine
     restart: always
     container_name: redis
+    networks:
+      - sqli_lab
     healthcheck:
       test: [ "CMD", "redis-cli", "ping" ]
       interval: 10s
@@ -32,10 +36,37 @@ services:
       dockerfile: docker/Dockerfile
     container_name: dramatiq
     restart: always
+    networks:
+      - sqli_lab
     command: dramatiq api.tasks --processes 4 --skip-logging
     depends_on:
       - redis
     env_file:
       - ../.env.example
 
+  traefik:
+    image: traefik:v2.10
+    container_name: traefik
+    restart: always
+    networks:
+      - sqli_lab
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080" # включение дашборда Traefik
+    command:
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+    environment:
+      - TRAEFIK_LOG_LEVEL=INFO
+    labels:
+      - "traefik.http.routers.api.rule=PathPrefix(`/dashboard`))"
 
+networks:
+  sqli_lab:
+    external: true

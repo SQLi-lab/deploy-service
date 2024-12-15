@@ -1,15 +1,34 @@
 version: '3.8'
 
 services:
-  lab_{{ UUID }}:
-    image: nginx:latest
-    container_name: {{ UUID }}
+  {{ UUID }}-back:
+    image: dvwa-pharmary-back:latest
+    container_name: "{{ UUID }}-back"
     restart: always
     networks:
-      - default
+      - sqli_lab
+    environment:
+      REACT_APP_BACKEND_URL: "/away/{{ UUID }}/api"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.{{ UUID }}-back.rule=PathPrefix(`/away/{{ UUID }}/api`)"
+      - "traefik.http.services.{{ UUID }}-back.loadbalancer.server.port=5000"
+
+  {{ UUID }}:
+    image: dvwa-pharmary-front:latest
+    container_name: "{{ UUID }}"
+    restart: always
+    networks:
+      - sqli_lab
+    environment:
+      REACT_APP_BACKEND_URL: /away/{{ UUID }}/api
+      REACT_APP_PREFIX: /away/{{ UUID }}
+      PUBLIC_URL: /away/{{ UUID }}
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.{{ UUID }}.rule=PathPrefix(`/away/{{ UUID }}`)"
+      - "traefik.http.services.{{ UUID }}.loadbalancer.server.port=3000"
 
 networks:
-  default:
+  sqli_lab:
     external: true
-    name: bridge
-

@@ -187,3 +187,8 @@ class DBConnector:
         cursor.close()
         logger.info(f"[ {uuid} ]: Секретный хэш установлен")
         return secret_hash
+
+    def upload_variant(self):
+        # TODO: работа с сервисом Егора и заполеннеие БД вариантом
+        pass
+
