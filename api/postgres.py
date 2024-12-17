@@ -228,7 +228,8 @@ class DBConnector:
                 f"ibks1_{{{secret[0:13]}}}",
                 f"ibks2_{{{secret[13:26]}}}",
                 f"ibks3_{{{secret[26:]}}}"
-            ]
+            ],
+            "number_extra_tables": 10
         }
 
         structure_sql, data_sql = main_generation(generator_config)
