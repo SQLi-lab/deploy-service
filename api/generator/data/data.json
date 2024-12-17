@@ -1,0 +1,1298 @@
+{
+    "passport_templates": {
+        "en": "#### ######",     
+        "de": "C########",       
+        "cz": "######",         
+        "ru": "## ## ######",    
+        "fr": "##BB######",     
+        "it": "YA########"
+    },
+    "order_status": {
+        "en": ["In Progress", "Shipped", "Delivered", "Lost", "Unknown", "Stuck"],
+        "de": ["In Bearbeitung", "Versendet", "Zugestellt", "Verloren", "Unbekannt", "Festgefahren"],
+        "cz": ["V zpracování", "Odesláno", "Doručeno", "Ztraceno", "Neznámé", "Zaseknuté"],
+        "ru": ["В обработке", "Отправлен", "Доставлен", "Потерян", "Неизвестно", "Застрял"],
+        "fr": ["En cours", "Expédié", "Livré", "Perdu", "Inconnu", "Bloqué"],
+        "it": ["In lavorazione", "Spedito", "Consegnato", "Perso", "Sconosciuto", "Bloccato"]
+    },
+    "payment_methods": {
+        "en": ["Card", "Cash", "Crypto", "Barter", "Unknown"],
+        "de": ["Karte", "Bargeld", "Krypto", "Tauschhandel", "Unbekannt"],
+        "cz": ["Karta", "Hotovost", "Krypto", "Barter", "Neznámé"],
+        "ru": ["Карта", "Наличные", "Криптовалюта", "Бартер", "Неизвестно"],
+        "fr": ["Carte", "Espèces", "Crypto", "Troc", "Inconnu"],
+        "it": ["Carta", "Contanti", "Criptovaluta", "Baratto", "Sconosciuto"]
+    },
+    "payment_status": {
+        "en": ["Paid", "Pending Payment", "Fraud", "Rejected", "Pending Review"],
+        "de": ["Bezahlt", "Warten auf Zahlung", "Betrug", "Abgelehnt", "Ausstehende Überprüfung"],
+        "cz": ["Zaplaceno", "Čeká na platbu", "Podvod", "Odmítnuto", "Čeká na kontrolu"],
+        "ru": ["Оплачено", "Ожидает оплаты", "Мошенничество", "Отклонено", "Ожидает проверки"],
+        "fr": ["Payé", "En attente de paiement", "Fraude", "Rejeté", "En attente de révision"],
+        "it": ["Pagato", "In attesa di pagamento", "Frode", "Rifiutato", "In attesa di revisione"]
+    },
+    "company_names": {
+        "en": [
+            "GlobalTech", "InnovateCorp", "FutureWorks", "BlueOcean", "NextGen Solutions",
+            "Visionary Inc.", "Quantum Systems", "Pioneer Enterprises", "BrightPath", "Skyline Ventures",
+            "EcoSphere", "Nimbus Labs", "Vertex Dynamics", "Summit Group", "EternaSoft",
+            "Momentum Co.", "Infinity Edge", "Aspire Holdings", "PrimeWave", "Nexus Global",
+            "EverGreen Technologies", "Stellar Industries", "Nova Horizons", "CoreLogic", "EpicEdge",
+            "OptiCore", "BrightFuture", "Transcend Solutions", "TrueNorth", "Peak Innovations",
+            "Digital Horizon", "ClearPath Systems", "UltraEdge", "FusionLogic", "Dynamic Ventures",
+            "ForwardThink", "AlphaTech", "VisionEdge", "NextStep Global", "EdgeWorks"
+        ],
+        "de": [
+            "GlobalTechnik", "InnovationsWerk", "ZukunftsArbeit", "BlauerOzean", "NextGen Lösungen",
+            "Visionäre GmbH", "QuantenSysteme", "Pionier Unternehmen", "HellerPfad", "Himmelslinie Ventures",
+            "ÖkoSphäre", "Nimbus Labore", "Vertex Dynamik", "Gipfel Gruppe", "EwigeSoft",
+            "Bewegung GmbH", "Unendliche Kante", "Streben Holding", "PrimeWelle", "Nexus Global",
+            "ImmerGrün Technik", "SternenIndustrien", "Nova Horizonte", "KernLogik", "EpischeKante",
+            "OptiKern", "HelleZukunft", "Transzendieren Lösungen", "WahrerNorden", "SpitzenInnovation",
+            "Digitaler Horizont", "KlarPfad Systeme", "UltraKante", "FusionLogik", "Dynamische Ventures",
+            "VorwärtsDenken", "AlphaTechnik", "VisionKante", "NächsterSchritt Global", "KantenArbeit"
+        ],
+        "cz": [
+            "GlobalTech", "InováčníSpolečnost", "BudoucíPráce", "ModrýOceán", "NextGen Řešení",
+            "Vizionářská a.s.", "KvantovéSystémy", "PionýrskéPodniky", "JasnáCesta", "Horizont Ventures",
+            "EkoSféry", "Nimbus Laboratoře", "Vertex Dynamika", "Vrchol Skupina", "EternaSoft",
+            "Momentum s.r.o.", "Nekonečná Hrana", "Aspire Holding", "PrimeVlna", "Nexus Global",
+            "VěčněZelené Technologie", "HvězdnéPrůmysly", "Nové Horizonty", "JádroLogiky", "EpickýOkraj",
+            "OptiJádro", "ZářiváBudoucnost", "Překročit Řešení", "PravýSever", "ŠpičkovéInovace",
+            "Digitální Horizont", "ČistáCesta Systémy", "UltraOkraj", "FúzeLogiky", "Dynamická Ventures",
+            "VpředMyslící", "AlphaTech", "VizeOkraj", "DalšíKrok Global", "OkrajPráce"
+        ],
+        "ru": [
+            "ГлобалТех", "ИнноваКорп", "БудущееРешения", "СинийОкеан", "СледПоколение",
+            "Визионеры Инк.", "КвантовыеСистемы", "ПионерПредприятия", "ЯркийПуть", "Горизонт Венчуры",
+            "ЭкоСфера", "Нимбус Лабс", "Вертекс Динамика", "Саммит Групп", "ЭтернаСофт",
+            "Импульс Ко.", "БесконечныйКрай", "Аспайр Холдинг", "ПраймВолна", "Нексус Глобал",
+            "ВечноЗеленые Технологии", "ЗвездныеИндустрии", "Новые Горизонты", "ЯдроЛогики", "ЭпическаяКромка",
+            "ОптиКор", "СветлоеБудущее", "Трансценд Решения", "ИстинныйСевер", "ВершинныеИнновации",
+            "Цифровой Горизонт", "ЯсныйПуть Системы", "УльтраКрай", "ФьюжнЛогика", "Динамика Венчурс",
+            "ДуматьВперед", "АльфаТех", "ВизионныйКрай", "СледующийШаг Глобал", "КрайРабот"
+        ],
+        "fr": [
+            "GlobalTech", "InnovateCorp", "TravailFutur", "OcéanBleu", "Solutions NouvelleGénération",
+            "Visionnaires Inc.", "Systèmes Quantiques", "Pionniers Entreprises", "SentierLumineux", "LigneCéleste Ventures",
+            "ÉcoSphère", "LabosNimbus", "DynamiqueVertex", "GroupeSommet", "ÉternaSoft",
+            "Élan Co.", "BordInfini", "Aspirations Holdings", "VaguePrime", "Nexus Global",
+            "ÉternelVert Technologies", "IndustrielsStellaires", "Nouveaux Horizons", "LogiqueNoyau", "BordÉpique",
+            "OptiNoyau", "AvenirRayonnant", "SolutionsTranscendantes", "VraiNord", "InnovationsSommet",
+            "Horizon Numérique", "CheminClair Systèmes", "UltraBord", "FusionLogique", "VenturesDynamiques",
+            "PenserEnAvant", "AlphaTechnologie", "VisionBord", "ProchainPas Global", "TravauxDeBord"
+        ],
+        "it": [
+            "GlobalTech", "InnovareCorp", "LavoriFuturi", "OceanoBlu", "SoluzioniNextGen",
+            "Visionari Srl", "SistemiQuantici", "Pionieri Imprese", "PercorsoLuce", "LineaCielo Ventures",
+            "EcoSfera", "LaboratoriNimbus", "DinamicheVertex", "GruppoVetta", "EternaSoft",
+            "Slancio Co.", "BordoInfinito", "HoldingAspire", "OndaPrime", "Nexus Globale",
+            "SempreVerde Tecnologie", "IndustrieStellari", "NuoviOrizzonti", "LogicaNucleo", "BordoEpico",
+            "OptiNucleo", "FuturoLuminoso", "SoluzioniTrascendenti", "VeroNord", "InnovazioniPunta",
+            "OrizzonteDigitale", "PercorsoChiaro Sistemi", "UltraBordo", "LogicaFusione", "VenturesDinamiche",
+            "PensareAvanti", "AlfaTecnologia", "VisioneBordo", "ProssimoPasso Globale", "LavoriDiBordo"
+        ]
+    },
+    "genres": {
+        "en": ["Science Fiction", "Fantasy", "Mystery", "Romance", "Thriller", "Horror", "Historical Fiction", "Adventure", "Drama", "Dystopian", "Biography", "Self-Help", "Humor", "Graphic Novels", "Young Adult"],
+        "de": ["Science-Fiction", "Fantasy", "Krimi", "Romantik", "Thriller", "Horror", "Historischer Roman", "Abenteuer", "Drama", "Dystopie", "Biografie", "Selbsthilfe", "Humor", "Grafische Romane", "Jugendliteratur"],
+        "cz": ["Sci-fi", "Fantasy", "Detektivka", "Romance", "Thriller", "Horor", "Historická fikce", "Dobrodružství", "Drama", "Dystopie", "Biografie", "Sebezdokonalování", "Humor", "Grafické romány", "Mládežnická literatura"],
+        "ru": ["Научная фантастика", "Фэнтези", "Детектив", "Романтика", "Триллер", "Ужасы", "Историческая проза", "Приключения", "Драма", "Антиутопия", "Биография", "Саморазвитие", "Юмор", "Графические романы", "Литература для подростков"],
+        "it": ["Fantascienza", "Fantasy", "Giallo", "Romantico", "Thriller", "Horror", "Romanzo Storico", "Avventura", "Dramma", "Distopico", "Biografia", "Autoaiuto", "Umorismo", "Romanzi Grafici", "Letteratura per Giovani"],
+        "fr": ["Science-fiction", "Fantaisie", "Policier", "Romance", "Thriller", "Horreur", "Fiction Historique", "Aventure", "Drame", "Dystopie", "Biographie", "Développement Personnel", "Humour", "Romans Graphiques", "Littérature Jeune Adulte"]
+    },
+    "books": {
+        "en": [
+          "To Kill a Mockingbird", "1984", "The Great Gatsby", "The Catcher in the Rye", "Pride and Prejudice",
+          "The Lord of the Rings", "Harry Potter and the Sorcerer's Stone", "The Hobbit", "Fahrenheit 451", "Moby Dick",
+          "The Hunger Games", "Jane Eyre", "Wuthering Heights", "Animal Farm", "The Da Vinci Code", "The Alchemist",
+          "The Book Thief", "The Chronicles of Narnia", "Dune", "Gone with the Wind", "Brave New World",
+          "The Handmaid's Tale", "The Kite Runner", "The Shining", "The Road", "Slaughterhouse-Five",
+          "A Tale of Two Cities", "Les Misérables", "Dracula", "A Game of Thrones", "Life of Pi",
+          "The Fault in Our Stars", "Percy Jackson and the Olympians", "The Name of the Wind", "The Time Traveler's Wife",
+          "The Secret Garden", "The Picture of Dorian Gray", "Catch-22", "The Bell Jar", "Rebecca"
+        ],
+        "de": [
+          "Wer die Nachtigall stört", "1984", "Der große Gatsby", "Der Fänger im Roggen", "Stolz und Vorurteil",
+          "Der Herr der Ringe", "Harry Potter und der Stein der Weisen", "Der Hobbit", "Fahrenheit 451", "Moby Dick",
+          "Die Tribute von Panem", "Jane Eyre", "Sturmhöhe", "Farm der Tiere", "Sakrileg", "Der Alchimist",
+          "Die Bücherdiebin", "Die Chroniken von Narnia", "Dune", "Vom Winde verweht", "Schöne neue Welt",
+          "Der Report der Magd", "Drachenläufer", "Shining", "Die Straße", "Schlachthof 5",
+          "Eine Geschichte aus zwei Städten", "Die Elenden", "Dracula", "Das Lied von Eis und Feuer", "Schiffbruch mit Tiger",
+          "Das Schicksal ist ein mieser Verräter", "Percy Jackson", "Der Name des Windes", "Die Frau des Zeitreisenden",
+          "Der geheime Garten", "Das Bildnis des Dorian Gray", "Catch-22", "Die Glasglocke", "Rebecca"
+        ],
+        "cz": [
+          "Jako zabít ptáčka", "1984", "Velký Gatsby", "Kdo chytá v žitě", "Pýcha a předsudek",
+          "Pán prstenů", "Harry Potter a Kámen mudrců", "Hobit", "451 stupňů Fahrenheita", "Moby Dick",
+          "Hunger Games", "Jane Eyrová", "Na Větrné hůrce", "Farma zvířat", "Šifra mistra Leonarda",
+          "Alchymista", "Zlodějka knih", "Letopisy Narnie", "Duna", "Jih proti Severu", "Krásný nový svět",
+          "Příběh služebnice", "Lovec draků", "Osvícení", "Cesta", "Jatka č. 5",
+          "Příběh dvou měst", "Bídníci", "Drákula", "Hra o trůny", "Pí a jeho život",
+          "Hvězdy nám nepřály", "Percy Jackson", "Jméno větru", "Žena cestovatele časem",
+          "Tajná zahrada", "Portrét Doriana Graye", "Hlava XXII", "Skleněný zvon", "Rebecca"
+        ],
+        "ru": [
+          "Убить пересмешника", "1984", "Великий Гэтсби", "Над пропастью во ржи", "Гордость и предубеждение",
+          "Властелин колец", "Гарри Поттер и философский камень", "Хоббит", "451 градус по Фаренгейту", "Моби Дик",
+          "Голодные игры", "Джейн Эйр", "Грозовой перевал", "Скотный двор", "Код да Винчи",
+          "Алхимик", "Книжный вор", "Хроники Нарнии", "Дюна", "Унесенные ветром", "О дивный новый мир",
+          "Рассказ служанки", "Бегущий за ветром", "Сияние", "Дорога", "Бойня номер пять",
+          "Повесть о двух городах", "Отверженные", "Дракула", "Игра престолов", "Жизнь Пи",
+          "Виноваты звезды", "Перси Джексон", "Имя ветра", "Жена путешественника во времени",
+          "Таинственный сад", "Портрет Дориана Грея", "Уловка-22", "Под стеклянным колпаком", "Ребекка"
+        ],
+        "it": [
+          "Il buio oltre la siepe", "1984", "Il grande Gatsby", "Il giovane Holden", "Orgoglio e pregiudizio",
+          "Il Signore degli Anelli", "Harry Potter e la Pietra Filosofale", "Lo Hobbit", "Fahrenheit 451", "Moby Dick",
+          "Hunger Games", "Jane Eyre", "Cime tempestose", "La fattoria degli animali", "Il Codice da Vinci",
+          "L'Alchimista", "La ladra di libri", "Le Cronache di Narnia", "Dune", "Via col vento", "Il mondo nuovo",
+          "Il racconto dell'ancella", "Il cacciatore di aquiloni", "Shining", "La strada", "Mattatoio n. 5",
+          "Racconto di due città", "I Miserabili", "Dracula", "Il Trono di Spade", "Vita di Pi",
+          "Colpa delle stelle", "Percy Jackson", "Il nome del vento", "La moglie dell'uomo che viaggiava nel tempo",
+          "Il giardino segreto", "Il ritratto di Dorian Gray", "Comma 22", "La campana di vetro", "Rebecca"
+        ],
+        "fr": [
+          "Ne tirez pas sur l'oiseau moqueur", "1984", "Gatsby le Magnifique", "L'Attrape-cœurs", "Orgueil et Préjugés",
+          "Le Seigneur des Anneaux", "Harry Potter à l'École des Sorciers", "Le Hobbit", "Fahrenheit 451", "Moby Dick",
+          "Hunger Games", "Jane Eyre", "Les Hauts de Hurlevent", "La Ferme des animaux", "Le Code Da Vinci",
+          "L'Alchimiste", "La Voleuse de livres", "Le Monde de Narnia", "Dune", "Autant en emporte le vent", "Le Meilleur des mondes",
+          "La Servante écarlate", "Les Cerfs-volants de Kaboul", "Shining", "La Route", "Abattoir 5",
+          "Un Conte de deux villes", "Les Misérables", "Dracula", "Le Trône de fer", "L'Histoire de Pi",
+          "Nos Étoiles contraires", "Percy Jackson", "Le Nom du vent", "La Femme du voyageur du temps",
+          "Le Jardin secret", "Le Portrait de Dorian Gray", "Catch-22", "La Cloche de détresse", "Rebecca"
+        ]
+    },
+    "sports": {
+        "en": [
+          "Football", "Hockey", "Tennis", "Basketball", "Volleyball",
+          "Handball", "Futsal", "Bandy", "Floorball", "American Football",
+          "Baseball", "Cricket", "Billiards"
+        ],
+        "de": [
+          "Fußball", "Eishockey", "Tennis", "Basketball", "Volleyball",
+          "Handball", "Futsal", "Bandy", "Floorball", "American Football",
+          "Baseball", "Kricket", "Billard"
+        ],
+        "cz": [
+          "Fotbal", "Hokej", "Tenis", "Basketbal", "Volejbal",
+          "Házená", "Futsal", "Bandy", "Floorball", "Americký fotbal",
+          "Baseball", "Kricket", "Biliár"
+        ],
+        "ru": [
+          "Футбол", "Хоккей", "Теннис", "Баскетбол", "Волейбол",
+          "Гандбол", "Футзал", "Хоккей с мячом", "Флорбол", "Американский футбол",
+          "Бейсбол", "Крикет", "Бильярд"
+        ],
+        "fr": [
+          "Football", "Hockey", "Tennis", "Basketball", "Volley-ball",
+          "Handball", "Futsal", "Bandy", "Floorball", "Football Américain",
+          "Baseball", "Cricket", "Billard"
+        ],
+        "it": [
+          "Calcio", "Hockey", "Tennis", "Basket", "Pallavolo",
+          "Pallamano", "Futsal", "Bandy", "Floorball", "Football Americano",
+          "Baseball", "Cricket", "Biliardo"
+        ]
+      },
+    "team_names": {
+        "en": [
+          "Manchester United", "FC Barcelona", "Real Madrid", "Liverpool FC", "Paris Saint-Germain",
+          "Bayern Munich", "Juventus", "Chelsea FC", "AC Milan", "Arsenal",
+          "New York Yankees", "Los Angeles Lakers", "Boston Celtics", "Chicago Bulls", "Miami Heat",
+          "Los Angeles Dodgers", "Golden State Warriors", "San Francisco 49ers", "Dallas Cowboys", "Green Bay Packers",
+          "New England Patriots", "Toronto Raptors", "Chicago Blackhawks", "Boston Red Sox", "Detroit Red Wings",
+          "Indianapolis Colts", "Seattle Seahawks", "Manchester City", "Atlético Madrid", "Borussia Dortmund"
+        ],
+        "de": [
+          "Manchester United", "FC Barcelona", "Real Madrid", "Liverpool FC", "Paris Saint-Germain",
+          "Bayern München", "Juventus", "Chelsea FC", "AC Mailand", "Arsenal",
+          "New York Yankees", "Los Angeles Lakers", "Boston Celtics", "Chicago Bulls", "Miami Heat",
+          "Los Angeles Dodgers", "Golden State Warriors", "San Francisco 49ers", "Dallas Cowboys", "Green Bay Packers",
+          "New England Patriots", "Toronto Raptors", "Chicago Blackhawks", "Boston Red Sox", "Detroit Red Wings",
+          "Indianapolis Colts", "Seattle Seahawks", "Manchester City", "Atlético Madrid", "Borussia Dortmund"
+        ],
+        "cz": [
+          "Manchester United", "FC Barcelona", "Real Madrid", "Liverpool FC", "Paris Saint-Germain",
+          "Bayern Mnichov", "Juventus", "Chelsea FC", "AC Milán", "Arsenal",
+          "New York Yankees", "Los Angeles Lakers", "Boston Celtics", "Chicago Bulls", "Miami Heat",
+          "Los Angeles Dodgers", "Golden State Warriors", "San Francisco 49ers", "Dallas Cowboys", "Green Bay Packers",
+          "New England Patriots", "Toronto Raptors", "Chicago Blackhawks", "Boston Red Sox", "Detroit Red Wings",
+          "Indianapolis Colts", "Seattle Seahawks", "Manchester City", "Atlético Madrid", "Borussia Dortmund"
+        ],
+        "ru": [
+          "Манчестер Юнайтед", "ФК Барселона", "Реал Мадрид", "Ливерпуль", "Пари Сен-Жермен",
+          "Бавария Мюнхен", "Ювентус", "Челси", "АC Милан", "Арсенал",
+          "Нью-Йорк Янкис", "Лос-Анджелес Лейкерс", "Бостон Селтикс", "Чикаго Буллс", "Майами Хит",
+          "Лос-Анджелес Доджерс", "Голден Стэйт Уорриорз", "Сан-Франциско 49ерс", "Даллас Ковбойз", "Грин-Бей Пэкерс",
+          "Нью-Ингленд Пэтриотс", "Торонто Рэпторс", "Чикаго Блэкхоукс", "Бостон Ред Сокс", "Детройт Ред Уингс",
+          "Индианаполис Колтс", "Сиэтл Сихокс", "Манчестер Сити", "Атлетико Мадрид", "Боруссия Дортмунд"
+        ],
+        "fr": [
+          "Manchester United", "FC Barcelone", "Real Madrid", "Liverpool FC", "Paris Saint-Germain",
+          "Bayern Munich", "Juventus", "Chelsea FC", "AC Milan", "Arsenal",
+          "New York Yankees", "Los Angeles Lakers", "Boston Celtics", "Chicago Bulls", "Miami Heat",
+          "Los Angeles Dodgers", "Golden State Warriors", "San Francisco 49ers", "Dallas Cowboys", "Green Bay Packers",
+          "New England Patriots", "Toronto Raptors", "Chicago Blackhawks", "Boston Red Sox", "Detroit Red Wings",
+          "Indianapolis Colts", "Seattle Seahawks", "Manchester City", "Atlético Madrid", "Borussia Dortmund"
+        ],
+        "it": [
+          "Manchester United", "FC Barcellona", "Real Madrid", "Liverpool FC", "Paris Saint-Germain",
+          "Bayern Monaco", "Juventus", "Chelsea FC", "AC Milano", "Arsenal",
+          "New York Yankees", "Los Angeles Lakers", "Boston Celtics", "Chicago Bulls", "Miami Heat",
+          "Los Angeles Dodgers", "Golden State Warriors", "San Francisco 49ers", "Dallas Cowboys", "Green Bay Packers",
+          "New England Patriots", "Toronto Raptors", "Chicago Blackhawks", "Boston Red Sox", "Detroit Red Wings",
+          "Indianapolis Colts", "Seattle Seahawks", "Manchester City", "Atlético Madrid", "Borussia Dortmund"
+        ]
+      },
+    "bet_outcome_type": {
+        "en": [
+          "Exact Score", "Team Win", "Draw", "Over/Under", "Both Teams to Score",
+          "First Goal", "Halftime/Fulltime", "Double Chance", "First Half Winner", "Total Goals"
+        ],
+        "de": [
+          "Genaues Ergebnis", "Mannschaft gewinnt", "Unentschieden", "Über/Unter", "Beide Teams treffen",
+          "Erstes Tor", "Halbzeit/Endstand", "Doppelte Chance", "Sieger der ersten Halbzeit", "Gesamtzahl der Tore"
+        ],
+        "cz": [
+          "Přesný výsledek", "Výhra týmu", "Remíza", "Nad/Pod", "Oba týmy skórují",
+          "První gól", "První poločas / Celkový výsledek", "Dvojitá šance", "Vítěz první poloviny", "Celkový počet gólů"
+        ],
+        "ru": [
+          "Точный счет", "Победа команды", "Ничья", "Больше/Меньше", "Обе команды забьют",
+          "Первый гол", "Первый тайм / Полный матч", "Двойной шанс", "Победитель первого тайма", "Общее количество голов"
+        ],
+        "fr": [
+          "Score exact", "Victoire de l'équipe", "Nul", "Plus/Moins", "Les deux équipes marquent",
+          "Premier but", "Mi-temps/Fin de match", "Double chance", "Gagnant de la première mi-temps", "Total des buts"
+        ],
+        "it": [
+          "Punteggio esatto", "Vittoria della squadra", "Pareggio", "Over/Under", "Entrambe le squadre segnano",
+          "Primo gol", "Primo tempo / Risultato finale", "Doppia possibilità", "Vincitore del primo tempo", "Totale dei gol"
+        ]
+    },
+    "cigars": {
+        "ACID": ["Kuba Kuba", "Blondie", "Cold Infusion", "Deep Dish", "Atom Maduro", "Toast", "Extra Ordinary Larry", "Liquid"],
+        "Aganorsa Leaf Aniversario": ["Maduro", "Corojo", "Supreme Leaf", "Signature Selection", "Maduro", "Rare Leaf Reserve", "Corojo", "Habano"],
+        "Cigar Samplers": ["Classic", "Premium Selection", "Maduro Collection", "Connecticut Selection", "Nicaraguan Blends", "Dominican Reserve", "Variety Pack", "Flavored Series"],
+        "Macanudo": ["Cafe Hyde Park", "Inspirado Orange", "Inspirado Black", "Inspirado Green", "Gold Label", "Maduro", "Vintage 2010", "Inspirado White"],
+        "Maria Mancini": ["Classic", "De Luxe", "Magic Mountain", "Maduro", "Havana 2000", "Special Edition", "Toro", "Robusto"],
+        "Montecristo Classic": ["Churchill", "Toro", "No. 2", "Robusto", "Corona", "Belicoso", "Double Corona", "Petit Corona"],
+        "Rocky Patel": ["Vintage 1999", "Decade", "Sun Grown Maduro", "The Edge Corojo", "Twentieth Anniversary", "Sixty", "Royale", "ALR Second Edition"],
+        "Romeo y Julieta Reserva Real": ["Toro", "Churchill", "Robusto", "Corona", "Belicoso", "Lonsdale", "Magnum", "Petit Corona"],
+        "Tatiana Cigars": ["Groovy Blue", "Vanilla", "Cherry", "Chocolate", "Rum", "Sweet Euphoria", "Night Cap", "Fusion Frenzy"],
+        "The Griffin's": ["Classic Robusto", "Classic Toro", "Classic No. 500", "Classic Corona", "Classic Churchill", "Maduro", "Gran Robusto", "Piramide"]
+    },
+    "forum_achievements": {
+        "en": [
+            "Top Contributor", "Master of Discussion", "Forum Veteran", "Helpful Member", "Community Leader",
+            "Knowledge Sharer", "Problem Solver", "Influencer", "Expert", "Engagement Champion",
+            "Problem Solver", "Elite Contributor", "Social Butterfly", "Forum Guru", "Thought Leader"
+        ],
+        "de": [
+            "Top Beitragender", "Meister der Diskussion", "Forum-Veteran", "Hilfreiches Mitglied", "Gemeinschaftsführer",
+            "Wissensvermittler", "Problemlöser", "Einflussnehmer", "Experte", "Engagement-Champion",
+            "Problemlöser", "Eliten-Beitragender", "Gesellige Person", "Forum-Guru", "Vordenker"
+        ],
+        "cz": [
+            "Top přispěvatel", "Mistr diskuse", "Veterán fóra", "Užitečný člen", "Vůdce komunity",
+            "Sdíleč znalostí", "Řešitel problémů", "Influencer", "Expert", "Mistr zapojení",
+            "Řešitel problémů", "Elitní přispěvatel", "Společenská osoba", "Guru fóra", "Myšlenkový lídr"
+        ],
+        "ru": [
+            "Топ-участник", "Мастер обсуждений", "Форумный ветеран", "Полезный участник", "Лидер сообщества",
+            "Делитесь знаниями", "Решатель проблем", "Влиятельный участник", "Эксперт", "Чемпион вовлеченности",
+            "Решатель проблем", "Элитный участник", "Общительный участник", "Гуру форума", "Лидер мыслей"
+        ],
+        "fr": [
+            "Top contributeur", "Maître de la discussion", "Vétéran du forum", "Membre utile", "Leader de la communauté",
+            "Partageur de connaissances", "Résolveur de problèmes", "Influenceur", "Expert", "Champion de l'engagement",
+            "Résolveur de problèmes", "Contributeur d'élite", "Papillon social", "Guru du forum", "Leader de pensée"
+        ],
+        "it": [
+            "Top contributore", "Maestro della discussione", "Veterano del forum", "Membro utile", "Leader della comunità",
+            "Condivisore di conoscenza", "Risolutore di problemi", "Influencer", "Esperto", "Campione dell'impegno",
+            "Risolutore di problemi", "Contributore d'élite", "Farfalla sociale", "Guru del forum", "Leader di pensiero"
+        ]
+    },
+    "descriptors_online_shop": {
+        "en": [
+            "Casual", "Chic", "Elegant", "Trendy", "Vintage",
+            "Stylish", "Classic", "Sporty", "Comfy", "Luxury",
+            "Sustainable", "Handmade", "Designer", "Cozy", "Minimalist",
+            "Unbranded", "Fashionable", "New", "Pre-Loved", "Exclusive",
+            "For Repair"
+        ],
+        "de": [
+            "Lässig", "Schick", "Elegant", "Modisch", "Vintage",
+            "Stilvoll", "Klassisch", "Sportlich", "Bequem", "Luxuriös",
+            "Nachhaltig", "Handgemacht", "Design", "Gemütlich", "Minimalistisch",
+            "Unmarkiert", "Modisch", "Neu", "Gebraucht", "Exklusiv",
+            "Zur Reparatur"
+        ],
+        "cz": [
+            "Ležérní", "Elegantní", "Módní", "Trendy", "Vintage",
+            "Stylový", "Klasický", "Sportovní", "Pohodlný", "Luxusní",
+            "Udržitelný", "Ručně vyráběný", "Designový", "Útulný", "Minimalistický",
+            "Neznačkový", "Stylový", "Nový", "Použitý", "Exkluzivní",
+            "Na opravu"
+        ],
+        "ru": [
+            "Повседневный", "Элегантный", "Модный", "Трендовый", "Винтажный",
+            "Стильный", "Классический", "Спортивный", "Удобный", "Роскошный",
+            "Экологичный", "Ручной работы", "Дизайнерский", "Уютный", "Минималистичный",
+            "Без бренда", "Модный", "Новый", "Б/У", "Эксклюзивный",
+            "Для ремонта"
+        ],
+        "fr": [
+            "Décontracté", "Élégant", "À la mode", "Tendance", "Vintage",
+            "Stylé", "Classique", "Sportif", "Confortable", "Luxueux",
+            "Durable", "Fait main", "De designer", "Chaleureux", "Minimaliste",
+            "Non marqué", "Branché", "Nouveau", "D'occasion", "Exclusif",
+            "Pour réparation"
+        ],
+        "it": [
+            "Casual", "Elegante", "Alla moda", "Di tendenza", "Vintage",
+            "Stiloso", "Classico", "Sportivo", "Confortevole", "Lussuoso",
+            "Sostenibile", "Fatto a mano", "Firmato", "Accogliente", "Minimalista",
+            "Non marchiato", "Fashion", "Nuovo", "Usato", "Esclusivo",
+            "Per riparazione"
+        ]
+    },
+    "character_descriptions": {
+        "en": ["Heroic", "Brave", "Strong", "Intelligent", "Determined", "Loyal", "Charismatic", "Cunning", "Powerful", "Agile", "Mysterious", "Noble", "Resourceful", "Compassionate", "Fearless", "Bold", "Resilient", "Witty", "Clever", "Ambitious", "Righteous", "Stubborn", "Visionary", "Protective", "Unyielding"],
+        "de": ["Heldenhaft", "Mutig", "Stark", "Intelligent", "Entschlossen", "Loyal", "Charismatisch", "Schlau", "Mächtig", "Agil", "Geheimnisvoll", "Edel", "Einfallsreich", "Mitfühlend", "Furchtlos", "Kühn", "Zäh", "Witzig", "Klug", "Ehrgeizig", "Rechtschaffen", "Hartnäckig", "Visionär", "Beschützend", "Unnachgiebig"],
+        "cz": ["Hrdinský", "Statečný", "Silný", "Inteligentní", "Odhodlaný", "Loajální", "Charismatický", "Mazaný", "Mocný", "Obratný", "Tajemný", "Ušlechtilý", "Vynalézavý", "Soucitný", "Nebojácný", "Odvážný", "Odolný", "Bystrý", "Chytrý", "Ambiciózní", "Spravedlivý", "Tvrdohlavý", "Vizionářský", "Ochranný", "Neústupný"],
+        "ru": ["Героический", "Смелый", "Сильный", "Умный", "Решительный", "Верный", "Харизматичный", "Хитрый", "Могущественный", "Ловкий", "Загадочный", "Благородный", "Находчивый", "Сострадательный", "Бесстрашный", "Дерзкий", "Стойкий", "Остроумный", "Сообразительный", "Амбициозный", "Справедливый", "Упрямый", "Видящий", "Защитный", "Неуступчивый"],
+        "it": ["Eroico", "Coraggioso", "Forte", "Intelligente", "Determinato", "Leale", "Carismatico", "Astuto", "Potente", "Agile", "Misterioso", "Nobile", "Ingegnoso", "Compassionevole", "Impavido", "Audace", "Resiliente", "Spiritoso", "Astuto", "Ambizioso", "Giusto", "Testardo", "Visionario", "Protettivo", "Inflessibile"],
+        "fr": ["Héroïque", "Courageux", "Fort", "Intelligent", "Déterminé", "Loyal", "Charismatique", "Rusé", "Puissant", "Agile", "Mystérieux", "Noble", "Ingénieux", "Compatissant", "Intrépide", "Audacieux", "Résilient", "Spirituel", "Astucieux", "Ambitieux", "Juste", "Têtu", "Visionnaire", "Protecteur", "Inflexible"]
+    },
+    "ban_reasons": {
+        "en": [
+            "Spamming", "Harassment", "Hate Speech", "Impersonation", "Inappropriate Content",
+            "Violating Terms of Service", "Fraudulent Activity", "Trolling", "Sharing Malware", "Abusive Behavior"
+        ],
+        "de": [
+            "Spam", "Belästigung", "Hassrede", "Nachahmung", "Unangemessene Inhalte",
+            "Verstoß gegen die Nutzungsbedingungen", "Betrügerische Aktivitäten", "Trolling", "Teilen von Malware", "Missbräuchliches Verhalten"
+        ],
+        "cz": [
+            "Spamování", "Harrassment", "Nenávistné projevy", "Napodobování", "Nevhodný obsah",
+            "Porušení podmínek služby", "Podvodné činnosti", "Trolling", "Sdílení malwaru", "Zneužívání"
+        ],
+        "ru": [
+            "Спам", "Преследование", "Ненавистная речь", "Мошенничество", "Неподобающий контент",
+            "Нарушение условий использования", "Мошенническая деятельность", "Троллинг", "Распространение вредоносных программ", "Оскорбительное поведение"
+        ],
+        "fr": [
+            "Spam", "Harcèlement", "Discours de haine", "Usurpation d'identité", "Contenu inapproprié",
+            "Violation des conditions d'utilisation", "Activité frauduleuse", "Trolling", "Partage de logiciels malveillants", "Comportement abusif"
+        ],
+        "it": [
+            "Spam", "Molestie", "Discorsi d'odio", "Impersonificazione", "Contenuto inappropriato",
+            "Violazione dei termini di servizio", "Attività fraudolente", "Trolling", "Condivisione di malware", "Comportamento abusivo"
+        ]
+    },
+    "actors": {
+        "en": ["Robert Downey Jr.", "Chris Evans", "Chris Hemsworth", "Scarlett Johansson", "Mark Ruffalo", "Jeremy Renner", "Tom Holland", "Benedict Cumberbatch", "Brie Larson", "Chadwick Boseman", "Paul Rudd", "Elizabeth Olsen", "Anthony Mackie", "Sebastian Stan", "Samuel L. Jackson"],
+        "de": ["Robert Downey Jr.", "Chris Evans", "Chris Hemsworth", "Scarlett Johansson", "Mark Ruffalo", "Jeremy Renner", "Tom Holland", "Benedict Cumberbatch", "Brie Larson", "Chadwick Boseman", "Paul Rudd", "Elizabeth Olsen", "Anthony Mackie", "Sebastian Stan", "Samuel L. Jackson"],
+        "cz": ["Robert Downey Jr.", "Chris Evans", "Chris Hemsworth", "Scarlett Johansson", "Mark Ruffalo", "Jeremy Renner", "Tom Holland", "Benedict Cumberbatch", "Brie Larson", "Chadwick Boseman", "Paul Rudd", "Elizabeth Olsen", "Anthony Mackie", "Sebastian Stan", "Samuel L. Jackson"],
+        "ru": ["Роберт Дауни мл.", "Крис Эванс", "Крис Хемсворт", "Скарлетт Йоханссон", "Марк Руффало", "Джереми Реннер", "Том Холланд", "Бенедикт Камбербэтч", "Бри Ларсон", "Чедвик Боузман", "Пол Радд", "Элизабет Олсен", "Энтони Маки", "Себастиан Стэн", "Сэмюэл Л. Джексон"],
+        "it": ["Robert Downey Jr.", "Chris Evans", "Chris Hemsworth", "Scarlett Johansson", "Mark Ruffalo", "Jeremy Renner", "Tom Holland", "Benedict Cumberbatch", "Brie Larson", "Chadwick Boseman", "Paul Rudd", "Elizabeth Olsen", "Anthony Mackie", "Sebastian Stan", "Samuel L. Jackson"],
+        "fr": ["Robert Downey Jr.", "Chris Evans", "Chris Hemsworth", "Scarlett Johansson", "Mark Ruffalo", "Jeremy Renner", "Tom Holland", "Benedict Cumberbatch", "Brie Larson", "Chadwick Boseman", "Paul Rudd", "Elizabeth Olsen", "Anthony Mackie", "Sebastian Stan", "Samuel L. Jackson"]
+    },
+    "movie_marvel":{
+        "en": ["Avengers: Endgame", "Spider-Man: No Way Home", "The Falcon and the Winter Soldier", "WandaVision", "Guardians of the Galaxy", "Doctor Strange", "Iron Man", "Black Panther", "Thor: Ragnarok", "Captain Marvel", "Avengers: Infinity War", "Black Widow", "Ant-Man", "Ant-Man and the Wasp", "Doctor Strange in the Multiverse of Madness", "Eternals", "Shang-Chi and the Legend of the Ten Rings", "Thor: Love and Thunder", "Loki", "Hawkeye", "What If...?", "Moon Knight", "Ms. Marvel", "She-Hulk: Attorney at Law", "The Punisher", "Daredevil", "Jessica Jones", "Luke Cage", "Iron Fist", "The Defenders", "Agents of S.H.I.E.L.D.", "Agent Carter", "The Gifted", "Legion", "Cloak & Dagger", "Runaways", "Inhumans", "The Falcon and the Winter Soldier", "Hawkeye", "Secret Invasion", "Armor Wars", "Fantastic Four", "Deadpool 3", "X-Men"],
+        "de": ["Avengers: Endgame", "Spider-Man: No Way Home", "The Falcon and the Winter Soldier", "WandaVision", "Guardians of the Galaxy", "Doctor Strange", "Iron Man", "Black Panther", "Thor: Ragnarok", "Captain Marvel", "Avengers: Infinity War", "Black Widow", "Ant-Man", "Ant-Man and the Wasp", "Doctor Strange in the Multiverse of Madness", "Eternals", "Shang-Chi und die Legende der zehn Ringe", "Thor: Love and Thunder", "Loki", "Hawkeye", "Was wäre wenn...?", "Moon Knight", "Ms. Marvel", "She-Hulk: Die Anwältin", "The Punisher", "Daredevil", "Jessica Jones", "Luke Cage", "Iron Fist", "The Defenders", "Agents of S.H.I.E.L.D.", "Agent Carter", "The Gifted", "Legion", "Cloak & Dagger", "Runaways", "Inhumans", "The Falcon and the Winter Soldier", "Hawkeye", "Secret Invasion", "Armor Wars", "Fantastic Four", "Deadpool 3", "X-Men"],
+        "cz": ["Avengers: Endgame", "Spider-Man: No Way Home", "The Falcon and the Winter Soldier", "WandaVision", "Guardians of the Galaxy", "Doctor Strange", "Iron Man", "Black Panther", "Thor: Ragnarok", "Captain Marvel", "Avengers: Infinity War", "Black Widow", "Ant-Man", "Ant-Man a Wasp", "Doctor Strange v mnohovesmíru šílenství", "Eternals", "Shang-Chi a legenda deseti prstenů", "Thor: Láska a hrom", "Loki", "Hawkeye", "Co by kdyby...?", "Moon Knight", "Ms. Marvel", "She-Hulk: Advokátka", "The Punisher", "Daredevil", "Jessica Jonesová", "Luke Cage", "Iron Fist", "The Defenders", "Agents of S.H.I.E.L.D.", "Agent Carter", "The Gifted", "Legion", "Cloak & Dagger", "Runaways", "Inhumans", "The Falcon and the Winter Soldier", "Hawkeye", "Secret Invasion", "Armor Wars", "Fantastic Four", "Deadpool 3", "X-Men"],
+        "ru": ["Мстители: Финал", "Человек-паук: Нет пути домой", "Сокол и Зимний Солдат", "ВандаВижн", "Стражи Галактики", "Доктор Стрэндж", "Железный человек", "Чёрная пантера", "Тор: Рагнарёк", "Капитан Марвел", "Мстители: Война бесконечности", "Чёрная вдова", "Человек-муравей", "Человек-муравей и Оса", "Доктор Стрэндж в мультивселенной безумия", "Вечные", "Шан-Чи и легенда о десяти кольцах", "Тор: Любовь и гром", "Локи", "Сокол и Зимний Солдат", "Что если...?", "Лунный рыцарь", "Мисс Марвел", "Ши-Халк: Адвокат", "Каратель", "Сорвиголовка", "Джессика Джонс", "Люк Кейдж", "Железный кулак", "Защитники", "Агенты Щ.И.Т.", "Агент Картер", "Одарённые", "Легион", "Плащ и кинжал", "Беглецы", "Нелюди", "Сокол и Зимний Солдат", "Сокол и Зимний Солдат", "Тайная война", "Броня войны", "Фантастическая четвёрка", "Дэдпул 3", "Люди Икс"],
+        "it": ["Avengers: Endgame", "Spider-Man: No Way Home", "The Falcon and the Winter Soldier", "WandaVision", "Guardiani della Galassia", "Doctor Strange", "Iron Man", "Black Panther", "Thor: Ragnarok", "Captain Marvel", "Avengers: Infinity War", "Black Widow", "Ant-Man", "Ant-Man e la Vespa", "Doctor Strange nel Multiverso della Follia", "Eternals", "Shang-Chi e la Leggenda dei Dieci Anelli", "Thor: Amore e tuono", "Loki", "Hawkeye", "What If...?", "Moon Knight", "Ms. Marvel", "She-Hulk: Avvocato", "The Punisher", "Daredevil", "Jessica Jones", "Luke Cage", "Iron Fist", "The Defenders", "Agents of S.H.I.E.L.D.", "Agent Carter", "The Gifted", "Legion", "Cloak & Dagger", "Runaways", "Inhumans", "The Falcon and the Winter Soldier", "Hawkeye", "Secret Invasion", "Armor Wars", "Fantastic Four", "Deadpool 3", "X-Men"],
+        "fr": ["Avengers: Endgame", "Spider-Man: No Way Home", "The Falcon and the Winter Soldier", "WandaVision", "Les Gardiens de la Galaxie", "Doctor Strange", "Iron Man", "Black Panther", "Thor: Ragnarok", "Captain Marvel", "Avengers: Infinity War", "Black Widow", "Ant-Man", "Ant-Man et la Guêpe", "Doctor Strange dans le Multivers de la Folie", "Eternals", "Shang-Chi et la Légende des Dix Anneaux", "Thor: L'Amour et le Tonnerre", "Loki", "Hawkeye", "Que serait-il...?", "Moon Knight", "Ms. Marvel", "She-Hulk: Avocate", "The Punisher", "Daredevil", "Jessica Jones", "Luke Cage", "Iron Fist", "The Defenders", "Agents of S.H.I.E.L.D.", "Agent Carter", "The Gifted", "Legion", "Cloak & Dagger", "Runaways", "Inhumans", "The Falcon and the Winter Soldier", "Hawkeye", "Secret Invasion", "Armor Wars", "Fantastic Four", "Deadpool 3", "X-Men"]
+    },
+
+    "auto_brands": {
+        "Toyota": [
+            "Corolla", "Camry", "Prius", "RAV4", "Highlander", "Land Cruiser",
+            "Avalon", "Tacoma", "Sienna", "Hilux", "4Runner", "C-HR", "Sequoia", "Tundra",
+            "Venza", "Supra", "Mirai", "Matrix", "Yaris", "FJ Cruiser"
+        ],
+        "Honda": [
+            "Civic", "Accord", "CR-V", "Pilot", "Odyssey", "Fit", "HR-V", "Ridgeline",
+            "Insight", "Passport", "Element", "CR-Z", "Ridgeline", "S2000", "Crosstour",
+            "Clarity", "Prelude", "Jazz", "Stream", "City"
+        ],
+        "Ford": [
+            "F-150", "Mustang", "Explorer", "Escape", "Fusion", "Edge", "Bronco",
+            "Ranger", "Maverick", "Expedition", "Transit", "Focus", "Taurus", "Flex",
+            "Ecosport", "Lincoln Navigator", "Lincoln MKZ", "F-250", "F-350", "Bronco Sport"
+        ],
+        "Chevrolet": [
+            "Silverado", "Malibu", "Equinox", "Traverse", "Tahoe", "Suburban",
+            "Blazer", "Trailblazer", "Colorado", "Camaro", "Impala", "Sonic", "Spark",
+            "Bolt EV", "Cruze", "Chevy SS", "Volt", "Trax", "Express", "Avalanche"
+        ],
+        "BMW": [
+            "3 Series", "5 Series", "7 Series", "X5", "X3", "X7", "M3", "M5", "Z4",
+            "i8", "M2", "X1", "X6", "M4", "i3", "M8", "X4", "330e", "530e", "740e"
+        ],
+        "Audi": [
+            "A3", "A4", "A6", "A8", "Q5", "Q7", "Q8", "TT", "S3", "RS7", "S4",
+            "S5", "Q3", "SQ5", "A5", "RS5", "A1", "A7", "S8", "R8"
+        ],
+        "Mercedes-Benz": [
+            "C-Class", "E-Class", "S-Class", "GLC", "GLE", "GLS",
+            "A-Class", "B-Class", "CLA", "AMG GT", "G-Class", "M-Class", "GLA",
+            "EQC", "SLC", "SL", "EQS", "V-Class", "Maybach S-Class", "C-Class Cabriolet"
+        ],
+        "Nissan": [
+            "Altima", "Sentra", "Maxima", "Leaf", "Murano", "Rogue",
+            "Pathfinder", "Armada", "Frontier", "Titan", "Juke", "370Z", "GT-R",
+            "NV3500", "Versa", "Xterra", "Cube", "Kicks", "NV200", "Rogue Sport"
+        ],
+        "Hyundai": [
+            "Elantra", "Sonata", "Tucson", "Santa Fe", "Palisade", "Kona",
+            "Ioniq", "Veloster", "Kona Electric", "Nexo", "Accent", "Kona N",
+            "Santa Fe Hybrid", "Ioniq 5", "Genesis GV80", "Palisade Hybrid",
+            "Ioniq 6", "Tucson Hybrid", "Sonata Hybrid", "N Vision 74"
+        ],
+        "Kia": [
+            "Optima", "Forte", "Soul", "Seltos", "Sportage", "Telluride",
+            "Carnival", "Niro", "Stinger", "K900", "Cadenza", "Sorrento", "Niro EV",
+            "Tucson", "K900", "Soul EV", "Sportage Hybrid", "Forte GT", "Kia EV6", "Kia Seltos"
+        ],
+        "Tesla": [
+            "Model S", "Model 3", "Model X", "Model Y", "Cybertruck", "Roadster",
+            "Semi", "Powerwall", "Powerpack", "Solar Roof", "Model S Plaid",
+            "Model 3 Performance", "Model X Plaid", "Model Y Performance", "Model S Long Range",
+            "Model 3 Standard Range Plus", "Tesla Semi Truck", "Model Y Long Range",
+            "Tesla Roadster 2022", "Cybertruck Dual Motor"
+        ],
+        "Mazda": [
+            "Mazda3", "Mazda6", "CX-5", "CX-9", "MX-5 Miata", "CX-50", "CX-30",
+            "Mazda2", "Mazda3 Hatchback", "Mazda CX-30 Electric", "Mazda5", "Mazda CX-3",
+            "Mazda CX-60", "Mazda RX-8", "Mazda2 Hybrid", "Mazda CX-70", "Mazda MX-30",
+            "Mazda 323", "Mazda RX-7", "Mazda B-Series"
+        ],
+        "Volkswagen": [
+            "Golf", "Passat", "Jetta", "Tiguan", "Atlas", "ID.4", "Beetle",
+            "Arteon", "Touareg", "Golf GTI", "Polo", "Up!", "Transporter", "ID. Buzz",
+            "Golf R", "ID.3", "ID.7", "Scirocco", "Passat Alltrack", "Jetta GLI"
+        ],
+        "Porsche": [
+            "911", "Cayenne", "Panamera", "Macan", "Taycan", "718 Cayman",
+            "718 Boxster", "Cayman GT4", "911 Turbo", "911 GT3", "911 Carrera",
+            "911 Targa", "Porsche 918 Spyder", "Taycan Turbo", "Macan S", "Panamera Turbo",
+            "Cayenne Coupe", "Porsche 911 GT2 RS", "Taycan Cross Turismo", "Macan GTS"
+        ],
+        "Subaru": [
+            "Outback", "Forester", "Impreza", "Crosstrek", "Ascent", "Legacy",
+            "BRZ", "WRX", "Solterra", "Tribeca", "XV", "Impreza WRX", "Forester XT",
+            "Outback Wilderness", "Subaru Outback Hybrid", "Forester Hybrid",
+            "Subaru Impreza Sport", "Ascent Touring", "Legacy Sport", "Crosstrek Hybrid"
+        ],
+        "Lexus": [
+            "RX", "NX", "LS", "ES", "GX", "LX", "IS", "UX", "LC", "RC",
+            "LC Convertible", "IS F", "RX Hybrid", "UX Hybrid", "NX Hybrid",
+            "LX 570", "LFA", "RX 350", "IS 350", "GS F"
+        ],
+        "Jaguar": [
+            "F-Type", "XE", "XF", "XJ", "E-Pace", "F-Pace", "I-Pace",
+            "XK", "S-Type", "F-Pace SVR", "F-Type SVR", "XJ Long Wheelbase",
+            "XF Sportbrake", "E-Pace R-Dynamic", "XJ220", "I-Pace HSE", "F-Type R",
+            "F-Type Convertible", "XE R-Dynamic", "XK Coupe"
+        ],
+        "Land Rover": [
+            "Defender", "Range Rover", "Discovery", "Range Rover Sport",
+            "Discovery Sport", "Evoque", "Velar", "Freelander", "Defender 130",
+            "Range Rover Velar", "Defender 90", "Discovery 5", "Range Rover Evoque",
+            "Range Rover Classic", "Freelander 2", "Discovery 4", "Range Rover Sport PHEV",
+            "Range Rover Autobiography", "Discovery SVX", "Defender V8"
+        ],
+        "Ferrari": [
+            "488 GTB", "Portofino", "Roma", "F8 Tributo", "812 Superfast",
+            "SF90 Stradale", "LaFerrari", "GTC4Lusso", "Monza SP1", "F12berlinetta",
+            "Ferrari 430 Scuderia", "Ferrari 456M", "Ferrari 812 GTS", "Ferrari 599 GTB",
+            "Ferrari California", "Ferrari 360 Modena", "Ferrari F355", "Ferrari 488 Pista",
+            "Ferrari LaFerrari Aperta", "Ferrari 612 Scaglietti"
+        ],
+        "Lamborghini": [
+            "Aventador", "Huracán", "Urus", "Sián", "Gallardo", "Murciélago",
+            "Reventón", "Diablo", "Countach", "Centenario", "Lamborghini LM002",
+            "Lamborghini Jarama", "Lamborghini Espada", "Lamborghini 350 GT",
+            "Lamborghini Miura", "Lamborghini Huracán STO", "Lamborghini Huracán EVO",
+            "Lamborghini Huracán Performante", "Lamborghini Aventador SVJ", "Lamborghini Terzo Millennio"
+        ]
+    },
+    "universe_marvel": {
+        "en": "Earth",
+        "de": "Erde",
+        "cz": "Země",
+        "ru": "Земля",
+        "it": "Terra",
+        "fr": "Terre"
+    },
+    "events_marvel": {
+        "en": ["Marvel Fan Fest", "Avengers Assemble Expo", "Heroes Unleashed", "Marvel Insider Meetup", "Stark Industries Showcase", "Guardians Gathering", "Spider-Verse Celebration", "Wakanda Forever Tribute"],
+        "de": ["Marvel Fan Fest", "Avengers-Versammlung", "Helden Entfesselt", "Marvel Insider-Treffen", "Stark-Industries-Ausstellung", "Wächter-Versammlung", "Spider-Vers Feier", "Wakanda-Forever-Tribut"],
+        "cz": ["Marvel Fan Fest", "Shromáždění Avengers", "Hrdinové Osvobozeni", "Setkání Marvel Insiderů", "Přehlídka Stark Industries", "Setkání Strážců", "Oslava Spider-Verse", "Pocta Wakandě Navždy"],
+        "ru": ["Фан-Фест Marvel", "Собрание Мстителей", "Освобождение Героев", "Встреча Инсайдеров Marvel", "Выставка Stark Industries", "Сбор Стражей", "Празднование Паучьей Вселенной", "Трибьют 'Ваканда Навсегда'"],
+        "it": ["Marvel Fan Fest", "Raduno Avengers Assemble", "Eroi Scatenati", "Incontro Insider Marvel", "Esposizione Stark Industries", "Riunione dei Guardiani", "Celebrazione dello Spider-Verse", "Omaggio Wakanda per Sempre"],
+        "fr": ["Marvel Fan Fest", "Assemblée des Avengers", "Héros Déchaînés", "Rencontre des Initiés Marvel", "Exposition Stark Industries", "Rassemblement des Gardiens", "Célébration Spider-Verse", "Hommage Wakanda Pour Toujours"]
+    },
+    "characters_marvel": {
+        "en": ["Spider-Man", "Iron Man", "Captain America", "Thor", "Black Widow", "Hulk", "Doctor Strange", "Black Panther", "Ant-Man", "Wolverine", "Deadpool", "Scarlet Witch", "Vision", "Hawkeye", "Luke Cage", "Jessica Jones", "Daredevil", "Captain Marvel", "Nick Fury", "Silver Surfer", "Gamora", "Star-Lord", "Rocket Raccoon", "Groot", "Nebula", "Loki", "Red Skull", "Thanos", "Ultron", "Mysterio", "Kingpin", "Electro", "Venom", "Doctor Doom", "Magneto", "Juggernaut", "Sandman", "Rhino", "Vulture", "Green Goblin", "Shang-Chi", "Moon Knight"],
+        "de": ["Spider-Man", "Iron Man", "Captain America", "Thor", "Schwarze Witwe", "Hulk", "Doctor Strange", "Black Panther", "Ant-Man", "Wolverine", "Deadpool", "Scarlet Witch", "Vision", "Hawkeye", "Luke Cage", "Jessica Jones", "Daredevil", "Captain Marvel", "Nick Fury", "Silber Surfer", "Gamora", "Star-Lord", "Rocket Raccoon", "Groot", "Nebula", "Loki", "Roter Schädel", "Thanos", "Ultron", "Mysterio", "Kingpin", "Electro", "Venom", "Doctor Doom", "Magneto", "Juggernaut", "Sandman", "Rhino", "Vulture", "Grüner Goblin", "Shang-Chi", "Moon Knight"],
+        "cz": ["Spider-Man", "Iron Man", "Captain America", "Thor", "Černá vdova", "Hulk", "Doctor Strange", "Black Panther", "Ant-Man", "Wolverine", "Deadpool", "Scarlet Witch", "Vision", "Hawkeye", "Luke Cage", "Jessica Jones", "Daredevil", "Captain Marvel", "Nick Fury", "Stříbrný Surfer", "Gamora", "Star-Lord", "Rocket Raccoon", "Groot", "Nebula", "Loki", "Červená lebka", "Thanos", "Ultron", "Mysterio", "Kingpin", "Electro", "Venom", "Doctor Doom", "Magneto", "Juggernaut", "Písečný muž", "Rhino", "Vulture", "Zelený Goblin", "Shang-Chi", "Moon Knight"],
+        "ru": ["Человек-Паук", "Железный Человек", "Капитан Америка", "Тор", "Чёрная Вдова", "Халк", "Доктор Стрэндж", "Чёрная Пантера", "Человек-муравей", "Росомаха", "Дэдпул", "Алая Ведьма", "Вижн", "Ястреб", "Люк Кейдж", "Джессика Джонс", "Сорвиголова", "Капитан Марвел", "Ник Фьюри", "Серебряный Сёрфер", "Гамора", "Звёздный Лорд", "Ракета", "Грут", "Небула", "Локи", "Красный Череп", "Танос", "Альтрон", "Мистерио", "Кингпин", "Электро", "Веном", "Доктор Дум", "Магнето", "Джаггернаут", "Песочный Человек", "Рино", "Стервятник", "Зелёный Гоблин", "Шанг-Чи", "Лунный Рыцарь"],
+        "it": ["Spider-Man", "Iron Man", "Captain America", "Thor", "Vedova Nera", "Hulk", "Doctor Strange", "Black Panther", "Ant-Man", "Wolverine", "Deadpool", "Scarlet Witch", "Vision", "Hawkeye", "Luke Cage", "Jessica Jones", "Daredevil", "Captain Marvel", "Nick Fury", "Silver Surfer", "Gamora", "Star-Lord", "Rocket Raccoon", "Groot", "Nebula", "Loki", "Teschio Rosso", "Thanos", "Ultron", "Mysterio", "Kingpin", "Electro", "Venom", "Doctor Doom", "Magneto", "Juggernaut", "Sandman", "Rhino", "Vulture", "Goblin Verde", "Shang-Chi", "Moon Knight"],
+        "fr": ["Spider-Man", "Iron Man", "Captain America", "Thor", "Veuve Noire", "Hulk", "Docteur Strange", "Black Panther", "Ant-Man", "Wolverine", "Deadpool", "Scarlet Witch", "Vision", "Hawkeye", "Luke Cage", "Jessica Jones", "Daredevil", "Captain Marvel", "Nick Fury", "Silver Surfer", "Gamora", "Star-Lord", "Rocket Raccoon", "Groot", "Nebula", "Loki", "Crâne Rouge", "Thanos", "Ultron", "Mysterio", "Kingpin", "Electro", "Venom", "Docteur Fatalis", "Magnéto", "Juggernaut", "Sable", "Rhino", "Vautour", "Bouffon Vert", "Shang-Chi", "Moon Knight"]
+    },
+    "product_shop": {
+        "en": ["Walmart", "Kroger", "Costco", "Whole Foods", "Safeway", "Trader Joe's", "Target", "Publix", "ALDI", "H-E-B", "Meijer", "Sam's Club", "WinCo Foods", "Food Lion", "Piggly Wiggly"],
+        "de": ["Edeka", "Lidl", "Rewe", "Aldi", "Kaufland", "Metro", "Penny Markt", "Norma", "Real", "Spar", "Tegut", "Netto", "Rossmann", "Lust auf Genuss", "Hit Markt"],
+        "cz": ["Tesco", "Albert", "Penny Market", "Lidl", "Kaufland", "Billa", "Globus", "Makro", "Fruitisimo", "Interspar", "Rossmann", "COOP", "Hruška", "Stoklasa", "Gorila"],
+        "ru": ["Пятерочка", "Магнит", "Лента", "Ашан", "Дикси", "Седьмой Континент", "Перекресток", "Реал", "Карусель", "Азбука Вкуса", "Метро", "О'Кей", "Глобус", "Лукойл-Магазин", "Гипермаркет Рамстор"],
+        "fr": ["Carrefour", "Leclerc", "Auchan", "Intermarché", "Monoprix", "Lidl", "Casino", "Franprix", "Super U", "Cora", "Système U", "Picard", "La Grande Épicerie de Paris", "Géant Casino", "Biocoop"],
+        "it": ["Coop", "Conad", "Esselunga", "Carrefour", "Lidl", "Pam", "Auchan", "Iper", "Supermercati Crai", "Unes", "Macro", "Despar", "Alimentari Pugliese", "Salumeria Rosi", "Centrale del Latte"]
+    },
+    "categories_products": {
+        "en": {
+            "Fruits": ["Apple", "Banana", "Orange", "Strawberry", "Grapes", "Pineapple", "Mango", "Peach", "Pear", "Watermelon", "Lemon", "Blueberry"],
+            "Vegetables": ["Carrot", "Tomato", "Cucumber", "Potato", "Onion", "Garlic", "Spinach", "Lettuce", "Broccoli", "Cauliflower", "Zucchini", "Bell Pepper"],
+            "Meat": ["Chicken Breast", "Beef Steak", "Pork Chops", "Salmon", "Tuna", "Turkey", "Sausages", "Bacon", "Lamb", "Duck", "Ham", "Veal"],
+            "Dairy": ["Milk", "Cheese", "Butter", "Yogurt", "Cream", "Cottage Cheese", "Mozzarella", "Ricotta", "Parmesan", "Gouda", "Feta", "Brie"],
+            "Grains": ["Rice", "Pasta", "Oats", "Flour", "Bread", "Cereal", "Quinoa", "Barley", "Rye", "Cornmeal", "Tortillas", "Bulgur"],
+            "Sweets": ["Chocolate", "Ice Cream", "Cookies", "Cake", "Candy", "Pastries", "Donuts", "Pudding", "Jelly", "Muffins", "Brownies", "Tarts"],
+            "Beverages": ["Coffee", "Tea", "Juice", "Soda", "Milkshake", "Lemonade", "Energy Drink", "Wine", "Beer", "Whiskey", "Cocktail", "Sparkling Water"],
+            "Spices": ["Salt", "Pepper", "Garlic Powder", "Cinnamon", "Oregano", "Basil", "Thyme", "Curry Powder", "Paprika", "Chili Powder", "Ginger", "Rosemary"]
+        },
+        "de": {
+            "Fruits": ["Apfel", "Banane", "Orange", "Erdbeere", "Traube", "Ananas", "Mango", "Pfirsich", "Birne", "Wassermelone", "Zitrone", "Blaubeere"],
+            "Vegetables": ["Karotte", "Tomate", "Gurke", "Kartoffel", "Zwiebel", "Knoblauch", "Spinat", "Salat", "Brokkoli", "Blumenkohl", "Zucchini", "Paprika"],
+            "Meat": ["Hähnchenbrust", "Rindersteak", "Schweinekoteletts", "Lachs", "Thunfisch", "Pute", "Würstchen", "Speck", "Lamm", "Ente", "Schinken", "Kalbfleisch"],
+            "Dairy": ["Milch", "Käse", "Butter", "Joghurt", "Sahne", "Hüttenkäse", "Mozzarella", "Ricotta", "Parmesan", "Gouda", "Feta", "Brie"],
+            "Grains": ["Reis", "Nudeln", "Haferflocken", "Mehl", "Brot", "Müsli", "Quinoa", "Gerste", "Roggen", "Maismehl", "Tortillas", "Bulgur"],
+            "Sweets": ["Schokolade", "Eiscreme", "Kekse", "Kuchen", "Bonbons", "Gebäck", "Donuts", "Pudding", "Gelee", "Muffins", "Brownies", "Törtchen"],
+            "Beverages": ["Kaffee", "Tee", "Saft", "Limonade", "Milchshake", "Limonade", "Energydrink", "Wein", "Bier", "Whiskey", "Cocktail", "Sprudelwasser"],
+            "Spices": ["Salz", "Pfeffer", "Knoblauchpulver", "Zimt", "Oregano", "Basilikum", "Thymian", "Curry-Pulver", "Paprika", "Chilipulver", "Ingwer", "Rosmarin"]
+        },
+        "cz": {
+            "Fruits": ["Jablko", "Banán", "Pomeranč", "Jahoda", "Hrozny", "Ananas", "Mango", "Meruňka", "Hruška", "Meloun", "Citrón", "Borůvka"],
+            "Vegetables": ["Mrkev", "Rajče", "Okurka", "Brambora", "Cibule", "Česnek", "Špenát", "Salát", "Brokolice", "Květák", "Cuketa", "Paprika"],
+            "Meat": ["Kuřecí prsa", "Hovězí steak", "Vepřové kotlety", "Losos", "Tuniak", "Krůta", "Klobásy", "Slanina", "Jehněčí", "Kachna", "Šunka", "Telecí"],
+            "Dairy": ["Mléko", "Sýr", "Máslo", "Jogurt", "Smetana", "Tvaroh", "Mozzarella", "Ricotta", "Parmezán", "Gouda", "Feta", "Brie"],
+            "Grains": ["Rýže", "Těstoviny", "Ovesné vločky", "Mouka", "Chléb", "Cereálie", "Quinoa", "Ječmen", "Žito", "Kukuřičná mouka", "Tortilly", "Bulgur"],
+            "Sweets": ["Čokoláda", "Zmrzlina", "Sušenky", "Koláče", "Cukrovinky", "Pečivo", "Donuty", "Puding", "Želé", "Muffiny", "Brownies", "Koláčky"],
+            "Beverages": ["Káva", "Čaj", "Šťáva", "Limonáda", "Milkshake", "Energetický nápoj", "Víno", "Pivo", "Whiskey", "Koktejl", "Perlivá voda", "Soda"],
+            "Spices": ["Sůl", "Pepř", "Česnekový prášek", "Skořice", "Oregano", "Bazalka", "Tymián", "Kari prášek", "Paprika", "Chilli prášek", "Zázvor", "Rozmarýn"]
+        },
+        "ru": {
+            "Fruits": ["Яблоко", "Банан", "Апельсин", "Клубника", "Виноград", "Ананас", "Манго", "Персик", "Груша", "Арбуз", "Лимон", "Черника"],
+            "Vegetables": ["Морковь", "Помидор", "Огурец", "Картофель", "Лук", "Чеснок", "Шпинат", "Салат", "Брокколи", "Цветная капуста", "Цуккини", "Перец"],
+            "Meat": ["Куриная грудка", "Говяжий стейк", "Свиные отбивные", "Лосось", "Тунец", "Индейка", "Колбаса", "Бекон", "Баранина", "Утка", "Ветчина", "Телятина"],
+            "Dairy": ["Молоко", "Сыр", "Масло", "Йогурт", "Сметана", "Творог", "Моцарелла", "Рикотта", "Пармезан", "Гауда", "Фета", "Бри"],
+            "Grains": ["Рис", "Паста", "Овсянка", "Мука", "Хлеб", "Каша", "Киноа", "Ячмень", "Рожь", "Кукурузная мука", "Тортильи", "Булгур"],
+            "Sweets": ["Шоколад", "Мороженое", "Печенье", "Торт", "Конфеты", "Выпечка", "Пончики", "Пудинг", "Желе", "Маффины", "Брауни", "Тарталетки"],
+            "Beverages": ["Кофе", "Чай", "Сок", "Лимонад", "Молочный коктейль", "Энергетический напиток", "Вино", "Пиво", "Виски", "Коктейль", "Газированная вода", "Сода"],
+            "Spices": ["Соль", "Перец", "Чесночный порошок", "Корица", "Орегано", "Базилик", "Тимьян", "Карри", "Паприка", "Чили", "Имбирь", "Розмарин"]
+        },
+        "fr": {
+            "Fruits": ["Pomme", "Banane", "Orange", "Fraise", "Raisin", "Ananas", "Mangue", "Pêche", "Poire", "Pastèque", "Citron", "Myrtille"],
+            "Vegetables": ["Carotte", "Tomate", "Concombre", "Pomme de terre", "Oignon", "Ail", "Épinard", "Laitue", "Brocoli", "Chou-fleur", "Courgette", "Poivron"],
+            "Meat": ["Poitrine de poulet", "Steak de bœuf", "Côtelettes de porc", "Saumon", "Thon", "Dinde", "Saucisses", "Bacon", "Agneau", "Canard", "Jambon", "Veau"],
+            "Dairy": ["Lait", "Fromage", "Beurre", "Yaourt", "Crème", "Fromage cottage", "Mozzarella", "Ricotta", "Parmesan", "Gouda", "Feta", "Brie"],
+            "Grains": ["Riz", "Pâtes", "Flocons d'avoine", "Farine", "Pain", "Céréales", "Quinoa", "Orge", "Seigle", "Semoule de maïs", "Tortillas", "Boulgour"],
+            "Sweets": ["Chocolat", "Glace", "Biscuits", "Gâteau", "Bonbons", "Pâtisseries", "Donuts", "Pudding", "Gelée", "Muffins", "Brownies", "Tartes"],
+            "Beverages": ["Café", "Thé", "Jus", "Soda", "Milkshake", "Limonade", "Boisson énergisante", "Vin", "Bière", "Whiskey", "Cocktail", "Eau gazeuse"],
+            "Spices": ["Sel", "Poivre", "Poudre d'ail", "Cannelle", "Origan", "Basilic", "Thym", "Curry en poudre", "Paprika", "Poudre de chili", "Gingembre", "Romarin"]
+        },
+        "it": {
+            "Fruits": ["Mela", "Banana", "Arancia", "Fragola", "Uva", "Ananas", "Mango", "Pesca", "Pera", "Anguria", "Limone", "Mirtillo"],
+            "Vegetables": ["Carota", "Pomodoro", "Cetriolo", "Patata", "Cipolla", "Aglio", "Spinaci", "Lattuga", "Broccolo", "Cavolfiore", "Zucchina", "Peperone"],
+            "Meat": ["Petto di pollo", "Bistecca di manzo", "Costolette di maiale", "Salmone", "Tonno", "Tacchino", "Salsicce", "Pancetta", "Agnello", "Anatra", "Prosciutto", "Vitello"],
+            "Dairy": ["Latte", "Formaggio", "Burro", "Yogurt", "Panna", "Cottage cheese", "Mozzarella", "Ricotta", "Parmigiano", "Gouda", "Feta", "Brie"],
+            "Grains": ["Riso", "Pasta", "Fiocchi d'avena", "Farina", "Pane", "Cereali", "Quinoa", "Orzo", "Segale", "Farina di mais", "Tortillas", "Bulgur"],
+            "Sweets": ["Cioccolato", "Gelato", "Biscotti", "Torta", "Caramelle", "Dolci", "Donuts", "Budino", "Gelatina", "Muffin", "Brownies", "Crostata"],
+            "Beverages": ["Caffè", "Tè", "Succo", "Bibita", "Frullato", "Limonata", "Energy drink", "Vino", "Birra", "Whisky", "Cocktail", "Acqua frizzante"],
+            "Spices": ["Sale", "Pepe", "Aglio in polvere", "Cannella", "Origano", "Basilico", "Timo", "Curry in polvere", "Paprika", "Peperoncino in polvere", "Zenzero", "Rosmarino"]
+    }
+    },
+    "categories_pharmacy": {
+        "en": {
+            "Medications": {
+                "Pain relievers": [
+                    "Paracetamol tablets", "Ibuprofen capsules", "Analgin ampoules", "Nurofen syrup",
+                    "Aspirin effervescent", "Ketorol gel", "Diclofenac ointment", "Tempalgin tablets"
+                ],
+                "Antivirals": [
+                    "Arbidol capsules", "Kagocel tablets", "Ingavirin capsules", "Anaferon pediatric",
+                    "Tamiflu powder", "Rimantadine tablets", "Cycloferon injections", "Acyclovir cream"
+                ],
+                "Antibiotics": [
+                    "Amoxicillin capsules", "Ceftriaxone powder", "Azithromycin tablets", "Levofloxacin drops",
+                    "Clarithromycin suspension", "Doxycycline capsules", "Sumamed tablets", "Ciprofloxacin ointment"
+                ]
+            },
+            "Vitamins and supplements": {
+                "Adult vitamins": [
+                    "Complivit tablets", "Vitamin C effervescent", "Magnesium B6 capsules", "Vitamin D drops",
+                    "Omega-3 capsules", "Zinc tablets", "Vitamin E capsules", "Calcium D3 tablets"
+                ],
+                "Children's vitamins": [
+                    "Multivitamin syrup", "Vitamin D pediatric drops", "Calcium chewable tablets",
+                    "Omega-3 chewable capsules", "Vitamin C chewable pastilles", "Iron syrup",
+                    "Vitamin A drops", "Immunity complex pastilles"
+                ],
+                "Dietary supplements": [
+                    "Curcumin capsules", "Collagen powder", "Spirulina tablets", "Glucosamine capsules",
+                    "Echinacea tincture", "Probiotics capsules", "Melatonin tablets", "Lecithin capsules"
+                ]
+            },
+            "Health products": {
+                "Respiratory care": [
+                    "Ultrasonic inhaler", "Nasal spray", "Saline solution ampoules", "Nasal strips",
+                    "Nasal drops", "Compressor inhaler", "Physiological solution", "Inhaler mask"
+                ],
+                "Skin care": [
+                    "Dry skin cream", "Problem skin gel", "Antiseptic cream", "Moisturizing lotion",
+                    "Bepanthen cream", "Wound healing cream", "Panthenol spray", "Sunburn cream"
+                ],
+                "Eye care": [
+                    "Moisturizing drops", "Contact lens solution", "Computer glasses", "Eye fatigue drops",
+                    "Vision vitamins", "Eyeglass wipes", "Disposable lenses", "Eyelid gel"
+                ]
+            },
+            "Medical devices": {
+                "Blood pressure monitors": [
+                    "Electronic tonometer", "Manual tonometer", "Automatic tonometer", "Tonometer cuff",
+                    "Wrist tonometer", "Power adapter for tonometer", "Tonometer batteries", "Tonometer storage case"
+                ],
+                "Thermometers": [
+                    "Electronic thermometer", "Infrared thermometer", "Mercury thermometer", "Bath thermometer",
+                    "Children's thermometer", "Contact thermometer", "Forehead thermometer", "Flexible tip thermometer"
+                ],
+                "Glucometers and accessories": [
+                    "Electronic glucometer", "Glucometer test strips", "Glucometer lancets", "Glucometer case",
+                    "Bluetooth glucometer", "Lancet needles", "Calibration solution", "Voice-guided glucometer"
+                ]
+            },
+            "Mom and baby products": {
+                "Baby care": [
+                    "Disposable diapers", "Diaper cream", "Baby powder", "Wet wipes",
+                    "Massage oil", "Hair brush", "Safety scissors", "Silicone pacifier"
+                ],
+                "Feeding supplies": [
+                    "Baby bottle", "Bottle sterilizer", "Nipple set", "Manual breast pump",
+                    "Electric breast pump", "Milk storage containers", "Bottle warmer", "Bib"
+                ],
+                "Baby health": [
+                    "Colic drops", "Baby thermometer", "Nasal care kit", "Pacifier thermometer",
+                    "Nasal spray", "Teething gel", "Ear drops", "Children's plasters"
+                ]
+            }
+        },
+        "de": {
+            "Medikamente": {
+                "Schmerzmittel": [
+                    "Paracetamol Tabletten", "Ibuprofen Kapseln", "Analgin Ampullen", "Nurofen Sirup",
+                    "Aspirin Brausetabletten", "Ketorol Gel", "Diclofenac Salbe", "Tempalgin Tabletten"
+                ],
+                "Antivirale Mittel": [
+                    "Arbidol Kapseln", "Kagocel Tabletten", "Ingavirin Kapseln", "Anaferon für Kinder",
+                    "Tamiflu Pulver", "Rimantadin Tabletten", "Cycloferon Injektionen", "Aciclovir Creme"
+                ],
+                "Antibiotika": [
+                    "Amoxicillin Kapseln", "Ceftriaxon Pulver", "Azithromycin Tabletten", "Levofloxacin Tropfen",
+                    "Clarithromycin Suspension", "Doxycyclin Kapseln", "Sumamed Tabletten", "Ciprofloxacin Salbe"
+                ]
+            },
+            "Vitamine und Nahrungsergänzungsmittel": {
+                "Vitamine für Erwachsene": [
+                    "Complivit Tabletten", "Vitamin C Brausetabletten", "Magnesium B6 Kapseln", "Vitamin D Tropfen",
+                    "Omega-3 Kapseln", "Zink Tabletten", "Vitamin E Kapseln", "Calcium D3 Tabletten"
+                ],
+                "Vitamine für Kinder": [
+                    "Multivitamin Sirup", "Vitamin D Kindertropfen", "Calcium Kautabletten",
+                    "Omega-3 Kaukapseln", "Vitamin C Lutschtabletten", "Eisen Sirup",
+                    "Vitamin A Tropfen", "Immunkomplex Pastillen"
+                ],
+                "Nahrungsergänzungsmittel": [
+                    "Kurkuma Kapseln", "Kollagen Pulver", "Spirulina Tabletten", "Glucosamin Kapseln",
+                    "Echinacea Tinktur", "Probiotika Kapseln", "Melatonin Tabletten", "Lecithin Kapseln"
+                ]
+            },
+            "Gesundheitsprodukte": {
+                "Atemwegsprodukte": [
+                    "Ultraschall-Inhalator", "Nasenspray", "Kochsalzlösung Ampullen", "Nasenpflaster",
+                    "Nasentropfen", "Kompressor-Inhalator", "Physiologische Lösung", "Inhalator-Maske"
+                ],
+                "Hautpflege": [
+                    "Trockene Haut Creme", "Problemhaut Gel", "Antiseptische Creme", "Feuchtigkeitslotion",
+                    "Bepanthen Creme", "Wundheilungscreme", "Panthenol Spray", "Sonnenbrandcreme"
+                ],
+                "Augenpflege": [
+                    "Befeuchtende Tropfen", "Kontaktlinsenflüssigkeit", "Computerbrille", "Augentropfen gegen Müdigkeit",
+                    "Sehkraft-Vitamine", "Brillenreinigungstücher", "Einweg-Kontaktlinsen", "Augenlid-Gel"
+                ]
+            },
+            "Medizinische Geräte": {
+                "Blutdruckmessgeräte": [
+                    "Elektronisches Blutdruckmessgerät", "Mechanisches Blutdruckmessgerät", "Automatisches Blutdruckmessgerät", "Blutdruckmanschette",
+                    "Handgelenk-Blutdruckmessgerät", "Netzadapter", "Batterien für Blutdruckmessgerät", "Aufbewahrungstasche"
+                ],
+                "Thermometer": [
+                    "Elektronisches Thermometer", "Infrarot-Thermometer", "Quecksilber-Thermometer", "Badethermometer",
+                    "Kinderthermometer", "Kontakt-Thermometer", "Stirn-Thermometer", "Thermometer mit flexibler Spitze"
+                ],
+                "Blutzuckermessgeräte und Zubehör": [
+                    "Elektronisches Blutzuckermessgerät", "Teststreifen", "Lanzetten", "Etui für Blutzuckermessgerät",
+                    "Bluetooth-Blutzuckermessgerät", "Lanzettennadeln", "Kontrolllösung", "Sprachgesteuertes Blutzuckermessgerät"
+                ]
+            },
+            "Produkte für Mutter und Baby": {
+                "Babypflege": [
+                    "Einwegwindeln", "Wundschutzcreme", "Babypuder", "Feuchttücher",
+                    "Massageöl", "Haarbürste", "Abgerundete Schere", "Silikon-Schnuller"
+                ],
+                "Fütterungszubehör": [
+                    "Babyflasche", "Flaschensterilisator", "Sauger-Set", "Handmilchpumpe",
+                    "Elektrische Milchpumpe", "Milchaufbewahrungsbehälter", "Flaschenwärmer", "Lätzchen"
+                ],
+                "Babygesundheit": [
+                    "Tropfen gegen Koliken", "Babythermometer", "Nasenpflege-Set", "Schnuller-Thermometer",
+                    "Nasenspray", "Zahnungsgel", "Ohrentropfen", "Kinderpflaster"
+                ]
+            }
+        },
+        "cz": {
+            "Léky": {
+                "Analgetika": [
+                    "Paracetamol tablety", "Ibuprofen kapsle", "Analgin ampule", "Nurofen sirup",
+                    "Aspirin šumivé tablety", "Ketorol gel", "Diclofenac mast", "Tempalgin tablety"
+                ],
+                "Antivirové přípravky": [
+                    "Arbidol kapsle", "Kagocel tablety", "Ingavirin kapsle", "Anaferon pro děti",
+                    "Tamiflu prášek", "Rimantadin tablety", "Cykloferon injekce", "Acyclovir krém"
+                ],
+                "Antibiotika": [
+                    "Amoxicillin kapsle", "Ceftriaxon prášek", "Azithromycin tablety", "Levofloxacin kapky",
+                    "Clarithromycin suspenze", "Doxycyklin kapsle", "Sumamed tablety", "Ciprofloxacin mast"
+                ]
+            },
+            "Vitamíny a doplňky": {
+                "Vitamíny pro dospělé": [
+                    "Complivit tablety", "Vitamin C šumivý", "Hořčík B6 kapsle", "Vitamin D kapky",
+                    "Omega-3 kapsle", "Zinek tablety", "Vitamin E kapsle", "Vápník D3 tablety"
+                ],
+                "Vitamíny pro děti": [
+                    "Multivitaminy sirup", "Vitamin D dětský kapky", "Vápník žvýkací tablety",
+                    "Omega-3 žvýkací kapsle", "Vitamin C žvýkací pastilky", "Železo sirup",
+                    "Vitamin A kapky", "Komplex pro imunitu pastilky"
+                ],
+                "Doplňky stravy": [
+                    "Kurkumin kapsle", "Kolagen prášek", "Spirulina tablety", "Glukosamin kapsle",
+                    "Echinacea tinktura", "Probiotika kapsle", "Melatonin tablety", "Lecitin kapsle"
+                ]
+            },
+            "Zdravotní pomůcky": {
+                "Pro dýchání": [
+                    "Ultrazvukový inhalátor", "Nosní sprej", "Solný roztok ampule", "Nosní náplast",
+                    "Kapky do nosu", "Kompresorový inhalátor", "Fyziologický roztok", "Maska pro inhalátor"
+                ],
+                "Péče o pleť": [
+                    "Krém pro suchou pleť", "Gel pro problematickou pleť", "Antiseptický krém", "Hydratační mléko",
+                    "Bepanthen krém", "Krém na hojení ran", "Panthenol sprej", "Krém proti spáleninám od slunce"
+                ],
+                "Pro zrak": [
+                    "Hydratační kapky", "Roztok na čočky", "Brýle pro počítač", "Kapky proti únavě očí",
+                    "Vitamíny pro zrak", "Ubrousky na brýle", "Jednorázové čočky", "Gel na víčka"
+                ]
+            },
+            "Lékařské přístroje": {
+                "Pro měření tlaku": [
+                    "Elektronický tonometr", "Mechanický tonometr", "Automatický tonometr", "Manžeta pro tonometr",
+                    "Tonometr na zápěstí", "Síťový adaptér pro tonometr", "Baterie pro tonometr", "Pouzdro na tonometr"
+                ],
+                "Teploměry": [
+                    "Elektronický teploměr", "Infračervený teploměr", "Rtuťový teploměr", "Teploměr do vody",
+                    "Teploměr pro děti", "Kontaktní teploměr", "Čelní teploměr", "Teploměr s ohebnou špičkou"
+                ],
+                "Glucometry a příslušenství": [
+                    "Elektronický glukometr", "Testovací proužky pro glukometr", "Lancety pro glukometr", "Pouzdro pro glukometr",
+                    "Glukometr s Bluetooth", "Jehly pro lancetu", "Kalibrační roztok", "Glukometr s hlasovým doprovodem"
+                ]
+            },
+            "Zboží pro maminky a děti": {
+                "Péče o dítě": [
+                    "Jednorázové pleny", "Krém pod pleny", "Dětský pudr", "Vlhčené ubrousky",
+                    "Masážní olej", "Kartáček na vlasy", "Nůžky se zaoblenými hroty", "Silikonový dudlík"
+                ],
+                "Pro krmení": [
+                    "Láhev na krmení", "Sterilizátor na láhve", "Sada saviček", "Ruční odsávačka mléka",
+                    "Elektrická odsávačka mléka", "Kontejnery na uchování mléka", "Ohřívač lahví", "Bryndák"
+                ],
+                "Pro zdraví dítěte": [
+                    "Kapky proti kolikám", "Teploměr pro děti", "Sada pro péči o nos", "Dudlík s teploměrem",
+                    "Nosní sprej", "Gel na prořezávání zubů", "Kapky do uší", "Dětská náplast"
+                ]
+            }
+        },
+        "ru": {
+            "Лекарственные препараты": {
+                "Болеутоляющие": [
+                    "Парацетамол таблетки", "Ибупрофен капсулы", "Анальгин ампулы", "Нурофен сироп",
+                    "Аспирин шипучие таблетки", "Кеторол гель", "Диклофенак мазь", "Темпалгин таблетки"
+                ],
+                "Противовирусные": [
+                    "Арбидол капсулы", "Кагоцел таблетки", "Ингавирин капсулы", "Анаферон детский",
+                    "Тамифлю порошок", "Ремантадин таблетки", "Циклоферон инъекции", "Ацикловир крем"
+                ],
+                "Антибиотики": [
+                    "Амоксициллин капсулы", "Цефтриаксон порошок", "Азитромицин таблетки", "Левофлоксацин капли",
+                    "Кларитромицин суспензия", "Доксициклин капсулы", "Сумамед таблетки", "Ципрофлоксацин мазь"
+                ]
+            },
+            "Витамины и добавки": {
+                "Витамины для взрослых": [
+                    "Компливит таблетки", "Витамин C шипучий", "Магний B6 капсулы", "Витамин D капли",
+                    "Омега-3 капсулы", "Цинк таблетки", "Витамин E капсулы", "Кальций D3 таблетки"
+                ],
+                "Витамины для детей": [
+                    "Мультивитамины сироп", "Витамин D детский капли", "Кальций жевательные таблетки",
+                    "Омега-3 жевательные капсулы", "Витамин C жевательные пастилки", "Железо сироп",
+                    "Витамин A капли", "Комплекс для иммунитета пастилки"
+                ],
+                "Биологически активные добавки": [
+                    "Куркумин капсулы", "Коллаген порошок", "Спирулина таблетки", "Глюкозамин капсулы",
+                    "Эхинацея настойка", "Пробиотики капсулы", "Мелатонин таблетки", "Лецитин капсулы"
+                ]
+            },
+            "Товары для здоровья": {
+                "Средства для дыхания": [
+                    "Ингалятор ультразвуковой", "Спрей для носа", "Солевой раствор ампулы", "Пластырь для носа",
+                    "Капли для носа", "Ингалятор компрессорный", "Физиологический раствор", "Маска для ингалятора"
+                ],
+                "Для ухода за кожей": [
+                    "Крем для сухой кожи", "Гель для проблемной кожи", "Антисептический крем", "Увлажняющий лосьон",
+                    "Бепантен крем", "Крем для заживления ран", "Пантенол спрей", "Крем от солнечных ожогов"
+                ],
+                "Для зрения": [
+                    "Капли увлажняющие", "Раствор для линз", "Очки для компьютера", "Капли от усталости глаз",
+                    "Витамины для зрения", "Салфетки для очков", "Линзы одноразовые", "Гель для век"
+                ]
+            },
+            "Медицинские приборы": {
+                "Для измерения давления": [
+                    "Электронный тонометр", "Механический тонометр", "Автоматический тонометр", "Манжета для тонометра",
+                    "Тонометр на запястье", "Сетевой адаптер для тонометра", "Батарейки для тонометра", "Сумка для хранения тонометра"
+                ],
+                "Термометры": [
+                    "Электронный термометр", "Инфракрасный термометр", "Ртутный термометр", "Термометр для воды",
+                    "Термометр для детей", "Контактный термометр", "Лобный термометр", "Термометр с гибким наконечником"
+                ],
+                "Глюкометры и аксессуары": [
+                    "Глюкометр электронный", "Тест-полоски для глюкометра", "Ланцеты для глюкометра", "Чехол для глюкометра",
+                    "Глюкометр с Bluetooth", "Иглы для ланцета", "Калибровочный раствор", "Глюкометр с голосовым сопровождением"
+                ]
+            },
+            "Товары для мам и малышей": {
+                "Для ухода за малышом": [
+                    "Подгузники одноразовые", "Крем под подгузник", "Присыпка детская", "Салфетки влажные",
+                    "Масло для массажа", "Щетка для волос", "Ножницы с закругленными концами", "Пустышка силиконовая"
+                ],
+                "Для кормления": [
+                    "Бутылочка для кормления", "Стерилизатор для бутылочек", "Набор сосок", "Молокоотсос ручной",
+                    "Молокоотсос электрический", "Контейнеры для хранения молока", "Подогреватель для бутылочек", "Слюнявчик"
+                ],
+                "Для здоровья малыша": [
+                    "Капли от коликов", "Термометр для детей", "Набор для ухода за носом", "Градусник-пустышка",
+                    "Спрей для носа", "Гель для прорезывания зубов", "Капли для ушей", "Пластырь детский"
+                ]
+            }
+        },
+        "fr": {
+            "Médicaments": {
+                "Antalgiques": [
+                    "Paracétamol comprimés", "Ibuprofène capsules", "Analgésique ampoules", "Nurofen sirop",
+                    "Aspirine effervescente", "Ketorol gel", "Diclofénac pommade", "Tempalgin comprimés"
+                ],
+                "Antiviraux": [
+                    "Arbidol capsules", "Kagocel comprimés", "Ingavirin capsules", "Anaferon enfant",
+                    "Tamiflu poudre", "Rimantadine comprimés", "Cycloferon injections", "Acyclovir crème"
+                ],
+                "Antibiotiques": [
+                    "Amoxicilline capsules", "Ceftriaxone poudre", "Azithromycine comprimés", "Levofloxacine gouttes",
+                    "Clarithromycine suspension", "Doxycycline capsules", "Sumamed comprimés", "Ciprofloxacine pommade"
+                ]
+            },
+            "Vitamines et compléments": {
+                "Vitamines pour adultes": [
+                    "Complivit comprimés", "Vitamine C effervescente", "Magnésium B6 capsules", "Vitamine D gouttes",
+                    "Oméga-3 capsules", "Zinc comprimés", "Vitamine E capsules", "Calcium D3 comprimés"
+                ],
+                "Vitamines pour enfants": [
+                    "Multivitamines sirop", "Vitamine D enfant gouttes", "Calcium comprimés à mâcher",
+                    "Oméga-3 capsules à mâcher", "Vitamine C pastilles", "Fer sirop",
+                    "Vitamine A gouttes", "Complexe immunité pastilles"
+                ],
+                "Compléments alimentaires": [
+                    "Curcuma capsules", "Collagène poudre", "Spiruline comprimés", "Glucosamine capsules",
+                    "Échinacée teinture", "Probiotiques capsules", "Mélatonine comprimés", "Lécithine capsules"
+                ]
+            },
+            "Produits de santé": {
+                "Respiration": [
+                    "Inhalateur ultrasonique", "Spray nasal", "Solution saline ampoules", "Patch nasal",
+                    "Gouttes pour le nez", "Inhalateur à compresseur", "Solution physiologique", "Masque pour inhalateur"
+                ],
+                "Soins de la peau": [
+                    "Crème pour peau sèche", "Gel pour peau à problèmes", "Crème antiseptique", "Lotion hydratante",
+                    "Bepanthène crème", "Crème cicatrisante", "Panthénol spray", "Crème solaire"
+                ],
+                "Soins des yeux": [
+                    "Gouttes hydratantes", "Solution pour lentilles", "Lunettes anti-lumière bleue", "Gouttes contre la fatigue",
+                    "Vitamines pour les yeux", "Lingettes pour lunettes", "Lentilles jetables", "Gel pour paupières"
+                ]
+            },
+            "Appareils médicaux": {
+                "Tensiomètres": [
+                    "Tensiomètre électronique", "Tensiomètre manuel", "Tensiomètre automatique", "Brassard pour tensiomètre",
+                    "Tensiomètre poignet", "Adaptateur secteur", "Piles pour tensiomètre", "Housse de rangement"
+                ],
+                "Thermomètres": [
+                    "Thermomètre électronique", "Thermomètre infrarouge", "Thermomètre au mercure", "Thermomètre pour bain",
+                    "Thermomètre enfant", "Thermomètre contact", "Thermomètre frontal", "Thermomètre flexible"
+                ],
+                "Glucomètres et accessoires": [
+                    "Glucomètre électronique", "Bandelettes réactives", "Lancettes pour glucomètre", "Étui pour glucomètre",
+                    "Glucomètre Bluetooth", "Aiguilles pour lancettes", "Solution d'étalonnage", "Glucomètre vocal"
+                ]
+            },
+            "Produits pour maman et bébé": {
+                "Soins pour bébé": [
+                    "Couches jetables", "Crème pour couches", "Poudre pour bébé", "Lingettes humides",
+                    "Huile de massage", "Brosse à cheveux", "Ciseaux à bouts ronds", "Tétine en silicone"
+                ],
+                "Alimentation": [
+                    "Biberon", "Stérilisateur pour biberons", "Lot de tétines", "Tire-lait manuel",
+                    "Tire-lait électrique", "Contenants pour lait", "Chauffe-biberon", "Bavoir"
+                ],
+                "Santé du bébé": [
+                    "Gouttes anti-coliques", "Thermomètre pour enfant", "Kit pour le nez", "Thermomètre tétine",
+                    "Spray nasal", "Gel pour les dents", "Gouttes auriculaires", "Pansements décoratifs"
+                ]
+            }
+        },
+        "it": {
+            "Farmaci": {
+                "Antidolorifici": [
+                    "Paracetamolo compresse", "Ibuprofene capsule", "Analgesico fiale", "Nurofen sciroppo",
+                    "Aspirina effervescente", "Ketorol gel", "Diclofenac pomata", "Tempalgin compresse"
+                ],
+                "Antivirali": [
+                    "Arbidol capsule", "Kagocel compresse", "Ingavirin capsule", "Anaferon bambini",
+                    "Tamiflu polvere", "Rimantadina compresse", "Cycloferon iniezioni", "Acyclovir crema"
+                ],
+                "Antibiotici": [
+                    "Amoxicillina capsule", "Ceftriaxone polvere", "Azitromicina compresse", "Levofloxacina gocce",
+                    "Claritromicina sospensione", "Doxiciclina capsule", "Sumamed compresse", "Ciprofloxacina pomata"
+                ]
+            },
+            "Vitamine e integratori": {
+                "Vitamine per adulti": [
+                    "Complivit compresse", "Vitamina C effervescente", "Magnesio B6 capsule", "Vitamina D gocce",
+                    "Omega-3 capsule", "Zinco compresse", "Vitamina E capsule", "Calcio D3 compresse"
+                ],
+                "Vitamine per bambini": [
+                    "Multivitaminico sciroppo", "Vitamina D bambini gocce", "Calcio masticabile compresse",
+                    "Omega-3 masticabile capsule", "Vitamina C pastiglie", "Ferro sciroppo",
+                    "Vitamina A gocce", "Integratore per immunità pastiglie"
+                ],
+                "Integratori alimentari": [
+                    "Curcumina capsule", "Collagene polvere", "Spirulina compresse", "Glucosamina capsule",
+                    "Echinacea tintura", "Probiotici capsule", "Melatonina compresse", "Lecitina capsule"
+                ]
+            },
+            "Prodotti per la salute": {
+                "Per la respirazione": [
+                    "Inalatore ad ultrasuoni", "Spray nasale", "Soluzione salina fiale", "Cerotto nasale",
+                    "Gocce per il naso", "Inalatore a compressore", "Soluzione fisiologica", "Maschera per inalatore"
+                ],
+                "Per la cura della pelle": [
+                    "Crema per pelle secca", "Gel per pelle problematica", "Crema antisettica", "Lozione idratante",
+                    "Bepanthen crema", "Crema cicatrizzante", "Pantenolo spray", "Crema solare"
+                ],
+                "Per la vista": [
+                    "Gocce idratanti", "Soluzione per lenti", "Occhiali per computer", "Gocce contro la stanchezza",
+                    "Vitamine per la vista", "Salviette per occhiali", "Lenti monouso", "Gel per palpebre"
+                ]
+            },
+            "Dispositivi medici": {
+                "Per la pressione sanguigna": [
+                    "Sfigmomanometro elettronico", "Sfigmomanometro manuale", "Sfigmomanometro automatico", "Bracciale per sfigmomanometro",
+                    "Sfigmomanometro da polso", "Adattatore di rete", "Batterie per sfigmomanometro", "Custodia per sfigmomanometro"
+                ],
+                "Termometri": [
+                    "Termometro elettronico", "Termometro a infrarossi", "Termometro a mercurio", "Termometro per l'acqua",
+                    "Termometro per bambini", "Termometro a contatto", "Termometro frontale", "Termometro flessibile"
+                ],
+                "Glucometri e accessori": [
+                    "Glucometro elettronico", "Strisce reattive per glucometro", "Lancette per glucometro", "Custodia per glucometro",
+                    "Glucometro con Bluetooth", "Aghi per lancette", "Soluzione di calibrazione", "Glucometro con guida vocale"
+                ]
+            },
+            "Prodotti per mamme e bambini": {
+                "Per la cura del bambino": [
+                    "Pannolini usa e getta", "Crema per pannolini", "Borotalco per bambini", "Salviette umidificate",
+                    "Olio per massaggi", "Spazzola per capelli", "Forbicine a punta arrotondata", "Succhietto in silicone"
+                ],
+                "Per l'alimentazione": [
+                    "Biberon", "Sterilizzatore per biberon", "Set di tettarelle", "Tiralatte manuale",
+                    "Tiralatte elettrico", "Contenitori per latte", "Scaldabiberon", "Bavaglino"
+                ],
+                "Per la salute del bambino": [
+                    "Gocce per coliche", "Termometro per bambini", "Kit per la pulizia del naso", "Termometro ciuccio",
+                    "Spray nasale", "Gel per la dentizione", "Gocce per le orecchie", "Cerotto decorativo"
+                ]
+            }
+        }
+    },
+    "categories_forum": {
+        "en": {
+            "Technology": ["Artificial Intelligence", "Blockchain Innovations", "Future of Robotics", "Quantum Computing Advances", "Cybersecurity Trends", "5G Networks", "Space Exploration Technology", "Renewable Energy Solutions", "Augmented Reality Applications", "Internet of Things"],
+            "Science": ["Breakthroughs in Physics", "Genetic Engineering", "Climate Change Studies", "Medical Innovations", "Neuroscience Discoveries", "Deep Ocean Exploration", "Astronomy Advances", "AI in Science", "Environmental Sustainability", "Nanotechnology"],
+            "Health": ["Mental Health Awareness", "Nutrition Science", "Fitness Trends", "Innovations in Surgery", "Chronic Disease Management", "Healthcare Policy", "Telemedicine Advances", "Women’s Health", "Public Health Initiatives", "Healthy Aging"],
+            "Art": ["Modern Art Movements", "Photography Techniques", "Digital Art Creation", "Classical Art Revival", "Street Art Stories", "Sculpture Innovations", "Film and Media", "Graphic Design Trends", "Animation Breakthroughs", "Art History Insights"],
+            "Business": ["Entrepreneurship Tips", "Global Market Trends", "Innovative Startups", "E-commerce Growth", "Financial Planning", "Corporate Social Responsibility", "Workplace Culture", "Future of Work", "Marketing Strategies", "Leadership Development"],
+            "Education": ["Online Learning Platforms", "EdTech Innovations", "Teaching Strategies", "Student Mental Health", "Inclusive Education", "Future of Classrooms", "Educational Policies", "Language Learning Tips", "STEM Education", "Lifelong Learning"],
+            "Sports": ["Football Tactics", "Olympic Games Highlights", "Cricket Strategies", "Fitness for Athletes", "Extreme Sports", "Esports and Gaming", "Tennis Techniques", "Basketball Skills", "Athlete Biographies", "Sports Psychology"],
+            "Travel": ["Exotic Destinations", "Travel Safety Tips", "Backpacking Guides", "Sustainable Tourism", "Cultural Experiences", "Travel Photography", "Road Trip Ideas", "Luxury Travel Spots", "Adventure Tourism", "Local Cuisine Explorations"],
+            "Entertainment": ["Top Movies of the Year", "Music Trends", "Celebrity News", "Streaming Platforms", "TV Series Reviews", "Video Game Releases", "Book Recommendations", "Stand-up Comedy", "Live Concerts", "Theater Performances"],
+            "Lifestyle": ["Home Decor Ideas", "Minimalist Living", "Fashion Trends", "Personal Finance Tips", "Time Management Hacks", "Cooking and Recipes", "Mindfulness Practices", "Sustainable Living", "DIY Projects", "Hobby Inspiration"]
+        },
+        "de": {
+            "Technologie": ["Künstliche Intelligenz", "Blockchain-Innovationen", "Zukunft der Robotik", "Fortschritte im Quantencomputing", "Trends in der Cybersicherheit", "5G-Netzwerke", "Technologien der Weltraumforschung", "Lösungen für erneuerbare Energien", "Anwendungen der erweiterten Realität", "Internet der Dinge"],
+            "Wissenschaft": ["Durchbrüche in der Physik", "Gentechnik", "Klimawandel-Studien", "Medizinische Innovationen", "Entdeckungen in der Neurowissenschaft", "Tiefsee-Exploration", "Fortschritte in der Astronomie", "KI in der Wissenschaft", "Nachhaltigkeit der Umwelt", "Nanotechnologie"],
+            "Gesundheit": ["Bewusstsein für psychische Gesundheit", "Ernährungswissenschaft", "Fitness-Trends", "Innovationen in der Chirurgie", "Management chronischer Krankheiten", "Gesundheitspolitik", "Fortschritte in der Telemedizin", "Frauengesundheit", "Initiativen im öffentlichen Gesundheitswesen", "Gesundes Altern"],
+            "Kunst": ["Moderne Kunstbewegungen", "Fototechniken", "Erstellung digitaler Kunst", "Klassische Kunst im Aufschwung", "Geschichten der Straßenkunst", "Innovationen in der Bildhauerei", "Film und Medien", "Trends im Grafikdesign", "Durchbrüche in der Animation", "Einblicke in die Kunstgeschichte"],
+            "Geschäft": ["Tipps für Unternehmer", "Globale Marktentwicklungen", "Innovative Startups", "Wachstum des E-Commerce", "Finanzplanung", "Soziale Verantwortung von Unternehmen", "Arbeitsplatzkultur", "Zukunft der Arbeit", "Marketingstrategien", "Führungskräfteentwicklung"],
+            "Bildung": ["Online-Lernplattformen", "Innovation im EdTech", "Lehrstrategien", "Mentale Gesundheit der Schüler", "Inklusive Bildung", "Zukunft der Klassenzimmer", "Bildungspolitik", "Sprachenlernen-Tipps", "STEM-Bildung", "Lebenslanges Lernen"],
+            "Sport": ["Fußballtaktiken", "Highlights der Olympischen Spiele", "Strategien im Cricket", "Fitness für Sportler", "Extremsportarten", "E-Sport und Spiele", "Tennis-Techniken", "Basketball-Fähigkeiten", "Sportler-Biografien", "Sportpsychologie"],
+            "Reisen": ["Exotische Reiseziele", "Reisesicherheitstipps", "Rucksackreisen-Führer", "Nachhaltiger Tourismus", "Kulturelle Erlebnisse", "Reisefotografie", "Roadtrip-Ideen", "Luxusreiseziele", "Abenteuerreisen", "Lokale Küche entdecken"],
+            "Unterhaltung": ["Top-Filme des Jahres", "Musiktrends", "Promi-News", "Streaming-Plattformen", "Serienrezensionen", "Videospielveröffentlichungen", "Buch-Empfehlungen", "Stand-up-Comedy", "Live-Konzerte", "Theateraufführungen"],
+            "Lebensstil": ["Wohnideen", "Minimalistischer Lebensstil", "Modetrends", "Persönliche Finanztipps", "Zeitmanagement", "Kochen und Rezepte", "Achtsamkeitspraxis", "Nachhaltiger Lebensstil", "DIY-Projekte", "Hobby-Inspiration"]
+        },
+        "cz": {
+            "Technologie": ["Umělá inteligence", "Inovace blockchainu", "Budoucnost robotiky", "Pokroky v kvantovém počítání", "Trendy kybernetické bezpečnosti", "Sítě 5G", "Technologie vesmírného výzkumu", "Řešení obnovitelné energie", "Aplikace rozšířené reality", "Internet věcí"],
+            "Věda": ["Průlomy ve fyzice", "Genetické inženýrství", "Studie změny klimatu", "Lékařské inovace", "Objevy v neurovědách", "Hlubinný výzkum oceánů", "Pokroky v astronomii", "Umělá inteligence ve vědě", "Ekologická udržitelnost", "Nanotechnologie"],
+            "Zdraví": ["Povědomí o duševním zdraví", "Věda o výživě", "Trendy ve fitness", "Inovace v chirurgii", "Řízení chronických nemocí", "Zdravotní politika", "Pokroky v telemedicíně", "Zdraví žen", "Veřejné zdravotní iniciativy", "Zdravé stárnutí"],
+            "Umění": ["Moderní umělecké směry", "Techniky fotografie", "Tvorba digitálního umění", "Oživení klasického umění", "Příběhy pouličního umění", "Inovace ve sochařství", "Film a média", "Trendy grafického designu", "Pokroky v animaci", "Pohledy do historie umění"],
+            "Podnikání": ["Tipy pro podnikatele", "Globální tržní trendy", "Inovativní startupy", "Růst elektronického obchodu", "Finanční plánování", "Sociální odpovědnost firem", "Kultura na pracovišti", "Budoucnost práce", "Marketingové strategie", "Rozvoj vedení"],
+            "Vzdělávání": ["Online vzdělávací platformy", "Inovace v EdTechu", "Strategie výuky", "Duševní zdraví studentů", "Inkluzivní vzdělávání", "Budoucnost učeben", "Vzdělávací politika", "Tipy na učení jazyků", "STEM vzdělávání", "Celoživotní učení"],
+            "Sport": ["Fotbalová taktika", "Hlavní momenty olympiád", "Strategie v kriketu", "Fitness pro sportovce", "Extrémní sporty", "Esporty a hry", "Techniky tenisu", "Basketbalové dovednosti", "Životopisy sportovců", "Psychologie sportu"],
+            "Cestování": ["Exotické destinace", "Tipy na bezpečné cestování", "Průvodce pro batůžkáře", "Udržitelný turismus", "Kulturní zážitky", "Cestovatelská fotografie", "Nápady na výlety autem", "Luxusní destinace", "Dobrodružný turismus", "Zkoumání místní kuchyně"],
+            "Zábava": ["Nejlepší filmy roku", "Hudební trendy", "Novinky o celebritách", "Streamingové platformy", "Recenze seriálů", "Nové videohry", "Doporučení knih", "Stand-up komedie", "Živé koncerty", "Divadelní představení"],
+            "Životní styl": ["Nápady na domácí dekorace", "Minimalistický životní styl", "Módní trendy", "Tipy na osobní finance", "Time management", "Vaření a recepty", "Mindfulness praktiky", "Udržitelný životní styl", "DIY projekty", "Inspirace pro koníčky"]
+        },
+        "ru": {
+            "Технологии": ["Искусственный интеллект", "Инновации блокчейна", "Будущее робототехники", "Квантовые вычисления", "Тренды кибербезопасности", "Сети 5G", "Технологии космических исследований", "Решения для возобновляемой энергии", "Применение дополненной реальности", "Интернет вещей"],
+            "Наука": ["Прорывы в физике", "Генетическая инженерия", "Исследования изменения климата", "Медицинские инновации", "Открытия в нейронауке", "Глубоководные исследования", "Достижения астрономии", "ИИ в науке", "Экологическая устойчивость", "Нанотехнологии"],
+            "Здоровье": ["Осознание психического здоровья", "Наука о питании", "Тренды фитнеса", "Инновации в хирургии", "Управление хроническими заболеваниями", "Политика здравоохранения", "Развитие телемедицины", "Женское здоровье", "Общественные инициативы в здравоохранении", "Здоровое старение"],
+            "Искусство": ["Современные направления искусства", "Техники фотографии", "Создание цифрового искусства", "Возрождение классического искусства", "Истории уличного искусства", "Инновации в скульптуре", "Кино и медиа", "Тренды графического дизайна", "Прорывы в анимации", "Инсайты истории искусства"],
+            "Бизнес": ["Советы по предпринимательству", "Глобальные рыночные тренды", "Инновационные стартапы", "Рост электронной коммерции", "Финансовое планирование", "Социальная ответственность корпораций", "Культура рабочего места", "Будущее работы", "Маркетинговые стратегии", "Развитие лидерства"],
+            "Образование": ["Онлайн-платформы для обучения", "Инновации в образовательных технологиях", "Стратегии преподавания", "Психическое здоровье студентов", "Инклюзивное образование", "Будущее классных комнат", "Образовательная политика", "Советы по изучению языков", "STEM-образование", "Обучение на протяжении жизни"],
+            "Спорт": ["Тактика футбола", "Основные моменты Олимпийских игр", "Стратегии в крикете", "Фитнес для спортсменов", "Экстремальные виды спорта", "Киберспорт и игры", "Техники тенниса", "Навыки баскетбола", "Биографии спортсменов", "Психология спорта"],
+            "Путешествия": ["Экзотические направления", "Советы по безопасности в путешествиях", "Руководства для путешествий с рюкзаком", "Устойчивый туризм", "Культурные впечатления", "Фотография путешествий", "Идеи для автопутешествий", "Роскошные места отдыха", "Приключенческий туризм", "Изучение местной кухни"],
+            "Развлечения": ["Лучшие фильмы года", "Тренды музыки", "Новости о знаменитостях", "Платформы для стриминга", "Обзоры телесериалов", "Релизы видеоигр", "Рекомендации книг", "Стендап-комедия", "Живые концерты", "Театральные постановки"],
+            "Образ жизни": ["Идеи для домашнего декора", "Минималистичный образ жизни", "Модные тренды", "Советы по личным финансам", "Лайфхаки по управлению временем", "Готовка и рецепты", "Практики осознанности", "Устойчивый образ жизни", "Проекты своими руками", "Вдохновение для хобби"]
+        },
+        "fr": {
+            "Technologie": ["Intelligence artificielle", "Innovations blockchain", "Avenir de la robotique", "Progrès en calcul quantique", "Tendances en cybersécurité", "Réseaux 5G", "Technologies d'exploration spatiale", "Solutions pour les énergies renouvelables", "Applications de réalité augmentée", "Internet des objets"],
+            "Science": ["Percées en physique", "Ingénierie génétique", "Études sur le changement climatique", "Innovations médicales", "Découvertes en neurosciences", "Exploration des océans profonds", "Progrès en astronomie", "IA dans la science", "Durabilité environnementale", "Nanotechnologies"],
+            "Santé": ["Conscience de la santé mentale", "Science de la nutrition", "Tendances fitness", "Innovations chirurgicales", "Gestion des maladies chroniques", "Politiques de santé", "Progrès en télémédecine", "Santé des femmes", "Initiatives de santé publique", "Vieillissement en bonne santé"],
+            "Art": ["Mouvements artistiques modernes", "Techniques photographiques", "Création d'art numérique", "Renaissance de l'art classique", "Histoires de street art", "Innovations dans la sculpture", "Cinéma et médias", "Tendances du design graphique", "Progrès en animation", "Perspectives sur l'histoire de l'art"],
+            "Affaires": ["Conseils pour entrepreneurs", "Tendances mondiales des marchés", "Startups innovantes", "Croissance du commerce électronique", "Planification financière", "Responsabilité sociale des entreprises", "Culture d'entreprise", "Futur du travail", "Stratégies marketing", "Développement du leadership"],
+            "Éducation": ["Plateformes d'apprentissage en ligne", "Innovations dans l'EdTech", "Stratégies pédagogiques", "Santé mentale des étudiants", "Éducation inclusive", "Futur des salles de classe", "Politiques éducatives", "Conseils pour l'apprentissage des langues", "Éducation STEM", "Apprentissage tout au long de la vie"],
+            "Sport": ["Tactiques de football", "Moments forts des Jeux olympiques", "Stratégies au cricket", "Fitness pour les athlètes", "Sports extrêmes", "Esports et jeux vidéo", "Techniques de tennis", "Compétences en basket-ball", "Biographies de sportifs", "Psychologie du sport"],
+            "Voyages": ["Destinations exotiques", "Conseils pour voyager en sécurité", "Guide pour les backpackers", "Tourisme durable", "Expériences culturelles", "Photographie de voyage", "Idées de road trip", "Destinations de luxe", "Tourisme d'aventure", "Découvrir la cuisine locale"],
+            "Divertissement": ["Meilleurs films de l'année", "Tendances musicales", "Actualités sur les célébrités", "Plateformes de streaming", "Critiques de séries", "Nouveaux jeux vidéo", "Recommandations de livres", "Stand-up comedy", "Concerts en direct", "Représentations théâtrales"],
+            "Mode de vie": ["Idées de décoration intérieure", "Mode de vie minimaliste", "Tendances de la mode", "Conseils pour les finances personnelles", "Gestion du temps", "Cuisine et recettes", "Pratiques de pleine conscience", "Mode de vie durable", "Projets DIY", "Inspiration pour les loisirs"]
+        },
+        "it": {
+            "Tecnologia": ["Intelligenza artificiale", "Innovazioni blockchain", "Futuro della robotica", "Progressi nel calcolo quantistico", "Tendenze della sicurezza informatica", "Reti 5G", "Tecnologie di esplorazione spaziale", "Soluzioni per energie rinnovabili", "Applicazioni di realtà aumentata", "Internet delle cose"],
+            "Scienza": ["Scoperte nella fisica", "Ingegneria genetica", "Studi sul cambiamento climatico", "Innovazioni mediche", "Scoperte in neuroscienze", "Esplorazione degli oceani profondi", "Progressi in astronomia", "AI nella scienza", "Sostenibilità ambientale", "Nanotecnologie"],
+            "Salute": ["Consapevolezza della salute mentale", "Scienza della nutrizione", "Tendenze fitness", "Innovazioni chirurgiche", "Gestione delle malattie croniche", "Politiche sanitarie", "Progressi nella telemedicina", "Salute delle donne", "Iniziative per la salute pubblica", "Invecchiamento in salute"],
+            "Arte": ["Movimenti artistici moderni", "Tecniche fotografiche", "Creazione di arte digitale", "Rinascita dell'arte classica", "Storie di street art", "Innovazioni nella scultura", "Cinema e media", "Tendenze nel design grafico", "Progresso nell'animazione", "Approfondimenti sulla storia dell'arte"],
+            "Affari": ["Suggerimenti per imprenditori", "Tendenze globali dei mercati", "Startup innovative", "Crescita dell'e-commerce", "Pianificazione finanziaria", "Responsabilità sociale aziendale", "Cultura aziendale", "Futuro del lavoro", "Strategie di marketing", "Sviluppo della leadership"],
+            "Istruzione": ["Piattaforme di apprendimento online", "Innovazioni nell'EdTech", "Strategie didattiche", "Salute mentale degli studenti", "Educazione inclusiva", "Futuro delle aule", "Politiche educative", "Consigli per l'apprendimento delle lingue", "Educazione STEM", "Apprendimento permanente"],
+            "Sport": ["Tattiche calcistiche", "Momenti salienti delle Olimpiadi", "Strategie nel cricket", "Fitness per atleti", "Sport estremi", "Esport e giochi", "Tecniche di tennis", "Abilità nel basket", "Biografie di atleti", "Psicologia dello sport"],
+            "Viaggi": ["Destinazioni esotiche", "Consigli per viaggiare sicuri", "Guida per backpacker", "Turismo sostenibile", "Esperienze culturali", "Fotografia di viaggio", "Idee per road trip", "Destinazioni di lusso", "Turismo avventuroso", "Esplorare la cucina locale"],
+            "Intrattenimento": ["I migliori film dell'anno", "Tendenze musicali", "Notizie sulle celebrità", "Piattaforme di streaming", "Recensioni di serie TV", "Nuovi videogiochi", "Consigli sui libri", "Stand-up comedy", "Concerti dal vivo", "Spettacoli teatrali"],
+            "Stile di vita": ["Idee per l'arredamento", "Vita minimalista", "Tendenze della moda", "Consigli per le finanze personali", "Gestione del tempo", "Cucina e ricette", "Pratiche di mindfulness", "Stile di vita sostenibile", "Progetti fai-da-te", "Ispirazione per hobby"]
+        }
+    },
+    "categories_online_shop": {
+        "en": {
+            "Men's Clothing": {
+                "Outerwear": ["Padded Jacket", "Wool Coat", "Hooded Parka", "Sports Windbreaker", "Leather Jacket"],
+                "Jeans and Pants": ["Classic Jeans", "Skinny Jeans", "Chino Pants", "Cargo Pants", "Distressed Jeans"],
+                "T-Shirts and Shirts": ["Basic T-Shirt", "Printed T-Shirt", "Classic Shirt", "Checkered Shirt", "Polo Shirt"]
+            },
+            "Women's Clothing": {
+                "Dresses and Skirts": ["Evening Dress", "Pencil Skirt", "Cocktail Dress", "Pleated Skirt", "Summer Dress"],
+                "Pants and Leggings": ["Classic Pants", "Yoga Leggings", "Wide Pants", "Thermal Leggings", "High-Waisted Pants"],
+                "Outerwear": ["Cashmere Coat", "Down Jacket", "Waterproof Raincoat", "Faux Fur Coat", "Biker Jacket"]
+            },
+            "Children's Clothing": {
+                "Outerwear": ["Padded Jacket", "Winter Overalls", "Children's Coat", "Boys' Windbreaker", "Raincoat"],
+                "School Uniform": ["School Blazer", "School Skirt", "Boys' Shirt", "Girls' Dress", "School Pants"],
+                "Sportswear": ["Hoodie", "Track Pants", "Training Tank Top", "Workout Set", "PE Uniform"]
+            },
+            "Footwear": {
+                "Men's Footwear": ["Classic Shoes", "Casual Sneakers", "Winter Boots", "Leather Loafers", "Summer Sandals"],
+                "Women's Footwear": ["Heeled Booties", "Ballet Flats", "Running Sneakers", "Winter Boots", "Strappy Sandals"],
+                "Children's Footwear": ["Warm Boots", "Kids' Sneakers", "Kids' Sandals", "Rubber Boots", "Home Slippers"]
+            },
+            "Accessories": {
+                "Headwear": ["Knitted Hat", "Baseball Cap", "Summer Bucket Hat", "Felt Hat", "Tube Scarf"],
+                "Bags and Backpacks": ["Urban Backpack", "Crossbody Bag", "Leather Briefcase", "Shopper Bag", "Evening Clutch"],
+                "Scarves and Gloves": ["Cashmere Scarf", "Leather Gloves", "Knitted Scarf", "Thermal Mittens", "Touchscreen Gloves"]
+            }
+        },
+        "de": {
+            "Herrenbekleidung": {
+                "Oberbekleidung": ["Gepolsterte Jacke", "Wollmantel", "Parka mit Kapuze", "Sport-Windjacke", "Lederjacke"],
+                "Jeans und Hosen": ["Klassische Jeans", "Skinny Jeans", "Chino-Hosen", "Cargo-Hosen", "Zerrissene Jeans"],
+                "T-Shirts und Hemden": ["Basic T-Shirt", "Bedrucktes T-Shirt", "Klassisches Hemd", "Kariertes Hemd", "Polohemd"]
+            },
+            "Damenbekleidung": {
+                "Kleider und Röcke": ["Abendkleid", "Bleistiftrock", "Cocktailkleid", "Plissierter Rock", "Sommerkleid"],
+                "Hosen und Leggings": ["Klassische Hosen", "Yoga-Leggings", "Weite Hosen", "Thermo-Leggings", "Hosen mit hohem Bund"],
+                "Oberbekleidung": ["Kaschmirmantel", "Daunenjacke", "Wasserdichter Regenmantel", "Kunstpelzmantel", "Bikerjacke"]
+            },
+            "Kinderbekleidung": {
+                "Oberbekleidung": ["Gepolsterte Jacke", "Winteroverall", "Kinderjacke", "Jungen-Windjacke", "Regenmantel"],
+                "Schuluniform": ["Schulblazer", "Schulrock", "Jungenhemd", "Mädchenkleid", "Schulhosen"],
+                "Sportbekleidung": ["Kapuzenpullover", "Trainingshosen", "Trainings-Tanktop", "Trainingsset", "Sportuniform"]
+            },
+            "Schuhe": {
+                "Herrenschuhe": ["Klassische Schuhe", "Freizeitsneaker", "Winterstiefel", "Lederslipper", "Sommersandalen"],
+                "Damenschuhe": ["Absatzstiefeletten", "Ballerinas", "Laufschuhe", "Winterstiefel", "Sandalen mit Riemen"],
+                "Kinderschuhe": ["Warme Stiefel", "Kinderturnschuhe", "Kindersandalen", "Gummistiefel", "Hausschuhe"]
+            },
+            "Zubehör": {
+                "Kopfbedeckungen": ["Strickmütze", "Baseballkappe", "Sommerhut", "Filzhut", "Schlauchschal"],
+                "Taschen und Rucksäcke": ["Urbaner Rucksack", "Umhängetasche", "Lederaktentasche", "Shopper", "Abendtasche"],
+                "Schals und Handschuhe": ["Kaschmirschal", "Lederhandschuhe", "Strickschal", "Thermohandschuhe", "Touchscreen-Handschuhe"]
+            }
+        },
+        "cz": {
+            "Pánské oblečení": {
+                "Svrchní oděvy": ["Zateplená bunda", "Vlněný kabát", "Parkový kabát", "Sportovní větrovka", "Kožená bunda"],
+                "Džíny a kalhoty": ["Klasické džíny", "Skinny džíny", "Kalhoty chino", "Kalhoty cargo", "Roztrhané džíny"],
+                "Trička a košile": ["Základní tričko", "Potiskové tričko", "Klasická košile", "Kostkovaná košile", "Polokošile"]
+            },
+            "Dámské oblečení": {
+                "Šaty a sukně": ["Večerní šaty", "Sukně pencil", "Koktejlové šaty", "Plisovaná sukně", "Letní šaty"],
+                "Kalhoty a legíny": ["Klasické kalhoty", "Jógové legíny", "Široké kalhoty", "Zateplené legíny", "Kalhoty s vysokým pasem"],
+                "Svrchní oděvy": ["Kašmírový kabát", "Péřová bunda", "Nepromokavý plášť", "Kožich z umělé kožešiny", "Kožená bunda"]
+            },
+            "Dětské oblečení": {
+                "Svrchní oděvy": ["Bunda se zateplením", "Zimní kombinéza", "Dětský kabát", "Chlapecká větrovka", "Pláštěnka"],
+                "Školní uniformy": ["Školní sako", "Školní sukně", "Košile pro chlapce", "Šaty pro dívky", "Školní kalhoty"],
+                "Sportovní oblečení": ["Mikina s kapucí", "Sportovní kalhoty", "Tréninkové tílko", "Sada na cvičení", "Uniforma na tělocvik"]
+            },
+            "Obuv": {
+                "Pánská obuv": ["Klasické boty", "Volnočasové tenisky", "Zimní boty", "Kožené mokasíny", "Letní sandály"],
+                "Dámská obuv": ["Kotníkové boty na podpatku", "Baleríny", "Běžecké tenisky", "Zimní boty", "Sandály s pásky"],
+                "Dětská obuv": ["Zateplené boty", "Dětské tenisky", "Dětské sandály", "Gumové holínky", "Domácí pantofle"]
+            },
+            "Doplňky": {
+                "Pokrývky hlavy": ["Pletená čepice", "Kšiltovka", "Letní klobouk", "Plstěný klobouk", "Nákrčník"],
+                "Tašky a batohy": ["Městský batoh", "Taška přes rameno", "Kožený aktovka", "Taška shopper", "Večerní psaníčko"],
+                "Šály a rukavice": ["Kašmírová šála", "Kožené rukavice", "Pletená šála", "Zateplené rukavice", "Rukavice na dotykové displeje"]
+            }
+        },
+        "ru": {
+            "Мужская одежда": {
+                "Верхняя одежда": [ "Куртка утепленная", "Пальто шерстяное", "Парка с капюшоном", "Ветровка спортивная", "Кожаная куртка" ],
+                "Джинсы и брюки": [ "Джинсы классические", "Джинсы скинни", "Брюки чиносы", "Брюки карго", "Джинсы с потертостями" ],
+                "Футболки и рубашки": ["Футболка базовая", "Футболка с принтом", "Рубашка классическая", "Рубашка в клетку", "Футболка поло" ]
+            },
+            "Женская одежда": {
+                "Платья и юбки": [ "Платье вечернее", "Юбка-карандаш", "Платье коктейльное", "Юбка плиссированная", "Платье летнее" ],
+                "Брюки и леггинсы": [ "Классические брюки", "Леггинсы для йоги", "Брюки широкие", "Леггинсы утепленные", "Брюки с высокой талией" ],
+                "Верхняя одежда": [ "Пальто кашемировое","Куртка пуховая", "Плащ водонепроницаемый", "Шуба искусственная", "Куртка-косуха" ]
+            },
+            "Детская одежда": {
+                "Верхняя одежда": [ "Куртка с утеплителем", "Комбинезон зимний", "Пальто детское", "Ветровка для мальчиков", "Дождевик" ],
+                "Школьная форма": [ "Пиджак школьный", "Юбка школьная", "Рубашка для мальчиков", "Платье для девочек", "Брюки школьные" ],
+                "Спортивная одежда": [ "Толстовка с капюшоном", "Штаны спортивные", "Майка для занятий", "Комплект для тренировок", "Костюм для физкультуры" ]
+            },
+            "Обувь": {
+                "Мужская обувь": [ "Туфли классические", "Кроссовки повседневные", "Ботинки зимние", "Мокасины кожаные", "Сандалии летние" ],
+                "Женская обувь": [ "Ботильоны на каблуке", "Туфли балетки", "Кроссовки для бега", "Сапоги зимние", "Сандалии с ремешками" ],
+                "Детская обувь": [ "Ботинки утепленные", "Кроссовки детские", "Сандалии детские", "Резиновые сапоги", "Тапочки для дома" ]
+            },
+            "Аксессуары": {
+                "Головные уборы": [ "Шапка вязаная", "Кепка с козырьком", "Панамка летняя", "Шляпа фетровая", "Шарф-труба" ],
+                "Сумки и рюкзаки": [ "Рюкзак городской", "Сумка через плечо", "Портфель кожаный", "Сумка-шоппер", "Клатч вечерний" ],
+                "Шарфы и перчатки": [ "Шарф кашемировый", "Перчатки кожаные", "Шарф вязаный", "Митенки утепленные", "Перчатки для экрана" ]
+            }
+        },
+        "fr": {
+            "Vêtements Homme": {
+                "Manteaux et vestes": ["Blouson matelassé", "Manteau en laine", "Parka à capuche", "Coupe-vent sportif", "Veste en cuir"],
+                "Jeans et pantalons": ["Jeans classiques", "Jeans skinny", "Pantalons chino", "Pantalons cargo", "Jeans usés"],
+                "T-shirts et chemises": ["T-shirt basique", "T-shirt imprimé", "Chemise classique", "Chemise à carreaux", "Polo"]
+            },
+            "Vêtements Femme": {
+                "Robes et jupes": ["Robe de soirée", "Jupe crayon", "Robe cocktail", "Jupe plissée", "Robe d'été"],
+                "Pantalons et leggings": ["Pantalons classiques", "Leggings pour le yoga", "Pantalons larges", "Leggings thermiques", "Pantalons taille haute"],
+                "Manteaux et vestes": ["Manteau en cachemire", "Doudoune", "Imperméable", "Manteau en fausse fourrure", "Veste biker"]
+            },
+            "Vêtements Enfants": {
+                "Manteaux et vestes": ["Blouson matelassé", "Combinaison d'hiver", "Manteau enfant", "Coupe-vent garçon", "Imperméable"],
+                "Uniformes scolaires": ["Blazer scolaire", "Jupe scolaire", "Chemise garçon", "Robe fille", "Pantalons scolaires"],
+                "Vêtements de sport": ["Sweat à capuche", "Pantalons de survêtement", "Débardeur d'entraînement", "Ensemble de sport", "Tenue d'éducation physique"]
+            },
+            "Chaussures": {
+                "Chaussures Homme": ["Chaussures classiques", "Sneakers décontractées", "Bottes d'hiver", "Mocassins en cuir", "Sandales d'été"],
+                "Chaussures Femme": ["Bottines à talons", "Ballerines", "Sneakers de course", "Bottes d'hiver", "Sandales à brides"],
+                "Chaussures Enfants": ["Bottes matelassées", "Sneakers pour enfants", "Sandales pour enfants", "Bottes en caoutchouc", "Pantoufles d'intérieur"]
+            },
+            "Accessoires": {
+                "Chapeaux": ["Bonnet tricoté", "Casquette à visière", "Chapeau d'été", "Chapeau en feutre", "Tour de cou"],
+                "Sacs et sacs à dos": ["Sac à dos urbain", "Sac en bandoulière", "Malette en cuir", "Sac cabas", "Pochette de soirée"],
+                "Écharpes et gants": ["Écharpe en cachemire", "Gants en cuir", "Écharpe tricotée", "Gants thermiques", "Gants tactiles"]
+            }
+        },
+        "it": {
+            "Abbigliamento Uomo": {
+                "Capi Spalla": ["Giacca imbottita", "Cappotto in lana", "Parka con cappuccio", "Giacca a vento sportiva", "Giacca in pelle"],
+                "Jeans e Pantaloni": ["Jeans classici", "Jeans skinny", "Pantaloni chino", "Pantaloni cargo", "Jeans strappati"],
+                "Magliette e Camicie": ["T-shirt base", "T-shirt stampata", "Camicia classica", "Camicia a quadri", "Polo"]
+            },
+            "Abbigliamento Donna": {
+                "Vestiti e Gonne": ["Abito da sera", "Gonna a tubino", "Abito da cocktail", "Gonna plissettata", "Abito estivo"],
+                "Pantaloni e Leggings": ["Pantaloni classici", "Leggings per yoga", "Pantaloni ampi", "Leggings termici", "Pantaloni a vita alta"],
+                "Capi Spalla": ["Cappotto in cashmere", "Piumino", "Impermeabile", "Cappotto in pelliccia sintetica", "Giacca da motociclista"]
+            },
+            "Abbigliamento Bambini": {
+                "Capi Spalla": ["Giacca imbottita", "Tuta invernale", "Cappotto per bambini", "Giacca a vento per ragazzi", "Impermeabile"],
+                "Uniformi Scolastiche": ["Blazer scolastico", "Gonna scolastica", "Camicia per ragazzi", "Vestito per ragazze", "Pantaloni scolastici"],
+                "Abbigliamento Sportivo": ["Felpa con cappuccio", "Pantaloni da tuta", "Canotta per allenamento", "Set per allenamento", "Divisa da educazione fisica"]
+            },
+            "Scarpe": {
+                "Scarpe Uomo": ["Scarpe classiche", "Sneaker casual", "Scarponi invernali", "Mocassini in pelle", "Sandali estivi"],
+                "Scarpe Donna": ["Stivaletti con tacco", "Ballerine", "Sneaker da corsa", "Scarponi invernali", "Sandali con cinturini"],
+                "Scarpe Bambini": ["Scarponi imbottiti", "Sneaker per bambini", "Sandali per bambini", "Stivali in gomma", "Pantofole da casa"]
+            },
+            "Accessori": {
+                "Cappelli": ["Cappello in maglia", "Berretto con visiera", "Cappello estivo", "Cappello in feltro", "Scaldacollo"],
+                "Borse e Zaini": ["Zaino urbano", "Borsa a tracolla", "Valigetta in pelle", "Borsa shopper", "Clutch da sera"],
+                "Sciarpe e Guanti": ["Sciarpa in cashmere", "Guanti in pelle", "Sciarpa lavorata a maglia", "Guanti termici", "Guanti touchscreen"]
+            }
+        }
+    }
+}

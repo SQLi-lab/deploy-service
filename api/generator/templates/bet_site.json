@@ -1,0 +1,206 @@
+{
+    "tables": [
+        {
+            "name": "users",
+            "columns": [
+                {"name": "login", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "password", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "role", "type": "VARCHAR(50)", "constraint": "NOT NULL"}
+            ],
+            "primary_key": "login",
+            "connectivity_degree": 0
+        },
+        {
+            "name": "user_personal_info",
+            "columns": [
+                {"name": "login", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "name", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "birth_date", "type": "DATE", "constraint": "NOT NULL"},
+                {"name": "address", "type": "TEXT", "constraint": "NOT NULL"},
+                {"name": "phone_number", "type": "VARCHAR(20)", "constraint": "NOT NULL"},
+                {"name": "balance", "type": "NUMERIC(10, 2)", "constraint": "NOT NULL"},
+                {"name": "secret", "type": "VARCHAR(40)"}
+            ],
+            "secret": true,
+            "primary_key": "login",
+            "connectivity_degree": 2,
+            "foreign_keys": [
+                {
+                    "column": "login",
+                    "references_column": "login",
+                    "references_table": "users"
+                }
+            ]
+        },
+        {
+            "name": "sports_categories",
+            "columns": [
+                {"name": "category", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "description", "type": "TEXT", "constraint": "NULL"},
+                {"name": "secret", "type": "VARCHAR(40)"}
+            ],
+            "secret": false,
+            "primary_key": "category",
+            "connectivity_degree": 0
+        },
+        {
+            "name": "matches",
+            "columns": [
+                {"name": "match_id", "type": "BIGINT", "constraint": "NOT NULL"},
+                {"name": "category", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "team_first", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "team_second", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "match_date", "type": "TIMESTAMP", "constraint": "NOT NULL"},
+                {"name": "secret", "type": "VARCHAR(40)"}
+            ],
+            "secret": true,
+            "primary_key": "match_id",
+            "connectivity_degree": 2,
+            "foreign_keys": [
+                {
+                    "column": "category",
+                    "references_column": "category",
+                    "references_table": "sports_categories"
+                }
+            ]
+        },
+        {
+            "name": "bet_outcomes",
+            "columns": [
+                {"name": "outcome_id", "type": "BIGINT", "constraint": "NOT NULL"},
+                {"name": "match_id", "type": "BIGINT", "constraint": "NOT NULL"},
+                {"name": "outcome_type", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "description", "type": "TEXT", "constraint": "NULL"},
+                {"name": "odds_team_first", "type": "NUMERIC(5, 2)", "constraint": "NOT NULL"},
+                {"name": "odds_team_second", "type": "NUMERIC(5, 2)", "constraint": "NOT NULL"},
+                {"name": "secret", "type": "VARCHAR(40)"}
+            ],
+            "secret": false,
+            "primary_key": "outcome_id",
+            "connectivity_degree": 2,
+            "foreign_keys": [
+                {
+                    "column": "match_id",
+                    "references_column": "match_id",
+                    "references_table": "matches"
+                }
+            ]
+        },
+        {
+            "name": "user_bets",
+            "columns": [
+                {"name": "bet_id", "type": "BIGINT", "constraint": "NOT NULL"},
+                {"name": "login", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "outcome_id", "type": "BIGINT", "constraint": "NOT NULL"},
+                {"name": "amount", "type": "NUMERIC(10, 2)", "constraint": "NOT NULL"},
+                {"name": "bet_date", "type": "TIMESTAMP", "constraint": "NOT NULL"},
+                {"name": "payout", "type": "NUMERIC(10, 2)", "constraint": "NULL"},
+                {"name": "secret", "type": "VARCHAR(40)"}
+            ],
+            "secret": false,
+            "primary_key": "bet_id",
+            "connectivity_degree": 3,
+            "foreign_keys": [
+                {
+                    "column": "login",
+                    "references_column": "login",
+                    "references_table": "users"
+                },
+                {
+                    "column": "outcome_id",
+                    "references_column": "outcome_id",
+                    "references_table": "bet_outcomes"
+                }
+            ]
+        },
+        {
+            "name": "match_results",
+            "columns": [
+                {"name": "match_id", "type": "BIGINT", "constraint": "NOT NULL"},
+                {"name": "score_team_first", "type": "INT", "constraint": "NOT NULL"},
+                {"name": "score_team_second", "type": "INT", "constraint": "NOT NULL"},
+                {"name": "result_time", "type": "TIMESTAMP", "constraint": "NOT NULL"},
+                {"name": "secret", "type": "VARCHAR(40)"}
+            ],
+            "secret": false,
+            "primary_key": "match_id",
+            "connectivity_degree": 2,
+            "foreign_keys": [
+                {
+                    "column": "match_id",
+                    "references_column": "match_id",
+                    "references_table": "matches"
+                }
+            ]
+        },
+        {
+            "name": "bet_statistics",
+            "columns": [
+                {"name": "stat_id", "type": "BIGINT", "constraint": "NOT NULL"},
+                {"name": "login", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "bets_placed", "type": "INT", "constraint": "NOT NULL"},
+                {"name": "bets_won", "type": "INT", "constraint": "NOT NULL"},
+                {"name": "total_amount_bet", "type": "NUMERIC(10, 2)", "constraint": "NOT NULL"},
+                {"name": "total_winnings", "type": "NUMERIC(10, 2)", "constraint": "NOT NULL"},
+                {"name": "secret", "type": "VARCHAR(40)"}
+            ],
+            "secret": false,
+            "primary_key": "stat_id",
+            "connectivity_degree": 2,
+            "foreign_keys": [
+                {
+                    "column": "login",
+                    "references_column": "login",
+                    "references_table": "users"
+                }
+            ]
+        },
+        {
+            "name": "payments",
+            "columns": [
+                {"name": "payment_id", "type": "BIGINT", "constraint": "NOT NULL"},
+                {"name": "login", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "amount", "type": "NUMERIC(10, 2)", "constraint": "NOT NULL"},
+                {"name": "payment_method", "type": "VARCHAR(50)", "constraint": "NOT NULL"},
+                {"name": "payment_date", "type": "TIMESTAMP", "constraint": "NOT NULL"},
+                {"name": "payment_status", "type": "VARCHAR(50)", "constraint": "NOT NULL"},
+                {"name": "secret", "type": "VARCHAR(40)"}
+            ],
+            "secret": false,
+            "primary_key": "payment_id",
+            "connectivity_degree": 2,
+            "foreign_keys": [
+                {
+                    "column": "login",
+                    "references_column": "login",
+                    "references_table": "users"
+                }
+            ]
+        },
+        {
+            "name": "bet_results",
+            "columns": [
+                {"name": "outcome_id", "type": "BIGINT", "constraint": "NOT NULL"},
+                {"name": "match_id", "type": "BIGINT", "constraint": "NOT NULL"},
+                {"name": "is_successful", "type": "BOOLEAN", "constraint": "NOT NULL"},
+                {"name": "settlement_time", "type": "TIMESTAMP", "constraint": "NOT NULL"},
+                {"name": "secret", "type": "VARCHAR(40)"}
+            ],
+            "secret": false,
+            "primary_key": "outcome_id",
+            "connectivity_degree": 3,
+            "foreign_keys": [
+                {
+                    "column": "outcome_id",
+                    "references_column": "outcome_id",
+                    "references_table": "bet_outcomes"
+                },
+                {
+                    "column": "match_id",
+                    "references_column": "match_id",
+                    "references_table": "matches"
+                }
+            ]
+        }
+    ]
+}

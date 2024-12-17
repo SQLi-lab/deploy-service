@@ -1,10 +1,13 @@
+import random
+
 import dramatiq
 import requests
 from dramatiq.brokers.redis import RedisBroker
 from datetime import datetime, timedelta
 from api.ansible import AnsibleApi
 from api.postgres import DBConnector
-from config.config import REDIS_HOST, REDIS_PORT, logger, WATCHER_URL
+from config.config import REDIS_HOST, REDIS_PORT, logger, WATCHER_URL, \
+    VARIANT_MAP, NUM_OF_VARIANTS
 
 redis_broker = RedisBroker(host=REDIS_HOST, port=REDIS_PORT, db=0)
 dramatiq.set_broker(redis_broker)
@@ -26,13 +29,16 @@ def create_lab_task(uuid: str, expired_seconds: str):
     if not ok:
         return
 
-    secret_hash = db.set_secret_hash(uuid)
+    secret_hash = db.set_secret_hash(uuid) # получение хэш части секрета secret_{secret_hash}
     if not secret_hash:
         return
 
+    random_variant = random.randint(1, NUM_OF_VARIANTS)
+    variant_name = VARIANT_MAP[random_variant]
+
     try:
-        # TODO: update database через сервисы пацанов
-        ansible.start_playbook('lab', uuid) # TODO: добавить запуск фронта и бэка Апишка
+        db.upload_variant(uuid, secret_hash, variant_name) # заполенние БД данными
+        ansible.start_playbook(variant_name, uuid) # запуск контейнеров с лабами
     except Exception as e:
         ok = db.change_status(uuid, 'Ошибка создания')
         if not ok:
@@ -97,6 +103,10 @@ def delete_lab_task(uuid: str):
         raise Exception(e)
 
     ok = db.change_status(uuid, 'Остановлена')
+    if not ok:
+        return
+
+    ok = db.drop_database(uuid)
     if not ok:
         return
 

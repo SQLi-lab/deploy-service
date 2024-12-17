@@ -5,6 +5,7 @@ import psycopg2
 import pytz
 from datetime import datetime
 from config.config import logger
+from api.generator.source.generator import main_generation
 
 
 class DBConnector:
@@ -16,10 +17,10 @@ class DBConnector:
         Метод создания нового подключения к БД Postgres
         """
         self.POSTGRES_HOST = os.getenv('POSTGRES_HOST')
-        self.POSTGRES_DB = os.getenv('POSTGRES_DB')
         self.POSTGRES_USER = os.getenv('POSTGRES_USER')
         self.POSTGRES_PASS = os.getenv('POSTGRES_PASS')
         self.POSTGRES_PORT = os.getenv('POSTGRES_PORT')
+        self.POSTGRES_DB = os.getenv('POSTGRES_DB')
 
         if not self.POSTGRES_HOST or not self.POSTGRES_DB or not self.POSTGRES_USER or not self.POSTGRES_PASS or not self.POSTGRES_PORT:
             logger.error(
@@ -56,9 +57,35 @@ class DBConnector:
         """
         Метод получения экземпляра _conn
         """
-        if not self._conn:
-            self.__init__()
+        if not self._conn or self._conn.closed:
+            logger.info(
+                "Соединение отсутствует или закрыто. Попытка восстановления...")
+            try:
+                self._conn = psycopg2.connect(
+                    host=self.POSTGRES_HOST,
+                    database=self.POSTGRES_DB,
+                    user=self.POSTGRES_USER,
+                    password=self.POSTGRES_PASS,
+                    port=self.POSTGRES_PORT
+                )
+                logger.info("Соединение успешно восстановлено.")
+            except Exception as e:
+                logger.error(f"Ошибка восстановления соединения: {e}")
+                raise e
 
+        return self._conn
+
+    def get_lab_conn(self, database_name):
+        """
+        Метод создает и возвращает подключение к Database лабораторной
+        """
+        self._conn = psycopg2.connect(
+            host=self.POSTGRES_HOST,
+            database=database_name,
+            user=self.POSTGRES_USER,
+            password=self.POSTGRES_PASS,
+            port=self.POSTGRES_PORT
+        )
         return self._conn
 
     def commit(self):
@@ -76,6 +103,7 @@ class DBConnector:
         """
         if self._conn:
             self._conn.close()
+        self._conn = None
 
     def change_status(self, uuid: str, status: str) -> bool:
         """
@@ -127,7 +155,6 @@ class DBConnector:
         logger.info(f"[ {uuid} ]: URL установлен")
         return True
 
-
     def set_date(self, uuid: str, date_type: str) -> (str, bool):
         """
         Метод зменяет выбранное поле даты, ставит текущую дату
@@ -167,7 +194,9 @@ class DBConnector:
         cursor = conn.cursor()
 
         random_number = random.randint(1, 999999)
-        secret = f'secret_{hashlib.sha1(str(random_number).encode('utf-8')).hexdigest()}'
+        secret_in_hash = hashlib.sha1(
+            str(random_number).encode('utf-8')).hexdigest()[:-1]
+        secret = f'secret_{secret_in_hash}'
         secret_hash = hashlib.sha256(str(secret).encode('utf-8')).hexdigest()
 
         update_query = """
@@ -186,9 +215,87 @@ class DBConnector:
 
         cursor.close()
         logger.info(f"[ {uuid} ]: Секретный хэш установлен")
-        return secret_hash
+        return secret_in_hash
 
-    def upload_variant(self):
-        # TODO: работа с сервисом Егора и заполеннеие БД вариантом
-        pass
+    def upload_variant(self, uuid, secret: str, variant: str):
+        """
+        Метод создает и заполняет таблицу лабораторной данными
+        """
+        generator_config = {
+            "target_area": variant,
+            "uuid": uuid,
+            "secrets": [
+                f"ibks1_{{{secret[0:13]}}}",
+                f"ibks2_{{{secret[13:26]}}}",
+                f"ibks3_{{{secret[26:]}}}"
+            ]
+        }
 
+        structure_sql, data_sql = main_generation(generator_config)
+        database_name = uuid.replace("-", "_")
+
+        conn = self.get_conn()
+        conn.autocommit = True
+        cursor = conn.cursor()
+
+        db_create_query_drop = f"""
+                        DROP DATABASE IF EXISTS "{database_name}";
+                        """
+        db_create_query_create = f"""
+                        CREATE DATABASE "{database_name}";
+                        """
+
+        try:
+            cursor.execute(db_create_query_drop)
+            cursor.execute(db_create_query_create)
+            self.commit()
+        except Exception:
+            logger.error(
+                f"[ {uuid} ]: Ошибка при создании таблицы для лабораторной")
+            raise Exception("Ошибка при создании таблицы для лабораторной")
+        cursor.close()
+
+        db_conn = self.get_lab_conn(database_name)
+        db_conn.autocommit = True
+        cursor = db_conn.cursor()
+
+        try:
+            cursor.execute(structure_sql)
+            cursor.execute(data_sql)
+            self.commit()
+        except Exception:
+            logger.error(
+                f"[ {uuid} ]: Ошибка при заполнении таблицы данными")
+            raise Exception("Ошибка при заполнении таблицы данными")
+
+        cursor.close()
+        logger.info(
+            f"[ {uuid} ]: В Postgres созданы таблицы и заполнены данными")
+        db_conn.close()
+
+    def drop_database(self, uuid) -> bool:
+        """
+        Метод удаляет таблицу лабораторной из БД
+        """
+        database_name = uuid.replace("-", "_")
+
+        conn = self.get_conn()
+        conn.autocommit = True
+        cursor = conn.cursor()
+
+        db_create_query_drop = f"""
+                                DROP DATABASE IF EXISTS "{database_name}";
+                                """
+
+        try:
+            cursor.execute(db_create_query_drop)
+            self.commit()
+        except Exception:
+            logger.error(
+                f"[ {uuid} ]: Ошибка при удалении таблицы для лабораторной")
+            return False
+
+        logger.info(f"[ {uuid} ]: Таблица в Postgres удалена")
+        cursor.close()
+        conn.close()
+        return True
