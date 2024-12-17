@@ -1,3 +1,5 @@
+import os
+
 import redis.exceptions
 from fastapi import FastAPI, APIRouter
 from pydantic import BaseModel

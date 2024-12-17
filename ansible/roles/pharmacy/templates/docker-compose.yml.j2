@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  {{ UUID }}-back:
+    image: dvwa-pharmary-back:latest
+    container_name: "{{ UUID }}-back"
+    restart: always
+    networks:
+      - sqli_lab
+    environment:
+      REACT_APP_BACKEND_URL: "/away/{{ UUID }}/api"
+      POSTGRES_HOST: postgres
+      POSTGRES_DB: {{ UUID }}
+      POSTGRES_USER: sqli_user
+      POSTGRES_PASS: sqli_pass
+      POSTGRES_PORT: 5432
+      POSTGRES_HOST_AUTH_METHOD: trust
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.{{ UUID }}-back.rule=PathPrefix(`/away/{{ UUID }}/api`)"
+      - "traefik.http.services.{{ UUID }}-back.loadbalancer.server.port=5000"
+
+  {{ UUID }}:
+    image: dvwa-pharmary-front:latest
+    container_name: "{{ UUID }}"
+    restart: always
+    networks:
+      - sqli_lab
+    environment:
+      REACT_APP_BACKEND_URL: /away/{{ UUID }}/api
+      REACT_APP_PREFIX: /away/{{ UUID }}
+      PUBLIC_URL: /away/{{ UUID }}
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.{{ UUID }}.rule=PathPrefix(`/away/{{ UUID }}`)"
+      - "traefik.http.services.{{ UUID }}.loadbalancer.server.port=3000"
+
+networks:
+  sqli_lab:
+    external: true

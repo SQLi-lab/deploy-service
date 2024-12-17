@@ -1,0 +1,214 @@
+{
+    "tables": [
+        {
+            "name": "users",
+            "columns": [
+                {"name": "login", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "password", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "role", "type": "VARCHAR(50)", "constraint": "NOT NULL"}
+            ],
+            "primary_key": "login",
+            "connectivity_degree": 0
+        },
+        {
+            "name": "user_personal_info",
+            "columns": [
+                {"name": "login", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "name", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "passport_number", "type": "VARCHAR(50)", "constraint": "NOT NULL"},
+                {"name": "birth_date", "type": "DATE", "constraint": "NOT NULL"},
+                {"name": "address", "type": "TEXT", "constraint": "NOT NULL"},
+                {"name": "phone_number", "type": "VARCHAR(50)", "constraint": "NOT NULL"},
+                {"name": "secret", "type": "VARCHAR(40)"}
+            ],
+            "secret": true,
+            "primary_key": "login",
+            "connectivity_degree": 2,
+            "foreign_keys": [
+                {
+                    "column": "login",
+                    "references_column": "login",
+                    "references_table": "users"
+                }
+            ]
+        },
+        {
+            "name": "car_brand",
+            "columns": [
+                {"name": "brand", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "description", "type": "TEXT", "constraint": "NOT NULL"},
+                {"name": "secret", "type": "VARCHAR(40)"}
+            ],
+            "secret": false,
+            "primary_key": "brand",
+            "connectivity_degree": 0
+        },
+        {
+            "name": "car_models",
+            "columns": [
+                {"name": "model_id", "type": "BIGINT", "constraint": "NOT NULL"},
+                {"name": "brand", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "model_name", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "year", "type": "INT", "constraint": "NOT NULL"},
+                {"name": "base_price", "type": "NUMERIC(10, 2)", "constraint": "NOT NULL"},
+                {"name": "defective", "type": "BOOLEAN", "constraint": "NOT NULL"},
+                {"name": "secret", "type": "VARCHAR(40)"}
+            ],
+            "secret": true,
+            "primary_key": "model_id",
+            "connectivity_degree": 2,
+            "foreign_keys": [
+                {
+                    "column": "brand",
+                    "references_column": "brand",
+                    "references_table": "car_brand"
+                }
+            ]
+        },
+        {
+            "name": "car_dealerships",
+            "columns": [
+                {"name": "dealership_id", "type": "BIGINT", "constraint": "NOT NULL"},
+                {"name": "brand", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "address", "type": "TEXT", "constraint": "NOT NULL"},
+                {"name": "phone_number", "type": "VARCHAR(50)", "constraint": "NOT NULL"},
+                {"name": "email", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "secret", "type": "VARCHAR(40)"}
+            ],
+            "secret": false,
+            "primary_key": "dealership_id",
+            "connectivity_degree": 2,
+            "foreign_keys": [
+                {
+                    "column": "brand",
+                    "references_column": "brand",
+                    "references_table": "car_brand"
+                }
+            ]
+        },
+        {
+            "name": "inventory",
+            "columns": [
+                {"name": "vin", "type": "VARCHAR(20)", "constraint": "NOT NULL"},
+                {"name": "model_id", "type": "BIGINT", "constraint": "NOT NULL"},
+                {"name": "stock_status", "type": "BOOLEAN", "constraint": "NOT NULL"},
+                {"name": "price", "type": "NUMERIC(10, 2)", "constraint": "NOT NULL"},
+                {"name": "dealership_id", "type": "BIGINT", "constraint": "NOT NULL"},
+                {"name": "secret", "type": "VARCHAR(40)"}
+            ],
+            "secret": false,
+            "primary_key": "vin",
+            "connectivity_degree": 3,
+            "foreign_keys": [
+                {
+                    "column": "model_id",
+                    "references_column": "model_id",
+                    "references_table": "car_models"
+                },
+                {
+                    "column": "dealership_id",
+                    "references_column": "dealership_id",
+                    "references_table": "car_dealerships"
+                }
+            ]
+        },
+        {
+            "name": "orders",
+            "columns": [
+                {"name": "order_id", "type": "BIGINT", "constraint": "NOT NULL"},
+                {"name": "login", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "order_date", "type": "TIMESTAMP", "constraint": "NOT NULL"},
+                {"name": "status", "type": "VARCHAR(50)", "constraint": "NOT NULL"},
+                {"name": "model_id", "type": "BIGINT", "constraint": "NOT NULL"},
+                {"name": "secret", "type": "VARCHAR(40)"}
+            ],
+            "secret": false,
+            "primary_key": "order_id",
+            "connectivity_degree": 3,
+            "foreign_keys": [
+                {
+                    "column": "login",
+                    "references_column": "login",
+                    "references_table": "users"
+                },
+                {
+                    "column": "model_id",
+                    "references_column": "model_id",
+                    "references_table": "car_models"
+                }
+            ]
+        },
+        {
+            "name": "reviews",
+            "columns": [
+                {"name": "review_id", "type": "BIGINT", "constraint": "NOT NULL"},
+                {"name": "login", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "model_id", "type": "BIGINT", "constraint": "NOT NULL"},
+                {"name": "rating", "type": "INT", "constraint": "NOT NULL"},
+                {"name": "review_text", "type": "TEXT", "constraint": "NOT NULL"},
+                {"name": "review_date", "type": "TIMESTAMP", "constraint": "NOT NULL"},
+                {"name": "secret", "type": "VARCHAR(40)"}
+            ],
+            "secret": false,
+            "primary_key": "review_id",
+            "connectivity_degree": 3,
+            "foreign_keys": [
+                {
+                    "column": "login",
+                    "references_column": "login",
+                    "references_table": "users"
+                },
+                {
+                    "column": "model_id",
+                    "references_column": "model_id",
+                    "references_table": "car_models"
+                }
+            ]
+        },
+        {
+            "name": "favorite_cars",
+            "columns": [
+                {"name": "login", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "model_id", "type": "BIGINT", "constraint": "NOT NULL"},
+                {"name": "added_date", "type": "TIMESTAMP", "constraint": "NOT NULL"},
+                {"name": "secret", "type": "VARCHAR(40)"}
+            ],
+            "secret": false,
+            "primary_key": ["login", "model_id"],
+            "connectivity_degree": 3,
+            "foreign_keys": [
+                {
+                    "column": "login",
+                    "references_column": "login",
+                    "references_table": "users"
+                },
+                {
+                    "column": "model_id",
+                    "references_column": "model_id",
+                    "references_table": "car_models"
+                }
+            ]
+        },
+        {
+            "name": "price_history",
+            "columns": [
+                {"name": "history_id", "type": "BIGINT", "constraint": "NOT NULL"},
+                {"name": "model_id", "type": "BIGINT", "constraint": "NOT NULL"},
+                {"name": "old_price", "type": "NUMERIC(10, 2)", "constraint": "NOT NULL"},
+                {"name": "new_price", "type": "NUMERIC(10, 2)", "constraint": "NOT NULL"},
+                {"name": "changed_date", "type": "TIMESTAMP", "constraint": "NOT NULL"},
+                {"name": "secret", "type": "VARCHAR(40)"}
+            ],
+            "secret": false,
+            "primary_key": "history_id",
+            "connectivity_degree": 2,
+            "foreign_keys": [
+                {
+                    "column": "model_id",
+                    "references_column": "model_id",
+                    "references_table": "car_models"
+                }
+            ]
+        }
+    ]
+}

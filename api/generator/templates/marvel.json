@@ -1,0 +1,168 @@
+{
+    "tables": [
+        {
+            "name": "users",
+            "columns": [
+                {"name": "login", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "password", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "role", "type": "VARCHAR(50)", "constraint": "NOT NULL"}
+            ],
+            "primary_key": "login",
+            "connectivity_degree": 0
+        },
+        {
+            "name": "user_personal_info",
+            "columns": [
+                {"name": "login", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "name", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "birth_date", "type": "DATE", "constraint": "NOT NULL"},
+                {"name": "address", "type": "TEXT", "constraint": "NOT NULL"},
+                {"name": "phone_number", "type": "VARCHAR(50)", "constraint": "NOT NULL"},
+                {"name": "secret", "type": "VARCHAR(40)"}
+            ],
+            "secret": true,
+            "primary_key": "login",
+            "connectivity_degree": 2,
+            "foreign_keys": [
+                {
+                    "column": "login",
+                    "references_column": "login",
+                    "references_table": "users"
+                }
+            ]
+        },
+        {
+            "name": "characters",
+            "columns": [
+                {"name": "character_name", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "description", "type": "TEXT", "constraint": "NOT NULL"},
+                {"name": "universe", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "power_level", "type": "INT", "constraint": "NOT NULL"},
+                {"name": "released", "type": "BOOLEAN", "constraint": "NOT NULL"},
+                {"name": "secret", "type": "VARCHAR(40)"}
+            ],
+            "secret": true,
+            "primary_key": "character_name",
+            "connectivity_degree": 0
+        },
+        {
+            "name": "movies",
+            "columns": [
+                {"name": "movie_name", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "release_date", "type": "DATE", "constraint": "NOT NULL"},
+                {"name": "description", "type": "TEXT", "constraint": "NOT NULL"},
+                {"name": "director", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "secret", "type": "VARCHAR(40)"}
+            ],
+            "secret": false,
+            "primary_key": "movie_name",
+            "connectivity_degree": 0
+        },
+        {
+            "name": "comics",
+            "columns": [
+                {"name": "comic_id", "type": "BIGINT", "constraint": "NOT NULL"},
+                {"name": "title", "type": "TEXT", "constraint": "NOT NULL"},
+                {"name": "issue_number", "type": "BIGINT", "constraint": "NOT NULL"},
+                {"name": "release_date", "type": "DATE", "constraint": "NOT NULL"},
+                {"name": "description", "type": "TEXT", "constraint": "NOT NULL"},
+                {"name": "secret", "type": "VARCHAR(40)"}
+            ],
+            "secret": false,
+            "primary_key": "comic_id",
+            "connectivity_degree": 0
+        },
+        {
+            "name": "movie_cast",
+            "columns": [
+                {"name": "movie_name", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "character_name", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "actor_name", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "secret", "type": "VARCHAR(40)"}
+            ],
+            "secret": false,
+            "primary_key": ["movie_name", "character_name"],
+            "connectivity_degree": 3,
+            "foreign_keys": [
+                {
+                    "column": "movie_name",
+                    "references_column": "movie_name",
+                    "references_table": "movies"
+                },
+                {
+                    "column": "character_name",
+                    "references_column": "character_name",
+                    "references_table": "characters"
+                }
+            ]
+        },
+        {
+            "name": "events",
+            "columns": [
+                {"name": "event_id", "type": "BIGINT", "constraint": "NOT NULL"},
+                {"name": "title", "type": "TEXT", "constraint": "NOT NULL"},
+                {"name": "description", "type": "TEXT", "constraint": "NOT NULL"},
+                {"name": "start_date", "type": "DATE", "constraint": "NOT NULL"},
+                {"name": "end_date", "type": "DATE", "constraint": "NOT NULL"},
+                {"name": "secret", "type": "VARCHAR(40)"}
+            ],
+            "secret": false,
+            "primary_key": "event_id",
+            "connectivity_degree": 0
+        },
+        {
+            "name": "character_comics",
+            "columns": [
+                {"name": "comic_id", "type": "BIGINT", "constraint": "NOT NULL"},
+                {"name": "character_name", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "secret", "type": "VARCHAR(40)"}
+            ],
+            "secret": false,
+            "primary_key": ["comic_id", "character_name"],
+            "connectivity_degree": 3,
+            "foreign_keys": [
+                {
+                    "column": "comic_id",
+                    "references_column": "comic_id",
+                    "references_table": "comics"
+                },
+                {
+                    "column": "character_name",
+                    "references_column": "character_name",
+                    "references_table": "characters"
+                }
+            ]
+        },
+        {
+            "name": "user_comments",
+            "columns": [
+                {"name": "comment_id", "type": "BIGINT", "constraint": "NOT NULL"},
+                {"name": "login", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "text", "type": "TEXT", "constraint": "NOT NULL"},
+                {"name": "timestamp", "type": "TIMESTAMP", "constraint": "NOT NULL"},
+                {"name": "secret", "type": "VARCHAR(40)"}
+            ],
+            "secret": false,
+            "primary_key": "comment_id",
+            "connectivity_degree": 2,
+            "foreign_keys": [
+                {
+                    "column": "login",
+                    "references_column": "login",
+                    "references_table": "users"
+                }
+            ]
+        },
+        {
+            "name": "empty_table",
+            "columns": [
+                {"name": "record_id", "type": "BIGINT", "constraint": "NOT NULL"},
+                {"name": "description", "type": "TEXT", "constraint": "NOT NULL"},
+                {"name": "secret", "type": "VARCHAR(40)"}
+            ],
+            "secret": false,
+            "primary_key": "record_id",
+            "connectivity_degree": 0
+        }
+    ]
+}

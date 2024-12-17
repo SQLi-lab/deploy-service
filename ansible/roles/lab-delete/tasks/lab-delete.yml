@@ -5,6 +5,12 @@
     state: absent
   register: container_removal
 
+- name: Stop and remove lab backend
+  docker_container:
+    name:  "{{ UUID }}-back"
+    state: absent
+  register: container_removal
+
 - name: Display removal status
   debug:
     var: container_removal

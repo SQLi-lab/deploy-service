@@ -1,0 +1,203 @@
+{
+    "tables": [
+        {
+            "name": "users",
+            "columns": [
+                {"name": "login", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "password", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "role", "type": "VARCHAR(50)", "constraint": "NOT NULL"}
+            ],
+            "primary_key": "login",
+            "connectivity_degree": 0
+        },
+        {
+            "name": "user_personal_info",
+            "columns": [
+                {"name": "login", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "name", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "birth_date", "type": "DATE", "constraint": "NOT NULL"},
+                {"name": "address", "type": "TEXT", "constraint": "NOT NULL"},
+                {"name": "phone_number", "type": "VARCHAR(50)", "constraint": "NOT NULL"},
+                {"name": "secret", "type": "VARCHAR(40)"}
+            ],
+            "secret": true,
+            "primary_key": "login",
+            "connectivity_degree": 2,
+            "foreign_keys": [
+                {
+                    "column": "login",
+                    "references_column": "login",
+                    "references_table": "users"
+                }
+            ]
+        },
+        {
+            "name": "product_categories",
+            "columns": [
+                {"name": "category", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "higher_category", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "secret", "type": "VARCHAR(40)"}
+            ],
+            "secret": false,
+            "primary_key": "category",
+            "connectivity_degree": 0
+        },
+        {
+            "name": "products",
+            "columns": [
+                {"name": "article", "type": "BIGINT", "constraint": "NOT NULL"},
+                {"name": "description", "type": "TEXT", "constraint": "NOT NULL"},
+                {"name": "name", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "category", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "price", "type": "NUMERIC(10, 2)", "constraint": "NOT NULL"},
+                {"name": "stock", "type": "INT", "constraint": "NOT NULL"},
+                {"name": "released", "type": "BOOLEAN", "constraint": "NOT NULL"},
+                {"name": "secret", "type": "VARCHAR(40)"}
+            ],
+            "secret": true,
+            "primary_key": "article",
+            "connectivity_degree": 2,
+            "foreign_keys": [
+                {
+                    "column": "category",
+                    "references_column": "category",
+                    "references_table": "product_categories"
+                }
+            ]
+        },
+        {
+            "name": "orders",
+            "columns": [
+                {"name": "order_id", "type": "BIGINT", "constraint": "NOT NULL"},
+                {"name": "login", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "order_date", "type": "TIMESTAMP", "constraint": "NOT NULL"},
+                {"name": "status", "type": "VARCHAR(50)", "constraint": "NOT NULL"},
+                {"name": "secret", "type": "VARCHAR(40)"}
+            ],
+            "secret": false,
+            "primary_key": "order_id",
+            "connectivity_degree": 2,
+            "foreign_keys": [
+                {
+                    "column": "login",
+                    "references_column": "login",
+                    "references_table": "users"
+                }
+            ]
+        },
+        {
+            "name": "reviews",
+            "columns": [
+                {"name": "review_id", "type": "BIGINT", "constraint": "NOT NULL"},
+                {"name": "login", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "article", "type": "BIGINT", "constraint": "NOT NULL"},
+                {"name": "rating", "type": "INT", "constraint": "NOT NULL"},
+                {"name": "review_text", "type": "TEXT", "constraint": "NOT NULL"},
+                {"name": "review_date", "type": "TIMESTAMP", "constraint": "NOT NULL"},
+                {"name": "secret", "type": "VARCHAR(40)"}
+            ],
+            "secret": false,
+            "primary_key": "review_id",
+            "connectivity_degree": 3,
+            "foreign_keys": [
+                {
+                    "column": "login",
+                    "references_column": "login",
+                    "references_table": "users"
+                },
+                {
+                    "column": "article",
+                    "references_column": "article",
+                    "references_table": "products"
+                }
+            ]
+        },
+        {
+            "name": "shipping_addresses",
+            "columns": [
+                {"name": "address_id", "type": "BIGINT", "constraint": "NOT NULL"},
+                {"name": "login", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "country", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "city", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "street", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "postal_code", "type": "VARCHAR(50)", "constraint": "NOT NULL"},
+                {"name": "secret", "type": "VARCHAR(40)"}
+            ],
+            "secret": false,
+            "primary_key": "address_id",
+            "connectivity_degree": 2,
+            "foreign_keys": [
+                {
+                    "column": "login",
+                    "references_column": "login",
+                    "references_table": "users"
+                }
+            ]
+        },
+        {
+            "name": "payments",
+            "columns": [
+                {"name": "order_id", "type": "BIGINT", "constraint": "NOT NULL"},
+                {"name": "payment_method", "type": "VARCHAR(50)", "constraint": "NOT NULL"},
+                {"name": "amount", "type": "NUMERIC(10, 2)", "constraint": "NOT NULL"},
+                {"name": "payment_status", "type": "VARCHAR(50)", "constraint": "NOT NULL"},
+                {"name": "secret", "type": "VARCHAR(40)"}
+            ],
+            "secret": false,
+            "primary_key": "order_id",
+            "connectivity_degree": 2,
+            "foreign_keys": [
+                {
+                    "column": "order_id",
+                    "references_column": "order_id",
+                    "references_table": "orders"
+                }
+            ]
+        },
+        {
+            "name": "favorite_products",
+            "columns": [
+                {"name": "login", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "article", "type": "BIGINT", "constraint": "NOT NULL"},
+                {"name": "added_date", "type": "TIMESTAMP", "constraint": "NOT NULL"},
+                {"name": "secret", "type": "VARCHAR(40)"}
+            ],
+            "secret": false,
+            "primary_key": ["login", "article"],
+            "connectivity_degree": 3,
+            "foreign_keys": [
+                {
+                    "column": "login",
+                    "references_column": "login",
+                    "references_table": "users"
+                },
+                {
+                    "column": "article",
+                    "references_column": "article",
+                    "references_table": "products"
+                }
+            ]
+        },
+        {
+            "name": "price_history",
+            "columns": [
+                {"name": "history_id", "type": "BIGINT", "constraint": "NOT NULL"},
+                {"name": "product_article", "type": "BIGINT", "constraint": "NOT NULL"},
+                {"name": "old_price", "type": "NUMERIC(10, 2)", "constraint": "NOT NULL"},
+                {"name": "new_price", "type": "NUMERIC(10, 2)", "constraint": "NOT NULL"},
+                {"name": "changed_date", "type": "TIMESTAMP", "constraint": "NOT NULL"},
+                {"name": "secret", "type": "VARCHAR(40)"}
+            ],
+            "secret": false,
+            "primary_key": "history_id",
+            "connectivity_degree": 2,
+            "foreign_keys": [
+                {
+                    "column": "product_article",
+                    "references_column": "article",
+                    "references_table": "products"
+                }
+            ]
+        }
+    ]
+}

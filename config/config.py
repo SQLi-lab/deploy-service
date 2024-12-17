@@ -35,3 +35,13 @@ ANSIBLE_PLAYBOOKS_DIR = os.getenv('ANSIBLE_PLAYBOOKS_DIR', "/app/ansible")
 if not ANSIBLE_PLAYBOOKS_DIR:
     logger.error('Проверьте наличие и правильность переменной окружения ANSIBLE_PLAYBOOKS_DIR')
     exit(1)
+
+
+VARIANT_MAP = {
+    1: 'pharmacy'
+}
+NUM_OF_VARIANTS = int(os.getenv('NUM_OF_VARIANTS', None))
+if NUM_OF_VARIANTS is None:
+    logger.error(
+        'Проверьте наличие переменной окружения NUM_OF_VARIANTS')
+    exit(1)

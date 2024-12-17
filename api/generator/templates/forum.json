@@ -1,0 +1,216 @@
+{
+    "tables": [
+        {
+            "name": "users",
+            "columns": [
+                {"name": "login", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "password", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "role", "type": "VARCHAR(50)", "constraint": "NOT NULL"}
+            ],
+            "primary_key": "login",
+            "connectivity_degree": 0
+        },
+        {
+            "name": "user_personal_info",
+            "columns": [
+                {"name": "login", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "name", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "passport_number", "type": "VARCHAR(50)", "constraint": "NOT NULL"},
+                {"name": "birth_date", "type": "DATE", "constraint": "NOT NULL"},
+                {"name": "address", "type": "TEXT", "constraint": "NOT NULL"},
+                {"name": "phone_number", "type": "VARCHAR(50)", "constraint": "NOT NULL"},
+                {"name": "secret", "type": "VARCHAR(40)"}
+            ],
+            "secret": true,
+            "primary_key": "login",
+            "connectivity_degree": 2,
+            "foreign_keys": [
+                {
+                    "column": "login",
+                    "references_column": "login",
+                    "references_table": "users"
+                }
+            ]
+        },
+        {
+            "name": "categories",
+            "columns": [
+                {"name": "category_name", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "description", "type": "TEXT"},
+                {"name": "secret", "type": "VARCHAR(40)"}
+            ],
+            "secret": false,
+            "primary_key": "category_name",
+            "connectivity_degree": 0
+        },
+        {
+            "name": "threads",
+            "columns": [
+                {"name": "thread_id", "type": "BIGINT", "constraint": "NOT NULL"},
+                {"name": "title", "type": "VARCHAR(200)", "constraint": "NOT NULL"},
+                {"name": "category_name", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "created_by", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "created_date", "type": "TIMESTAMP", "constraint": "NOT NULL"},
+                {"name": "non_explicit", "type": "BOOLEAN", "constraint": "NOT NULL"},
+                {"name": "secret", "type": "VARCHAR(40)"}
+            ],
+            "secret": true,
+            "primary_key": "thread_id",
+            "connectivity_degree": 3,
+            "foreign_keys": [
+                {
+                    "column": "category_name",
+                    "references_column": "category_name",
+                    "references_table": "categories"
+                },
+                {
+                    "column": "created_by",
+                    "references_column": "login",
+                    "references_table": "users"
+                }
+            ]
+        },
+        {
+            "name": "posts",
+            "columns": [
+                {"name": "post_id", "type": "BIGINT", "constraint": "NOT NULL"},
+                {"name": "thread_id", "type": "BIGINT", "constraint": "NOT NULL"},
+                {"name": "author", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "content", "type": "TEXT", "constraint": "NOT NULL"},
+                {"name": "created_date", "type": "TIMESTAMP", "constraint": "NOT NULL"},
+                {"name": "secret", "type": "VARCHAR(40)"}
+            ],
+            "secret": false,
+            "primary_key": "post_id",
+            "connectivity_degree": 3,
+            "foreign_keys": [
+                {
+                    "column": "thread_id",
+                    "references_column": "thread_id",
+                    "references_table": "threads"
+                },
+                {
+                    "column": "author",
+                    "references_column": "login",
+                    "references_table": "users"
+                }
+            ]
+        },
+        {
+            "name": "comments",
+            "columns": [
+                {"name": "comment_id", "type": "BIGINT", "constraint": "NOT NULL"},
+                {"name": "post_id", "type": "BIGINT", "constraint": "NOT NULL"},
+                {"name": "author", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "content", "type": "TEXT", "constraint": "NOT NULL"},
+                {"name": "created_date", "type": "TIMESTAMP", "constraint": "NOT NULL"},
+                {"name": "secret", "type": "VARCHAR(40)"}
+            ],
+            "secret": false,
+            "primary_key": "comment_id",
+            "connectivity_degree": 3,
+            "foreign_keys": [
+                {
+                    "column": "post_id",
+                    "references_column": "post_id",
+                    "references_table": "posts"
+                },
+                {
+                    "column": "author",
+                    "references_column": "login",
+                    "references_table": "users"
+                }
+            ]
+        },
+        {
+            "name": "favorite_posts",
+            "columns": [
+                {"name": "login", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "post_id", "type": "BIGINT", "constraint": "NOT NULL"},
+                {"name": "added_date", "type": "TIMESTAMP", "constraint": "NOT NULL"},
+                {"name": "secret", "type": "VARCHAR(40)"}
+            ],
+            "secret": false,
+            "primary_key": ["login", "post_id"],
+            "connectivity_degree": 3,
+            "foreign_keys": [
+                {
+                    "column": "login",
+                    "references_column": "login",
+                    "references_table": "users"
+                },
+                {
+                    "column": "post_id",
+                    "references_column": "post_id",
+                    "references_table": "posts"
+                }
+            ]
+        },
+        {
+            "name": "banned_users",
+            "columns": [
+                {"name": "login", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "ban_reason", "type": "TEXT", "constraint": "NOT NULL"},
+                {"name": "banned_date", "type": "TIMESTAMP", "constraint": "NOT NULL"},
+                {"name": "secret", "type": "VARCHAR(40)"}
+            ],
+            "secret": false,
+            "primary_key": "login",
+            "connectivity_degree": 2,
+            "foreign_keys": [
+                {
+                    "column": "login",
+                    "references_column": "login",
+                    "references_table": "users"
+                }
+            ]
+        },
+        {
+            "name": "user_achievements",
+            "columns": [
+                {"name": "achievement_id", "type": "BIGINT", "constraint": "NOT NULL"},
+                {"name": "login", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "achievement_name", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "description", "type": "TEXT"},
+                {"name": "earned_date", "type": "TIMESTAMP", "constraint": "NOT NULL"},
+                {"name": "secret", "type": "VARCHAR(40)"}
+            ],
+            "secret": false,
+            "primary_key": "achievement_id",
+            "connectivity_degree": 2,
+            "foreign_keys": [
+                {
+                    "column": "login",
+                    "references_column": "login",
+                    "references_table": "users"
+                }
+            ]
+        },
+        {
+            "name": "polls",
+            "columns": [
+                {"name": "poll_id", "type": "BIGINT", "constraint": "NOT NULL"},
+                {"name": "thread_id", "type": "BIGINT", "constraint": "NOT NULL"},
+                {"name": "question", "type": "TEXT", "constraint": "NOT NULL"},
+                {"name": "created_by", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "created_date", "type": "TIMESTAMP", "constraint": "NOT NULL"},
+                {"name": "secret", "type": "VARCHAR(40)"}
+            ],
+            "secret": false,
+            "primary_key": "poll_id",
+            "connectivity_degree": 3,
+            "foreign_keys": [
+                {
+                    "column": "thread_id",
+                    "references_column": "thread_id",
+                    "references_table": "threads"
+                },
+                {
+                    "column": "created_by",
+                    "references_column": "login",
+                    "references_table": "users"
+                }
+            ]
+        }
+    ]
+}
