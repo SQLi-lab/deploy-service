@@ -141,6 +141,9 @@ class Pharmacy:
         return {
             "order_id": self.fake.faker_id(),
             "login": self.fake.faker_email(),
+            "order_name": self.fake.faker_company_name(),
+            "product_name": self.fake.faker_items("categories_pharmacy"),
+            "price": self.fake.faker_price(),
             "order_date": self.fake.faker_date_time_this_year(),
             "status": self.fake.faker_order_status(),
             "secret": secret

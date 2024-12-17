@@ -110,6 +110,9 @@
             "columns": [
                 {"name": "order_id", "type": "BIGINT", "constraint": "NOT NULL"},
                 {"name": "login", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "order_name", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "product_name", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "price", "type": "NUMERIC(10, 2)", "constraint": "NOT NULL"},
                 {"name": "order_date", "type": "TIMESTAMP", "constraint": "NOT NULL"},
                 {"name": "status", "type": "VARCHAR(50)", "constraint": "NOT NULL"},
                 {"name": "secret", "type": "VARCHAR(40)"}
