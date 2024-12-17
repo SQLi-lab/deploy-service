@@ -29,6 +29,7 @@ DELETE /api/v1/lab/delete
 - `POSTGRES_DB`: имя БД postgres
 - `POSTGRES_USER`: имя пользователя БД postgres
 - `POSTGRES_PASS`: пароль пользователя БД postgres
+- `NUM_OF_VARIANTS`: число вариантов шаблонов
 
 ## Запуск Deploy-Service 
 0. Задать настройки хоста, где будут разворачиваться лобораторные в `ansible/inventory.yml`
@@ -52,6 +53,11 @@ DELETE /api/v1/lab/delete
     PasswordAuthentication yes
     ChallengeResponseAuthentication yes
 ```
+
+## Добавление нового варианта
+
+При добавлении нового ванианта нужно обновить мапу `VARIANT_MAP` в `config/config.py`, обновить переменную 
+окружения `NUM_OF_VARIANTS`, а также написать ansible-playbooks для его разворачивания и добавить новую роль в `ansible/roles`.
 
 ---
 _Python 3.12.3 + dramatiq; Redis; Ansible_

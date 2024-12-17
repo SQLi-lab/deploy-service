@@ -1,0 +1,194 @@
+{
+    "tables": [
+        {
+            "name": "users",
+            "columns": [
+                {"name": "login", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "password", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "role", "type": "VARCHAR(50)", "constraint": "NOT NULL"}
+            ],
+            "primary_key": "login",
+            "connectivity_degree": 0
+        },
+        {
+            "name": "user_personal_info",
+            "columns": [
+                {"name": "login", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "name", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "passport_number", "type": "VARCHAR(50)", "constraint": "NOT NULL"},
+                {"name": "birth_date", "type": "DATE", "constraint": "NOT NULL"},
+                {"name": "address", "type": "TEXT", "constraint": "NOT NULL"},
+                {"name": "phone_number", "type": "VARCHAR(50)", "constraint": "NOT NULL"},
+                {"name": "secret", "type": "VARCHAR(40)"}
+            ],
+            "secret": true,
+            "primary_key": "login",
+            "connectivity_degree": 2,
+            "foreign_keys": [
+                {
+                    "column": "login",
+                    "references_column": "login",
+                    "references_table": "users"
+                }
+            ]
+        },
+        {
+            "name": "medication_categories",
+            "columns": [
+                {"name": "category", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "higher_category", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "secret", "type": "VARCHAR(40)"}
+            ],
+            "secret": false,
+            "primary_key": "category",
+            "connectivity_degree": 0
+        },
+        {
+            "name": "medications",
+            "columns": [
+                {"name": "medication_id", "type": "BIGINT", "constraint": "NOT NULL"},
+                {"name": "name", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "category", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "price", "type": "NUMERIC(10, 2)", "constraint": "NOT NULL"},
+                {"name": "stock", "type": "INT", "constraint": "NOT NULL"},
+                {"name": "requires_prescription", "type": "BOOLEAN", "constraint": "NOT NULL"},
+                {"name": "delivery_date", "type": "DATE", "constraint": "NOT NULL"},
+                {"name": "secret", "type": "VARCHAR(40)"}
+            ],
+            "secret": true,
+            "primary_key": "medication_id",
+            "connectivity_degree": 2,
+            "foreign_keys": [
+                {
+                    "column": "category",
+                    "references_column": "category",
+                    "references_table": "medication_categories"
+                }
+            ]
+        },
+        {
+            "name": "pharmacies",
+            "columns": [
+                {"name": "pharmacy_id", "type": "BIGINT", "constraint": "NOT NULL"},
+                {"name": "address", "type": "TEXT", "constraint": "NOT NULL"},
+                {"name": "contact_number", "type": "VARCHAR(50)", "constraint": "NOT NULL"},
+                {"name": "secret", "type": "VARCHAR(40)"}
+            ],
+            "secret": false,
+            "primary_key": "pharmacy_id",
+            "connectivity_degree": 0
+        },
+        {
+            "name": "prescriptions",
+            "columns": [
+                {"name": "prescription_id", "type": "BIGINT", "constraint": "NOT NULL"},
+                {"name": "login", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "doctor_name", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "issue_date", "type": "DATE", "constraint": "NOT NULL"},
+                {"name": "expiration_date", "type": "DATE", "constraint": "NOT NULL"},
+                {"name": "medication_id", "type": "BIGINT", "constraint": "NOT NULL"},
+                {"name": "secret", "type": "VARCHAR(40)"}
+            ],
+            "secret": false,
+            "primary_key": "prescription_id",
+            "connectivity_degree": 3,
+            "foreign_keys": [
+                {
+                    "column": "login",
+                    "references_column": "login",
+                    "references_table": "users"
+                },
+                {
+                    "column": "medication_id",
+                    "references_column": "medication_id",
+                    "references_table": "medications"
+                }
+            ]
+        },
+        {
+            "name": "orders",
+            "columns": [
+                {"name": "order_id", "type": "BIGINT", "constraint": "NOT NULL"},
+                {"name": "login", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "order_date", "type": "TIMESTAMP", "constraint": "NOT NULL"},
+                {"name": "status", "type": "VARCHAR(50)", "constraint": "NOT NULL"},
+                {"name": "secret", "type": "VARCHAR(40)"}
+            ],
+            "secret": false,
+            "primary_key": "order_id",
+            "connectivity_degree": 2,
+            "foreign_keys": [
+                {
+                    "column": "login",
+                    "references_column": "login",
+                    "references_table": "users"
+                }
+            ]
+        },
+        {
+            "name": "medication_manufacturers",
+            "columns": [
+                {"name": "manufacturer_name", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "country", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "contact_number", "type": "VARCHAR(50)", "constraint": "NOT NULL"},
+                {"name": "contact_email", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "secret", "type": "VARCHAR(40)"}
+            ],
+            "secret": false,
+            "primary_key": "manufacturer_name",
+            "connectivity_degree": 0
+        },
+        {
+            "name": "reviews",
+            "columns": [
+                {"name": "review_id", "type": "BIGINT", "constraint": "NOT NULL"},
+                {"name": "login", "type": "VARCHAR(100)", "constraint": "NOT NULL"},
+                {"name": "medication_id", "type": "BIGINT", "constraint": "NOT NULL"},
+                {"name": "rating", "type": "INT", "constraint": "NOT NULL"},
+                {"name": "review_text", "type": "TEXT", "constraint": "NOT NULL"},
+                {"name": "review_date", "type": "TIMESTAMP", "constraint": "NOT NULL"},
+                {"name": "secret", "type": "VARCHAR(40)"}
+            ],
+            "secret": false,
+            "primary_key": "review_id",
+            "connectivity_degree": 3,
+            "foreign_keys": [
+                {
+                    "column": "login",
+                    "references_column": "login",
+                    "references_table": "users"
+                },
+                {
+                    "column": "medication_id",
+                    "references_column": "medication_id",
+                    "references_table": "medications"
+                }
+            ]
+        },
+        {
+            "name": "pharmacy_medications",
+            "columns": [
+                {"name": "pharmacy_id", "type": "BIGINT", "constraint": "NOT NULL"},
+                {"name": "medication_id", "type": "BIGINT", "constraint": "NOT NULL"},
+                {"name": "price", "type": "NUMERIC(10, 2)", "constraint": "NOT NULL"},
+                {"name": "stock", "type": "INT", "constraint": "NOT NULL"},
+                {"name": "secret", "type": "VARCHAR(40)"}
+            ],
+            "secret": false,
+            "primary_key": ["pharmacy_id", "medication_id"],
+            "connectivity_degree": 3,
+            "foreign_keys": [
+                {
+                    "column": "pharmacy_id",
+                    "references_column": "pharmacy_id",
+                    "references_table": "pharmacies"
+                },
+                {
+                    "column": "medication_id",
+                    "references_column": "medication_id",
+                    "references_table": "medications"
+                }
+            ]
+        }
+    ]
+}

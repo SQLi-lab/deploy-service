@@ -1,4 +1,0 @@
----
-
-- name: Set Up Lab
-  import_tasks: lab.yml
