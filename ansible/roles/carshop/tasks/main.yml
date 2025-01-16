@@ -1,0 +1,4 @@
+---
+
+- name: Set Up Lab carshop
+  import_tasks: carshop.yml

@@ -1,0 +1,4 @@
+---
+
+- name: Set Up Lab clotheshop
+  import_tasks: clotheshop.yml
