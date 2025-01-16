@@ -38,8 +38,13 @@ if not ANSIBLE_PLAYBOOKS_DIR:
 
 
 VARIANT_MAP = {
-    1: 'pharmacy'
+    1: 'pharmacy',
+    2: 'carshop',
+    3: 'clotheshop',
+    4: 'delivery',
+    5: 'cigarshop'
 }
+
 NUM_OF_VARIANTS = int(os.getenv('NUM_OF_VARIANTS', None))
 if NUM_OF_VARIANTS is None:
     logger.error(

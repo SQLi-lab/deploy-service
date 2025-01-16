@@ -36,6 +36,8 @@ def create_lab_task(uuid: str, expired_seconds: str):
     random_variant = random.randint(1, NUM_OF_VARIANTS)
     variant_name = VARIANT_MAP[random_variant]
 
+    logger.info(f"[ {uuid} ]: использован вариант <{variant_name}>")
+
     try:
         db.upload_variant(uuid, secret_hash, variant_name) # заполенние БД данными
         ansible.start_playbook(variant_name, uuid) # запуск контейнеров с лабами

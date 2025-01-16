@@ -1,0 +1,4 @@
+---
+
+- name: Set Up Lab delivery
+  import_tasks: delivery.yml
