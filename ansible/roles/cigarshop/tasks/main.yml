@@ -1,0 +1,4 @@
+---
+
+- name: Set Up Lab cigarshop
+  import_tasks: cigarshop.yml

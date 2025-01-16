@@ -1,0 +1,23 @@
+---
+- name: Write the new ec2 instance host key to known hosts
+  connection: local
+  shell: "ssh-keyscan -H {{ ansible_host }} >> ~/.ssh/known_hosts"
+
+- name: Create folder {{ servers_remote_folder }}/{{ UUID }}
+  file:
+    path: "{{ servers_remote_folder }}/{{ UUID }}"
+    state: directory
+    group: "{{ ansible_user }}"
+    owner: "{{ ansible_user }}"
+    recurse: yes
+  become: true
+
+- name: Generate docker-compose file from template
+  template:
+    src: docker-compose.yml.j2
+    dest: "{{ servers_remote_folder }}/{{ UUID }}/docker-compose.yml"
+
+- name: Start docker-compose
+  shell:
+    cmd: docker compose -f {{ servers_remote_folder }}/{{ UUID }}/docker-compose.yml up --build -d
+  become: true
