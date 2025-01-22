@@ -26,19 +26,19 @@ class DataGenerator:
 
     def init_target_area(self):
         """ Инициализация предметной области для генерации данных """
-        if self.config['target_area'] == 'clothes_shop':
+        if self.config['target_area'] == 'clotheshop':
             return ClothesShop(self.config)
         elif self.config['target_area'] == 'pharmacy':
             return Pharmacy(self.config)
-        elif self.config['target_area'] == 'car_shop':
+        elif self.config['target_area'] == 'carshop':
             return CarShop(self.config)
         elif self.config['target_area'] == 'forum':
             return Forum(self.config)
-        elif self.config['target_area'] == 'cigar_shop':
+        elif self.config['target_area'] == 'cigarshop':
             return CigarShop(self.config)
         elif self.config['target_area'] == 'bet_site':
             return BetSite(self.config)
-        elif self.config['target_area'] == 'products_delivery':
+        elif self.config['target_area'] == 'delivery':
             return ProductDelivery(self.config)
         elif self.config['target_area'] == 'marvel':
             return Marvel(self.config)
