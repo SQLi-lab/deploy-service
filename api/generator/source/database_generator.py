@@ -31,19 +31,19 @@ class DatabaseGenerator:
 
     def init_target_area(self):
         """ Инициализация предметной области для генерации структуры БД """
-        if self.config['target_area'] == 'clothes_shop':
+        if self.config['target_area'] == 'clotheshop':
             return CLOTHES_SHOP_TEMPLATE
         elif self.config['target_area'] == 'pharmacy':
             return PHARMACY_TEMPLATE
-        elif self.config['target_area'] == 'car_shop':
+        elif self.config['target_area'] == 'carshop':
             return CAR_SHOP_TEMPLATE
         elif self.config['target_area'] == 'forum':
             return FORUM_TEMPLATE
-        elif self.config['target_area'] == 'cigar_shop':
+        elif self.config['target_area'] == 'cigarshop':
             return CIGAR_SHOP_TEMPLATE
         elif self.config['target_area'] == 'bet_site':
             return BET_SITE_TEMPLATE
-        elif self.config['target_area'] == 'products_delivery':
+        elif self.config['target_area'] == 'delivery':
             return PRODUCTS_DELIVERY_TEMPLATE
         elif self.config['target_area'] == 'marvel':
             return MARVEL_TEMPLATE
