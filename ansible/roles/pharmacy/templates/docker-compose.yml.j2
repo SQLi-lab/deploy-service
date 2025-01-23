@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   {{ UUID }}-back:
-    image: dvwa-pharmary-back:latest
+    image: dvwa-pharmacy-back:latest
     container_name: "{{ UUID }}-back"
     restart: always
     networks:
@@ -21,7 +21,7 @@ services:
       - "traefik.http.services.{{ UUID }}-back.loadbalancer.server.port=5000"
 
   {{ UUID }}:
-    image: dvwa-pharmary-front:latest
+    image: dvwa-pharmacy-front:latest
     container_name: "{{ UUID }}"
     restart: always
     networks:
